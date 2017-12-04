@@ -5,8 +5,11 @@ Author: Digital Jungle
 Author URI: http://digitaljunglegroup.com/
 Description: ANC Chinese website
 Tags: e-commerce,two-columns,left-sidebar,right-sidebar,custom-background,custom-colors,custom-header,custom-menu,featured-images,full-width-template,threaded-comments,accessibility-ready,rtl-language-support,footer-widgets,sticky-post,theme-options
-Version: 0.0.0.1512029078
-Updated: 2017-11-30 16:04:38
+Version: 0.0.0.1512368852
+Updated: 2017-12-04 14:27:32
 
 */
 
+.page-template-template-homepage .entry-content, .page-template-template-homepage .entry-header {
+    max-width: 100%;
+}

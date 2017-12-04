@@ -7,8 +7,20 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 // END ENQUEUE PARENT ACTION
 
-add_action( 'anc_homepage', 'storefront_homepage_content',      10 );
-add_action( 'anc_homepage', 'anc_featured_products',     40 );
+add_action( 'init', 'remove_actions_parent_theme');
+function remove_actions_parent_theme() {
+	remove_action( 'storefront_homepage',       'storefront_homepage_header',      10 );
+//	remove_action( 'homepage', 'storefront_homepage_content',      10 );
+	remove_action( 'homepage', 'storefront_product_categories',    20 );
+	remove_action( 'homepage', 'storefront_recent_products',       30 );
+//	remove_action( 'homepage', 'storefront_featured_products',     40 );
+	remove_action( 'homepage', 'storefront_popular_products',      50 );
+	remove_action( 'homepage', 'storefront_on_sale_products',      60 );
+	remove_action( 'homepage', 'storefront_best_selling_products', 70 );
+};
+
+add_action( 'homepage', 'anc_featured_pages',    20 );
+add_action( 'homepage', 'anc_latest_articles',    50 );
 
 //https://wordpress.stackexchange.com/questions/107141/check-if-current-page-is-the-blog-page
 add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
@@ -26,8 +38,16 @@ if (!function_exists('woocommerce_template_loop_add_to_cart')) {
 }
 //*///
 
+	/**
+	 * Display Featured Pages
+	 * Hooked into the `homepage` action in the homepage template
+	 * @return void
+	 */
+	function anc_featured_pages(  ) {
+
+	}
+
 //https://wordpress.stackexchange.com/questions/195425/display-featured-products-through-custom-loop-in-woocommerce-on-template-page
-if ( ! function_exists( 'anc_featured_products' ) ) {
 	/**
 	 * Display Featured Products
 	 * Hooked into the `homepage` action in the homepage template
@@ -35,7 +55,7 @@ if ( ! function_exists( 'anc_featured_products' ) ) {
 	 * @param array $args the product section args.
 	 * @return void
 	 */
-	function anc_featured_products( $args ) {
+	function storefront_featured_products( $args ) {
 
 		if ( storefront_is_woocommerce_activated() ) {
 
@@ -76,7 +96,15 @@ if ( ! function_exists( 'anc_featured_products' ) ) {
 			}
 		}
 	}
-}
+
+	/**
+	 * Display Latest Articles
+	 * Hooked into the `homepage` action in the homepage template
+	 * @return void
+	 */
+	function anc_latest_articles(  ) {
+
+	}
 
 // https://docs.woocommerce.com/document/override-loop-template-and-show-quantities-next-to-add-to-cart-buttons/
 add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
