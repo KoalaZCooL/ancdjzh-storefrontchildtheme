@@ -117,3 +117,14 @@ function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product 
 	}
 	return $html;
 }
+
+
+
+function storefront_credit() {
+	?>
+	<div class="site-info">
+		版权所有ANC健康私人有限公司2017年
+		<span class="f-right">免责声明</span>
+	</div><!-- .site-info -->
+	<?php
+}

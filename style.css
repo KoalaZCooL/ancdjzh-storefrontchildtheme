@@ -11,7 +11,9 @@ Updated: 2017-12-04 14:27:32
 */
 
 .f-right{float: right;}
-
+.page-template-template-homepage:not(.has-post-thumbnail) .site-main{
+	padding-top: 0;
+}
 .page-template-template-homepage .entry-content, .page-template-template-homepage .entry-header {
     max-width: 100%;
 }
@@ -20,4 +22,11 @@ Updated: 2017-12-04 14:27:32
 .related.products .ajax_add_to_cart,
 .related.products .tinvwl-after-add-to-cart{
 	display: none;
+}
+
+@media (min-width:768px) {
+}
+@media (max-width:66.4989378333em) {
+}
+@media (max-width:568px) {
 }
