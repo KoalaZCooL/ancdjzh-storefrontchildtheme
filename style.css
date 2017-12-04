@@ -10,6 +10,14 @@ Updated: 2017-12-04 14:27:32
 
 */
 
+.f-right{float: right;}
+
 .page-template-template-homepage .entry-content, .page-template-template-homepage .entry-header {
     max-width: 100%;
+}
+
+.storefront-featured-products .tinvwl-after-add-to-cart,
+.related.products .ajax_add_to_cart,
+.related.products .tinvwl-after-add-to-cart{
+	display: none;
 }

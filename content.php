@@ -26,14 +26,9 @@
 			</div>
 			<div class="author">
 				<?php if ( 'post' == get_post_type() ) {?>
-					<div class="label"><?= esc_attr( __( 'Written by ', 'storefront' ) ); the_author_posts_link(); ?> <?php storefront_posted_on();?>
-					<?php 
-				}
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'storefront' ),
-					'after'  => '</div>',
-				) );
-				?></div>
+					<div class="label"><?= esc_attr( __( '作者: ', 'storefront' ) ); the_author_posts_link(); ?> <?php storefront_posted_on();
+					?><a target="_blank" href="<?=get_permalink()?>"><span class="f-right">全文阅读</span></a><?php
+				?></div><?php }?>
 			</div>
 		</div>
 	</div>

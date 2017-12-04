@@ -25,7 +25,7 @@ add_action( 'homepage', 'anc_latest_articles',    50 );
 //https://wordpress.stackexchange.com/questions/107141/check-if-current-page-is-the-blog-page
 add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
 function anc_homepage_products_filter() {
-	return is_front_page()?false:true;
+	return is_front_page()||is_product()?false:true;
 }
 //https://docs.woocommerce.com/document/hide-loop-read-more-buttons-for-out-of-stock-items/
 /*
