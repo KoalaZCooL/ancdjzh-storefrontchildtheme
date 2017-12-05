@@ -24,7 +24,35 @@ Updated: 2017-12-04 14:27:32
 	display: none;
 }
 
+.site-main .columns-3 ul.products li.product .quantity{
+	display: inline-block;
+}
+.site-main .columns-3 ul.products li.product .quantity .qty{
+	width: 40px;
+	padding-right: 0;
+}
+.site-main .columns-3 ul.products li.product .cart .button{
+	display: inline-block;
+}
+.site-main .columns-3 ul.products li.product .cart{
+	display: inline-block;
+	margin: 0;
+}
+.site-main .columns-3 ul.products li.product .tinv-wraper.tinv-wishlist{
+	display: inline-block;
+}
+.tinv-wishlist .button.tinvwl_add_to_wishlist_button.tinvwl-icon-heart.no-txt{
+	margin-left: 0px;
+	margin-bottom: -8px;
+	padding: 19px 0 20px;
+}
 @media (min-width:768px) {
+	.site-main .columns-3 ul.products li.product{
+		float: none;
+		display: inline-block;
+		width: 33%;
+		margin-right: 0;
+	}
 }
 @media (max-width:66.4989378333em) {
 }
