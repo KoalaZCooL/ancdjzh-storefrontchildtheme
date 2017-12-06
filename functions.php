@@ -90,21 +90,10 @@ function anc_featured_products( $args ) {
 		 * Only display the section if the shortcode returns products
 		 */
 		if ( false !== strpos( $shortcode_content, 'product' ) ) {
-
-			echo '<section class="storefront-product-section storefront-featured-products" aria-label="' . esc_attr__( 'Featured Products', 'storefront' ) . '">';
-
-			do_action( 'storefront_homepage_before_featured_products' );
-
-			echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
-
-			do_action( 'storefront_homepage_after_featured_products_title' );
-
-			echo $shortcode_content;
-
-			do_action( 'storefront_homepage_after_featured_products' );
-
-			echo '</section>';
-
+		?><section class="storefront-product-section storefront-featured-products" aria-label="<?=esc_attr__( 'Featured Products', 'storefront' )?>">
+			<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( $args['title'] )?></h2></div>
+			<?=$shortcode_content?>
+			</section><?php
 		}
 	}
 	return ob_get_clean();

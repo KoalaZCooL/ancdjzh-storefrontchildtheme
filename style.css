@@ -51,7 +51,12 @@ Updated: 2017-12-04 14:27:32
 .page-template-template-homepage .entry-content, .page-template-template-homepage .entry-header {
     max-width: 100%;
 }
-
+.anc-section-divider{
+	background: 
+		url(./images/divider_L.png) center left no-repeat,	/* On top,		like z-index: 4; */
+		url(./images/divider_R.png) center right no-repeat;	/* On bottom,	like z-index: 1; */
+	background-size: 20% 20%;
+}
 .storefront-featured-products .tinvwl-after-add-to-cart,
 .related.products .ajax_add_to_cart,
 .related.products .tinvwl-after-add-to-cart{
@@ -81,6 +86,10 @@ Updated: 2017-12-04 14:27:32
 	padding: 19px 0 20px;
 }
 @media (min-width:768px) {
+	.site-header{
+		padding-top: 0;
+		border: 0;
+	}
 	#site-navigation{
 		width: 55%;
 		margin: 0;
@@ -132,16 +141,11 @@ Updated: 2017-12-04 14:27:32
     margin-bottom: -2px;
     transform: rotate(30deg);
 	}
-	.main-navigation ul.menu>li>a:before, .main-navigation ul.nav-menu>li>a:before{
-/*		content: "/";
-		display: inline-block;*/
-	}
 	.main-navigation ul.menu>li>a, .main-navigation ul.nav-menu>li>a{
 		padding: 0 7px 7px 17px;
 	}
-	.site-header{
-		padding-top: 0;
-		/*overflow: initial;*/
+	.anc-section-divider{
+		background-size: 36%;
 	}
 	.site-main .columns-3 ul.products li.product{
 		float: none;
