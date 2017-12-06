@@ -11,6 +11,14 @@ Updated: 2017-12-04 14:27:32
 */
 
 .f-right{float: right;}
+.slider-mid-lyr{
+	width: 20% !important;
+	border-top: 470px solid rgba(255,255,255,0.7);
+	border-right: 270px solid transparent;
+}
+.slider-mid-txt{
+	
+}
 .page-template-template-homepage:not(.has-post-thumbnail) .site-main{
 	padding-top: 0;
 }
