@@ -11,6 +11,24 @@ Updated: 2017-12-04 14:27:32
 */
 
 .f-right{float: right;}
+
+.site-header{
+	background-repeat: no-repeat;
+	background-position: top right;
+	overflow: hidden;
+}
+#masthead-tilted-bg-gray,#masthead-tilted-bg-white{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 0;width: 47%;
+	border-top: 130px solid gray;
+	border-right: 72px solid transparent;
+}
+#masthead-tilted-bg-white{
+	width: 46.7%;
+	border-top: 130px solid white;
+}
 .slider-tilted-lyr{
 	width: 20% !important;
 	border-top: 470px solid rgba(255,255,255,0.4);
@@ -63,6 +81,68 @@ Updated: 2017-12-04 14:27:32
 	padding: 19px 0 20px;
 }
 @media (min-width:768px) {
+	#site-navigation{
+		width: 55%;
+		margin: 0;
+		margin-left: 45%;
+	}
+	.site-header-cart .cart-contents{
+    padding-top: 1em;
+    padding-bottom: 0;
+	}
+	.site-header .site-search{
+		margin-bottom: 0;
+	}
+	.site-search .widget_product_search input[type=search], .site-search .widget_product_search input[type=text]{
+		background-color: rgba(255,255,255,0.4);
+		padding: 0;
+	}
+	.site-search .widget_product_search form:before{
+		content: "";
+    position: initial;
+	}
+	.site-search .widget_product_search form:after{
+		display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f002";
+    position: absolute;
+		top: 1.8em;
+		right: 1em;
+	}
+	.site-search .widget_product_search form input[type=submit]{
+		padding: 0;
+    left: unset;
+    right: 0;
+    top: 1.6em;
+	}
+	.main-navigation ul.menu>li:first-child .anc-nav-divider,
+	.main-navigation ul.nav-menu>li:first-child .anc-nav-divider{
+		width: 0;
+	}
+	.anc-nav-divider{
+		background-color: white;
+    position: absolute;
+    height: 30px;
+    width: 1px;
+    bottom: 0;
+    margin-bottom: -2px;
+    transform: rotate(30deg);
+	}
+	.main-navigation ul.menu>li>a:before, .main-navigation ul.nav-menu>li>a:before{
+/*		content: "/";
+		display: inline-block;*/
+	}
+	.main-navigation ul.menu>li>a, .main-navigation ul.nav-menu>li>a{
+		padding: 0 7px 7px 17px;
+	}
+	.site-header{
+		padding-top: 0;
+		/*overflow: initial;*/
+	}
 	.site-main .columns-3 ul.products li.product{
 		float: none;
 		display: inline-block;

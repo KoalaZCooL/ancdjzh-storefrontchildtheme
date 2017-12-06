@@ -9,8 +9,17 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 add_action( 'init', 'remove_actions_parent_theme');
 function remove_actions_parent_theme() {
+
+	#reposition nav-widgets
+	remove_action( 'storefront_header', 'storefront_product_search', 40 );
+	remove_action( 'storefront_header', 'storefront_header_cart',    60 );
+	add_action( 'storefront_header', 'storefront_header_cart',    17 );
+	add_action( 'storefront_header', 'storefront_product_search', 23 );
+
+	#remove homepage title from body
 	remove_action( 'storefront_homepage',       'storefront_homepage_header',      10 );
-//	remove_action( 'homepage', 'storefront_homepage_content',      10 );
+
+	#remove storefront default homepage widgets
 	remove_action( 'homepage', 'storefront_product_categories',    20 );
 	remove_action( 'homepage', 'storefront_recent_products',       30 );
 	remove_action( 'homepage', 'storefront_featured_products',     40 );
@@ -18,6 +27,27 @@ function remove_actions_parent_theme() {
 	remove_action( 'homepage', 'storefront_on_sale_products',      60 );
 	remove_action( 'homepage', 'storefront_best_selling_products', 70 );
 };
+
+function storefront_primary_navigation() {
+	?><nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>"
+	><button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?php echo esc_attr( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) ); ?></span></button><?php
+		wp_nav_menu(
+			array(
+				'theme_location'	=> 'primary',
+				'container_class'	=> 'primary-navigation',
+#added this divider
+				'before'          => '<div class="anc-nav-divider"></div>'
+				)
+		);
+
+		wp_nav_menu(
+			array(
+				'theme_location'	=> 'handheld',
+				'container_class'	=> 'handheld-navigation',
+				)
+		);
+		?></nav><!-- #site-navigation --><?php
+}
 
 //https://wordpress.stackexchange.com/questions/107141/check-if-current-page-is-the-blog-page
 add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
