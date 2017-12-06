@@ -11,13 +11,21 @@ Updated: 2017-12-04 14:27:32
 */
 
 .f-right{float: right;}
-.slider-mid-lyr{
+.slider-tilted-lyr{
 	width: 20% !important;
-	border-top: 470px solid rgba(255,255,255,0.7);
+	border-top: 470px solid rgba(255,255,255,0.4);
 	border-right: 270px solid transparent;
 }
-.slider-mid-txt{
-	
+.slider-txt h1{
+	color: white;
+	text-align: left;
+	font-size: 2em !important;
+}
+.slider-txt{
+	font-size: 1.4em !important;
+	margin-left: 6% !important;
+	position: absolute !important;
+	bottom: 40px;
 }
 .page-template-template-homepage:not(.has-post-thumbnail) .site-main{
 	padding-top: 0;
