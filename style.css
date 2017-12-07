@@ -21,12 +21,12 @@ Updated: 2017-12-04 14:27:32
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 0;width: 47%;
+	height: 0;width: 47.2%;
 	border-top: 130px solid gray;
-	border-right: 72px solid transparent;
+	border-right: 75px solid transparent;
 }
 #masthead-tilted-bg-white{
-	width: 46.7%;
+	width: 46.94%;
 	border-top: 130px solid white;
 }
 .slider-tilted-lyr{
@@ -98,21 +98,24 @@ Updated: 2017-12-04 14:27:32
 	font-size: 2em;
 }
 .page-template-template-homepage-php .site-main .columns-4 ul.products li.product .img-caption{
-	display: none;
+	display: flex;
 	position: absolute;
-	top: 0;
-	background: rgba(191, 134, 0, 0.7);
+	top: -0%;
+	background: transparent;
 	height: 100%;
 	width: 100%;
 	padding: 10px;
 	font-size: 1.4em;
-	color: #fff;
-  justify-content: center;
-  flex-direction: column;
+	color: transparent;
+	justify-content: center;
+	flex-direction: column;
+	transition-duration: 0.4s;
 }
 /*https://css-tricks.com/centering-css-complete-guide/*/
-.page-template-template-homepage-php .site-main .columns-4 ul.products li.product:hover .img-caption{
-  display: flex;
+.page-template-template-homepage-php .site-main .columns-4 ul.products li.product .img-caption:hover,
+.page-template-template-homepage-php .site-main .columns-4 ul.products li.product .ft-content:hover + .woocommerce-LoopProduct-link .img-caption{
+	color: #fff;
+	background: rgba(191, 134, 0, 0.7);
 }
 .anc-goto-featuredproduct{
 	border-top: 1px solid #d0a747;
@@ -138,6 +141,10 @@ Updated: 2017-12-04 14:27:32
 	color: #555;
 	margin: 0;
 }
+.page-template-template-homepage-php .site-main .columns-4 ul.products li.product .anc-goto-featuredproduct:hover h2.goto-suffix{
+	color: white;
+	transition-duration: 0.7s;
+}
 .anc-goto-featuredproduct .bg-gray-tilted{
 	position: absolute;
 	top: 0;
@@ -147,6 +154,10 @@ Updated: 2017-12-04 14:27:32
 	width: 82%;
 	border-top: 3em solid #555;
 	border-right: 1.8em solid transparent;
+}
+.anc-goto-featuredproduct:hover .bg-gray-tilted{
+	transform: scale(2);
+	transition-duration: 0.4s;
 }
 .storefront-featured-products .tinvwl-after-add-to-cart,
 .related.products .ajax_add_to_cart,
