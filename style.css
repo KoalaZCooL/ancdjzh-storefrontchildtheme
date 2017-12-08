@@ -8,6 +8,12 @@ Tags: e-commerce,two-columns,left-sidebar,right-sidebar,custom-background,custom
 Version: 0.0.0.1512368852
 Updated: 2017-12-04 14:27:32
 
+#555 (dark grey) 
+#666 (grey) 
+#d0a747 (gold) 
+#155775 (blue) 
+#f15c2d (orange) 
+#f6edda (cream)
 */
 
 .f-right{float: right;}
@@ -164,16 +170,22 @@ Updated: 2017-12-04 14:27:32
 .related.products .tinvwl-after-add-to-cart{
 	display: none;
 }
-
+.site-main .columns-3 ul.products li.product{
+	float: none;
+	display: inline-block;
+}
 .site-main .columns-3 ul.products li.product .quantity{
 	display: inline-block;
 }
 .site-main .columns-3 ul.products li.product .quantity .qty{
 	width: 40px;
 	padding-right: 0;
+	border: 1px solid #d0a747;
+	background-color: transparent;
 }
 .site-main .columns-3 ul.products li.product .cart .button{
 	display: inline-block;
+	background-color: #d0a747;
 }
 .site-main .columns-3 ul.products li.product .cart{
 	display: inline-block;
@@ -186,6 +198,7 @@ Updated: 2017-12-04 14:27:32
 	margin-left: 0px;
 	margin-bottom: -8px;
 	padding: 19px 0 20px;
+	background-color: #f15c2d;
 }
 @media (min-width:768px) {
 	.site-header{
@@ -253,6 +266,11 @@ Updated: 2017-12-04 14:27:32
 		margin-bottom: 2em;
 		margin-right: 2%;
 		width: 23.5%;
+	}
+	.site-main .columns-3 ul.products li.product{
+		width: 33%;
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 @media (max-width:66.4989378333em) {
