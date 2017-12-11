@@ -115,26 +115,62 @@ function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product 
 
 function anc_blognshop_header()
 {
-	if(is_home())#BLOG
+	if(is_home()||is_category()||is_tag())#BLOGS
 	{
 		echo do_shortcode('[smartslider3 slider=3]');
-	
+
 		#https://www.thatweblook.co.uk/advice/tutorial-wordpress-show-content-of-static-posts-page-above-posts-list/
 		global $post;
 		$page_for_posts_id = get_option('page_for_posts');
-		if ( $page_for_posts_id ) : 
+		if ( $page_for_posts_id ) :
 			$post = get_page($page_for_posts_id);
-			setup_postdata($post);?>
-			<div class="col-full">
+			setup_postdata($post);
+		?><div class="col-full">
 				<div id="post-<?php the_ID(); ?>" class="blognshop-intro">
 					<?php the_content(); ?>
 				</div>
-			</div>
-			<?php
+			</div><?php
 			rewind_posts();
 		endif;
-	}else if(is_shop()){
+
+	}else if(is_shop())
+	{
 		echo do_shortcode('[smartslider3 slider=2]');
+
+		?><div class="col-full">
+				<div class="blognshop-intro"><?php
+					do_action( 'woocommerce_archive_description' );
+			?></div>
+			</div><?php
+
+	}else if(is_product_category()||is_product_tag())
+	{
+		echo do_shortcode('[smartslider3 slider=2]');
+
+		global $wp_query;
+		$cat = $wp_query->get_queried_object();
+
+		if(empty($cat->description))
+		{
+			$page_for_posts_id = get_option('woocommerce_shop_page_id');
+			if ( $page_for_posts_id ) :
+				$post = get_page($page_for_posts_id);
+				setup_postdata($post);
+			?><div class="col-full">
+					<div id="post-<?php the_ID(); ?>" class="blognshop-intro">
+						<?php the_content(); ?>
+					</div>
+				</div><?php
+				rewind_posts();
+			endif;
+
+		}else{
+		?><div class="col-full">
+				<div class="blognshop-intro">
+					<p><?=$cat->description ?></p>
+				</div>
+			</div><?php
+		}	
 	}
 }
 
