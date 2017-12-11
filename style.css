@@ -77,6 +77,50 @@ Updated: 2017-12-04 14:27:32
 .woocommerce-breadcrumb{
 	margin-bottom: 0;
 }
+.widget-area .widget {
+	padding-bottom: 0;
+	margin-bottom: 1em;
+}
+.widget-area .widget .widget-title{
+	padding-bottom: 0;
+	margin-bottom: 0;
+	font-weight: 500;
+}
+.widget-area .widget a:not(.button){
+	color: white;
+	text-decoration: none;
+}
+.widget-area .widget ul{
+	background-color: rgba(0,0,0,0.7);
+	padding: 0.5em 0;
+	color: white;
+}
+.widget-area .widget ul li{
+	padding: 0.5em 1em;
+	line-height: 1;
+	margin: 0;
+}
+.widget-area .widget ul li:hover{
+	background-color: #d0a747;
+}
+.widget-area .widget ul li:before{
+	content: "";
+	border-top: 0.5em solid transparent;
+	border-left: 0.5em solid white;
+	border-bottom: 0.5em solid transparent;
+	margin-right: 0;
+	margin-left: 0;
+	opacity: 1;
+}
+.widget-area .widget ul li.current-cat:before{
+	border-left: 0.5em solid #d0a747;
+}
+.widget.woocommerce li .count{
+	float: none;
+}
+.widget-area .widget ul li:last-child{
+	margin-bottom: 0;
+}
 .page-template-template-homepage-php .site-main .columns-4 ul.products li.product{
 	border-top: 1px solid #d0a747;
 	background-color: #f6edda;
