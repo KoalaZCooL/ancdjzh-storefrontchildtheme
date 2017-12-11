@@ -322,6 +322,10 @@ nav.pagination{
 	article.post .thumbnail-image {
 		display: inline-block;
     width: 7em;
+    height: 7em;
+	}
+	article.post .thumbnail-image.no-img{
+		display: none;
 	}
 	article.post .thumbnail-image img{
 		margin: 0;
@@ -338,11 +342,20 @@ nav.pagination{
 		height: 7em;
 		margin-left: 2%;
 	}
+	article.post .summary-wrapper.no-img{
+    width: 100%;
+		height: auto;
+		margin-left: 0;
+	}
 	article.post .summary-wrapper .author{
 		position: absolute;
 		bottom: 0;
 		margin: 0;
 		width: 100%;
+	}
+	article.post .summary-wrapper.no-img .author{
+		position: initial;
+		margin-top:1em;
 	}
 }
 @media (min-width:768px) {
@@ -420,6 +433,7 @@ nav.pagination{
 	article.post .thumbnail-image {
 		display: inline-block;
     width: 10em;
+    height: 10em;
 	}
 	article.post .thumbnail-image img{
 		margin: 0;
