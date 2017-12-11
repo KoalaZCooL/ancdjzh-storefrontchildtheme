@@ -471,6 +471,29 @@ nav.pagination{
 		width: auto;
 		border-right: 1px solid #f6edda;
 	}
+	.related.products ul.products{
+		border-bottom: 1px solid #d0a747;
+	}
+	.related.products ul.products li.product{
+		border-left: 1px solid #d0a747;
+	}
+	.related.products ul.products li.product:first-child{
+		border-left:none;
+	}
+	.related.products ul.products li.product h2{
+		font-size: 1.4em;
+    font-weight: 300;
+    height: 2.8em;
+    margin: 0;;
+	}
+	.related.products ul.products li.product span.price{
+		font-size: 0;
+		margin: 0;
+	}
+	.related.products ul.products li.product span.price span.amount{
+		font-size: 32px;
+		color: #d0a747;
+	}
 	article.post .thumbnail-image {
 		display: inline-block;
     width: 10em;
