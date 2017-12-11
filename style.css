@@ -214,6 +214,10 @@ Updated: 2017-12-04 14:27:32
 	padding: 19px 0 20px;
 	background-color: #f15c2d;
 }
+article.post{
+	margin-top: 1em;
+	margin-bottom: 2em;
+}	
 article.post .thumbnail-image {
 	position: relative;
 }
@@ -273,7 +277,7 @@ nav.pagination{
 	
 	article.post .thumbnail-image {
 		display: inline-block;
-    width: 20%;
+    width: 7em;
 	}
 	article.post .thumbnail-image img{
 		margin: 0;
@@ -371,7 +375,7 @@ nav.pagination{
 	}
 	article.post .thumbnail-image {
 		display: inline-block;
-    width: 20%;
+    width: 10em;
 	}
 	article.post .thumbnail-image img{
 		margin: 0;
@@ -411,4 +415,7 @@ nav.pagination{
 	.page-template-template-homepage-php .site-main .columns-4 ul.products li.product:nth-of-type(2n){
 		margin-left: 0;
 	}
+	article.post{
+		margin-bottom: 4em;
+	}	
 }
