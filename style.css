@@ -200,6 +200,89 @@ Updated: 2017-12-04 14:27:32
 	padding: 19px 0 20px;
 	background-color: #f15c2d;
 }
+article.post .thumbnail-image {
+	position: relative;
+}
+article.post .thumbnail-image .caption{
+	height: 100%;
+	width: 100%;
+	padding-top: 40%;
+	position: absolute;
+	top: 0;
+	text-align: center;
+	display: inline-block;
+	transition-duration: 0.4s;
+	background-color: transparent;
+	color: transparent;
+}
+article.post .thumbnail-image:hover .caption,
+article.post .thumbnail-image:hover .caption:hover{
+	color: inherit;
+}
+article.post .summary-wrapper .entry-title{
+	font-size: 1em;
+	margin-bottom:1em;
+	letter-spacing: 0;
+}
+article.post .summary-wrapper .entry-title a{
+	font-size: 1.1em;
+	color:black;
+}
+article.post .summary-wrapper .excerpt{
+	font-size: 0.8em;
+}
+article.post .summary-wrapper .author{
+	border-bottom: 1px solid #d0a747;
+}
+article.post .summary-wrapper .author .label a{
+	color:#666;
+}
+article.post .summary-wrapper .author .label a span.f-right{
+	color:#d0a747;
+}
+nav.pagination{
+	border: 0;
+	padding: 0;
+	text-align: right;
+}
+.pagination .page-numbers li .page-numbers:not(.current), .woocommerce-pagination .page-numbers li .page-numbers:not(.current),
+.pagination .page-numbers li .page-numbers.current, .woocommerce-pagination .page-numbers li .page-numbers.current{
+	border: 1px solid #d0a747;
+	background-color: transparent;
+	color: #d0a747;
+}
+.pagination .page-numbers li .page-numbers.current, .woocommerce-pagination .page-numbers li .page-numbers.current{
+	background-color: #d0a747;
+	color: #f6edda;
+}
+@media (min-width:568px){
+	
+	article.post .thumbnail-image {
+		display: inline-block;
+    width: 20%;
+	}
+	article.post .thumbnail-image img{
+		margin: 0;
+	}
+	article.post .thumbnail-image:hover .caption,
+	article.post .thumbnail-image:hover .caption:hover{
+		background-color: rgba(0,0,0,0.7);
+	}
+	article.post .summary-wrapper{
+		display: inline-block;
+    vertical-align: top;
+		position: relative;
+    width: 77%;
+		height: 7em;
+		margin-left: 2%;
+	}
+	article.post .summary-wrapper .author{
+		position: absolute;
+		bottom: 0;
+		margin: 0;
+		width: 100%;
+	}
+}
 @media (min-width:768px) {
 	.site-header{
 		padding-top: 0;
@@ -271,6 +354,31 @@ Updated: 2017-12-04 14:27:32
 		width: 33%;
 		margin-left: 0;
 		margin-right: 0;
+	}
+	article.post .thumbnail-image {
+		display: inline-block;
+    width: 20%;
+	}
+	article.post .thumbnail-image img{
+		margin: 0;
+	}
+	article.post .thumbnail-image:hover .caption,
+	article.post .thumbnail-image:hover .caption:hover{
+		background-color: rgba(0,0,0,0.7);
+	}
+	article.post .summary-wrapper{
+		display: inline-block;
+    vertical-align: top;
+		position: relative;
+    width: 77%;
+		height: 10em;
+		margin-left: 2%;
+	}
+	article.post .summary-wrapper .author{
+		position: absolute;
+		bottom: 0;
+		margin: 0;
+		width: 100%;
 	}
 }
 @media (max-width:66.4989378333em) {

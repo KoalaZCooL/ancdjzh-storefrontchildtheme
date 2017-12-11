@@ -9,20 +9,23 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 	<div>
-		<div class="thumbnail-image">
+		<a target="_blank" href="<?=get_permalink()?>"
+		><div class="thumbnail-image">
 			<?php do_action( 'storefront_post_content_before' );?>
-		</div>
+			<div class="caption">
+				全文阅读
+			</div>
+		</div
+		></a>
 		
-		<div>
-			<div>
-				<?php
-				if ( is_single() ) {
-					the_title( '<span class="entry-title">', '</span>' );
-				} else {
-					the_title( sprintf( '<span class="alpha entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></span>' );
-				}
-				echo get_the_excerpt();
-				?>
+		<div class="summary-wrapper">
+			<?php if ( is_single() ) {
+				the_title( '<span class="entry-title">', '</span>' );
+			} else {
+				the_title( sprintf( '<span class="alpha entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></span>' );
+			}?>
+			<div class="excerpt">
+				<?=get_the_excerpt()?>
 			</div>
 			<div class="author">
 				<?php if ( 'post' == get_post_type() ) {?>
