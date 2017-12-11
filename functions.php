@@ -7,8 +7,8 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 // END ENQUEUE PARENT ACTION
 
-add_action( 'init', 'remove_actions_parent_theme');
-function remove_actions_parent_theme() {
+add_action( 'init', 'override_actions_parent_theme');
+function override_actions_parent_theme() {
 
 	#reposition nav-widgets
 	remove_action( 'storefront_header', 'storefront_product_search', 40 );
@@ -26,7 +26,12 @@ function remove_actions_parent_theme() {
 	remove_action( 'homepage', 'storefront_popular_products',      50 );
 	remove_action( 'homepage', 'storefront_on_sale_products',      60 );
 	remove_action( 'homepage', 'storefront_best_selling_products', 70 );
+
+	add_action( 'storefront_before_content', 'anc_blognshop_header', 9);
 };
+add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
+add_shortcode( 'anc_featured_products', 'anc_featured_products');
+add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
 
 function storefront_primary_navigation() {
 	?><nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>"
@@ -50,7 +55,6 @@ function storefront_primary_navigation() {
 }
 
 //https://wordpress.stackexchange.com/questions/107141/check-if-current-page-is-the-blog-page
-add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
 function anc_homepage_products_filter() {
 	return is_front_page()||is_product()?false:true;
 }
@@ -66,7 +70,6 @@ if (!function_exists('woocommerce_template_loop_add_to_cart')) {
 //*///
 
 //https://wordpress.stackexchange.com/questions/195425/display-featured-products-through-custom-loop-in-woocommerce-on-template-page
-add_shortcode( 'anc_featured_products', 'anc_featured_products');
 function anc_featured_products( $args ) {
 	ob_start();
 	if ( storefront_is_woocommerce_activated() ) {
@@ -100,7 +103,6 @@ function anc_featured_products( $args ) {
 }
 
 // https://docs.woocommerce.com/document/override-loop-template-and-show-quantities-next-to-add-to-cart-buttons/
-add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
 function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
 	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
 		$html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart" method="post" enctype="multipart/form-data">';
@@ -109,6 +111,31 @@ function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product 
 		$html .= '</form>';
 	}
 	return $html;
+}
+
+function anc_blognshop_header()
+{
+	if(is_home())#BLOG
+	{
+		echo do_shortcode('[smartslider3 slider=3]');
+	
+		#https://www.thatweblook.co.uk/advice/tutorial-wordpress-show-content-of-static-posts-page-above-posts-list/
+		global $post;
+		$page_for_posts_id = get_option('page_for_posts');
+		if ( $page_for_posts_id ) : 
+			$post = get_page($page_for_posts_id);
+			setup_postdata($post);?>
+			<div class="col-full">
+				<div id="post-<?php the_ID(); ?>" class="blognshop-intro">
+					<?php the_content(); ?>
+				</div>
+			</div>
+			<?php
+			rewind_posts();
+		endif;
+	}else if(is_shop()){
+		echo do_shortcode('[smartslider3 slider=2]');
+	}
 }
 
 function storefront_credit() {

@@ -63,6 +63,20 @@ Updated: 2017-12-04 14:27:32
 		url(./images/divider_R.png) center right no-repeat;	/* On bottom,	like z-index: 1; */
 	background-size: 20% 20%;
 }
+.blognshop-intro{
+	margin-top: 1em;
+	border-bottom: 1px solid #d0a747;
+}
+.blognshop-intro h1{
+	font-size: 1.4em;
+	font-weight: 500;
+}
+.blognshop-intro p{
+	font-size: 0.8em;
+}
+.woocommerce-breadcrumb{
+	margin-bottom: 0;
+}
 .page-template-template-homepage-php .site-main .columns-4 ul.products li.product{
 	border-top: 1px solid #d0a747;
 	background-color: #f6edda;
@@ -242,7 +256,7 @@ article.post .summary-wrapper .author .label a span.f-right{
 }
 nav.pagination{
 	border: 0;
-	padding: 0;
+	padding: 0 !important;
 	text-align: right;
 }
 .pagination .page-numbers li .page-numbers:not(.current), .woocommerce-pagination .page-numbers li .page-numbers:not(.current),
