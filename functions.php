@@ -56,7 +56,7 @@ function storefront_primary_navigation() {
 
 //https://wordpress.stackexchange.com/questions/107141/check-if-current-page-is-the-blog-page
 function anc_homepage_products_filter() {
-	return is_front_page()||is_product()?false:true;
+	return is_front_page()?false:true;
 }
 //https://docs.woocommerce.com/document/hide-loop-read-more-buttons-for-out-of-stock-items/
 /*
