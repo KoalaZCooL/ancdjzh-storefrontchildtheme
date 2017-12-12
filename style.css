@@ -121,6 +121,7 @@ Updated: 2017-12-04 14:27:32
 .widget-area .widget ul li:last-child{
 	margin-bottom: 0;
 }
+/*ANC FRONTPAGE FEATURED PRODUCTS*/
 .page-template-template-homepage-php .site-main .columns-4 ul.products li.product{
 	border-top: 1px solid #d0a747;
 	background-color: #f6edda;
@@ -223,11 +224,13 @@ Updated: 2017-12-04 14:27:32
 	transform: scale(2);
 	transition-duration: 0.4s;
 }
+/*EOF ANC FEATURED PRODUCTS*/
 .storefront-featured-products .tinvwl-after-add-to-cart,
 .related.products .ajax_add_to_cart,
 .related.products .tinvwl-after-add-to-cart{
 	display: none;
 }
+/*ANC PRODUCTS LISTING PAGES*/
 .site-main .columns-3 ul.products{
 	font-size: 0;
 	text-align: center;
@@ -313,8 +316,47 @@ nav.pagination{
 	background-color: #d0a747;
 	color: #f6edda;
 }
+/*EOF PRODUCTS LISTING PAGES*/
+
+/*SINGLE PRODUCT PAGES*/
 .single-product div.product form.cart{
-	
+	font-size: 0;
+}
+.single-product div.product form.cart .quantity{
+	font-size: 16px;
+	margin: 0;
+	width: 50%;
+}
+.single-product div.product form.cart .quantity .qty{
+	background-color: transparent;
+}
+.single-product div.product form.cart .button{
+	vertical-align: top;
+	display: inline-block;
+	background-color: #d0a747;
+	font-size: 32px;
+	font-weight: 400;
+	height: 2em;
+	padding: 0;
+	width: 80%;
+}
+.single-product div.product form.cart  .tinv-wraper.tinv-wishlist{
+	width: 20%;
+	height: 4em;
+	font-size: 16px;
+	display: inline-block;
+}
+.single-product div.product form.cart .button.tinvwl_add_to_wishlist_button{
+	width: 50%;
+	height: 50%;
+	padding: 0;
+	margin: 0;
+	transform: scale(2);
+	top: 0.5em;
+	left: 0.5em;
+}
+.single-product div.product .product_meta{
+	border-top: none;
 }
 .woocommerce-tabs{
 	padding-top: 0;
@@ -370,6 +412,7 @@ nav.pagination{
 	font-size: 32px;
 	color: #d0a747;
 }
+/*EOF SINGLE PRODUCT PAGES*/
 .related.products ul.products li.product .cart,
 .site-main .yarpp-related ul.products li.product .cart,
 .site-main .yarpp-related ul.products li.product .tinv-wraper.tinv-wishlist{
