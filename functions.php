@@ -10,6 +10,8 @@ if ( !defined( 'ABSPATH' ) ) exit;
 add_action( 'init', 'override_actions_parent_theme');
 function override_actions_parent_theme() {
 
+	remove_action( 'storefront_header', 'storefront_skip_links', 0 );
+
 	#reposition nav-widgets
 	remove_action( 'storefront_header', 'storefront_product_search', 40 );
 	remove_action( 'storefront_header', 'storefront_header_cart',    60 );
@@ -17,7 +19,7 @@ function override_actions_parent_theme() {
 	add_action( 'storefront_header', 'storefront_product_search', 23 );
 
 	#remove homepage title from body
-	remove_action( 'storefront_homepage',       'storefront_homepage_header',      10 );
+	remove_action( 'storefront_homepage', 'storefront_homepage_header', 10 );
 
 	#remove storefront default homepage widgets
 	remove_action( 'homepage', 'storefront_product_categories',    20 );

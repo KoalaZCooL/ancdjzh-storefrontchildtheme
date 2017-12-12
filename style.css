@@ -241,6 +241,9 @@ Updated: 2017-12-04 14:27:32
 	padding-left: 15px;
 	padding-right: 15px;
 }
+.site-main .columns-3 ul.products li.product h2{
+	height: 2em;
+}
 .site-main .columns-3  ul.products li.product span.price{
 	border-top: 1px solid #d0a747;
 	font-size: 16px;
@@ -356,7 +359,8 @@ nav.pagination{
 .related.products ul.products li.product h2{
 	font-size: 1.4em;
 	font-weight: 300;
-	margin: 0;;
+	height: 2em;
+	margin: 0;
 }
 .related.products ul.products li.product span.price{
 	font-size: 0;
@@ -366,7 +370,9 @@ nav.pagination{
 	font-size: 32px;
 	color: #d0a747;
 }
-.related.products ul.products li.product .cart{
+.related.products ul.products li.product .cart,
+.site-main .yarpp-related ul.products li.product .cart,
+.site-main .yarpp-related ul.products li.product .tinv-wraper.tinv-wishlist{
 	display: none;
 }
 article.post{
@@ -413,12 +419,50 @@ article.post .summary-wrapper .author .label a{
 article.post .summary-wrapper .author .label a span.f-right{
 	color:#d0a747;
 }
+.yarpp-related{
+	border-top: 1px solid #d0a747;
+	padding-top: 1em;
+	margin-top: 0;
+}
+.site-main .yarpp-related .columns-3 ul.products li.product{
+	margin-bottom: 0;
+}
+.site-main .yarpp-related .columns-3 ul.products li.product:first-child{
+	border-left: none;
+	padding-left: 0;
+}
+.site-main .yarpp-related .columns-3 ul.products li.product:last-child{
+	padding-right: 0;
+}
+.site-main .yarpp-related .columns-3 ul.products li.product img{
+	margin: 0;
+	display: inline-block;
+	max-width: 50%;
+}
+.site-main .yarpp-related .columns-3 ul.products li.product h2{
+	width: 50%;
+	margin: 0;
+	margin-top: 1em;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+}
+.site-main .yarpp-related .columns-3 ul.products li.product span.price{
+	display: inline-block;
+	border: none;
+	font-size: 0;
+	top: -24px;
+	left: 24px;
+	position: relative;
+	color: #d0a747;
+	line-height: 0;
+}
+.site-main .yarpp-related .columns-3 ul.products li.product span.price span.amount{
+	font-size: 32px;
+}
 @media (min-width:569px){
 	.site-main .columns-3 ul.products li.product{
 		width: 50%;
-	}
-	.related.products ul.products{
-		border-bottom: 1px solid #d0a747;
 	}
 	.related.products ul.products li.product{
 		display: inline-block;
@@ -429,9 +473,6 @@ article.post .summary-wrapper .author .label a span.f-right{
 	}
 	.related.products ul.products li.product:first-child{
 		border-left:none;
-	}
-	.related.products ul.products li.product h2{
-		height: 2.8em;
 	}
 	article.post .thumbnail-image {
 		display: inline-block;
@@ -470,6 +511,11 @@ article.post .summary-wrapper .author .label a span.f-right{
 	article.post .summary-wrapper.no-img .author{
 		position: initial;
 		margin-top:1em;
+	}
+	.site-main .yarpp-related .columns-3 ul.products li.product{
+		float: left;
+		width: 50%;
+		border-left: 1px solid #d0a747;
 	}
 }
 @media (min-width:768px) {
@@ -594,9 +640,6 @@ article.post .summary-wrapper .author .label a span.f-right{
 	.woocommerce-tabs ul.tabs li:nth-child(2n){
 		border-left: 1px solid #f6edda;
 	}
-	.related.products ul.products li.product{
-		margin: 0;
-	}
 }
 @media (max-width:568px) {
 	.page-template-template-homepage-php .site-main .columns-4 ul.products li.product{
@@ -608,7 +651,22 @@ article.post .summary-wrapper .author .label a span.f-right{
 	.site-main .columns-3 ul.products li.product{
 		width: 100%;
 	}
+	.related.products ul.products li.product{
+		margin: 0;
+		border-top: 1px solid #d0a747;
+	}
+	.related.products ul.products li.product:first-child{
+		border-top: none;
+	}
 	article.post{
 		margin-bottom: 4em;
-	}	
+	}
+	.site-main .yarpp-related .columns-3 ul.products li.product{
+		width: 100%;
+		padding: 0;
+		border-top: 1px solid #d0a747;
+	}
+	.site-main .yarpp-related .columns-3 ul.products li.product:first-child{
+		border-top: none;
+	}
 }
