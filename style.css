@@ -320,9 +320,6 @@ nav.pagination{
 
 /*SINGLE PRODUCT PAGES*/
 .single-product div.product .woocommerce-product-gallery{
-	width: 46%;
-	margin-right: 0;
-	padding-right: 3em;
 	border-right: 1px solid #d0a747;
 	background: url(./images/petals_halfleft_bg.png) top right no-repeat;
 	background-size: contain;
@@ -436,7 +433,42 @@ nav.pagination{
 	font-size: 32px;
 	color: #d0a747;
 }
+.yarpp-related ul.wri-thumbnails-group{
+	font-size: 0;
+}
+.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail{
+	font-size: 16px;
+	width: 50%;
+	margin: 1em 0;
+	display: inline-block;
+}
+.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail img{
+	margin: 0;
+	width: 30%;
+	display: inline-block;
+}
+.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail span.wri-thumbnail-title{
+	width: 70%;
+	color: black;
+	vertical-align: top;
+	text-align: left;
+	font-weight: 400;
+}
+.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail span.wri-thumbnail-title p{
+	font-size: 0.8em;
+	font-weight: 200;
+}
 /*EOF SINGLE PRODUCT PAGES*/
+span.readmore{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	color: #d0a747;
+	font-weight: 400;
+}
+article.post span.readmore{
+	display: none;
+}
 .related.products ul.products li.product .cart,
 .site-main .yarpp-related ul.products li.product .cart,
 .site-main .yarpp-related ul.products li.product .tinv-wraper.tinv-wishlist{
@@ -655,6 +687,11 @@ article.post .summary-wrapper .author .label a span.f-right{
 	.site-main .columns-3 ul.products li.product{
 		width: 33%;
 	}
+	.single-product div.product .woocommerce-product-gallery{
+		width: 46%;
+		margin-right: 0;
+		padding-right: 3em;
+	}
 	.woocommerce-tabs ul.tabs li:first-child{
 		border-left: 1px solid #f6edda;
 	}
@@ -735,5 +772,8 @@ article.post .summary-wrapper .author .label a span.f-right{
 	}
 	.site-main .yarpp-related .columns-3 ul.products li.product:first-child{
 		border-top: none;
+	}
+	.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail{
+		width: 100%;
 	}
 }

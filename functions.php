@@ -39,6 +39,12 @@ add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
 add_shortcode( 'anc_featured_products', 'anc_featured_products');
 add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
 
+function custom_excerpt_more( $more ) {
+//	global $post;get_permalink().
+	return '<a target="_blank" href="'.get_permalink().'"><span class="readmore">全文阅读</span></a>';
+}
+add_filter( 'excerpt_more', 'custom_excerpt_more' );
+
 function storefront_primary_navigation() {
 	?><nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>"
 	><button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?php echo esc_attr( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) ); ?></span></button><?php
