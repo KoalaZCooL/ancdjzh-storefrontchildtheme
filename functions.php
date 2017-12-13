@@ -30,6 +30,10 @@ function override_actions_parent_theme() {
 	remove_action( 'homepage', 'storefront_best_selling_products', 70 );
 
 	add_action( 'storefront_before_content', 'anc_blognshop_header', 9);
+
+	#PRODUCT-SINGLE PAGE
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 7 );
 };
 add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
 add_shortcode( 'anc_featured_products', 'anc_featured_products');

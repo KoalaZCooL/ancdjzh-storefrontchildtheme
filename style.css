@@ -319,6 +319,24 @@ nav.pagination{
 /*EOF PRODUCTS LISTING PAGES*/
 
 /*SINGLE PRODUCT PAGES*/
+.single-product div.product .woocommerce-product-gallery{
+	width: 46%;
+	margin-right: 0;
+	padding-right: 3em;
+	border-right: 1px solid #d0a747;
+	background: url(./images/petals_halfleft_bg.png) top right no-repeat;
+	background-size: contain;
+}
+.single-product div.product .summary{
+}
+.single-product div.product .summary .price{
+	margin-bottom: 0;
+}
+.single-product div.product .summary .price span.amount{
+	font-weight: 300;
+	font-size: 3em;
+	color: #d0a747;
+}
 .single-product div.product form.cart{
 	font-size: 0;
 }
@@ -329,6 +347,12 @@ nav.pagination{
 }
 .single-product div.product form.cart .quantity .qty{
 	background-color: transparent;
+	border: 1px solid #d0a747;
+	box-shadow: none;
+	margin-bottom: 2px;
+	width: 100%;
+	padding-top: 0;
+	padding-bottom: 0;
 }
 .single-product div.product form.cart .button{
 	vertical-align: top;
