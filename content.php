@@ -14,7 +14,7 @@ $has_thumbnail = has_post_thumbnail();
 				the_post_thumbnail( 'full' );
 			}?>
 			<div class="caption">
-				全文阅读
+				<div>全文阅读</div>
 			</div>
 		</div
 		></a>
