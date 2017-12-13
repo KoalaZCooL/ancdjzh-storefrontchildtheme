@@ -311,6 +311,7 @@ nav.pagination{
 	border: 1px solid #d0a747;
 	background-color: transparent;
 	color: #d0a747;
+	padding: 0 1em;
 }
 .pagination .page-numbers li .page-numbers.current, .woocommerce-pagination .page-numbers li .page-numbers.current{
 	background-color: #d0a747;
@@ -459,6 +460,7 @@ nav.pagination{
 	font-weight: 200;
 }
 /*EOF SINGLE PRODUCT PAGES*/
+
 span.readmore{
 	position: absolute;
 	bottom: 0;
@@ -474,8 +476,10 @@ article.post span.readmore{
 .site-main .yarpp-related ul.products li.product .tinv-wraper.tinv-wishlist{
 	display: none;
 }
+
+/*ARTICLES LISTING*/
 article.post{
-	margin-top: 1em;
+	margin-top: 5px;
 	margin-bottom: 2em;
 }	
 article.post .thumbnail-image {
@@ -518,6 +522,15 @@ article.post .summary-wrapper .author .label a{
 article.post .summary-wrapper .author .label a span.f-right{
 	color:#d0a747;
 }
+/*EOF ARTICLES LISTING*/
+
+/*ARTICLE SINGLE PAGE*/
+div.post div.thumbnail-image{
+	float: right;
+}
+div.post .wri_content_clear_both{
+	clear: none;
+}
 .yarpp-related{
 	border-top: 1px solid #d0a747;
 	padding-top: 1em;
@@ -559,6 +572,7 @@ article.post .summary-wrapper .author .label a span.f-right{
 .site-main .yarpp-related .columns-3 ul.products li.product span.price span.amount{
 	font-size: 32px;
 }
+/*EOF ARTICLE SINGEL PAGE*/
 @media (min-width:569px){
 	.site-main .columns-3 ul.products li.product{
 		width: 50%;
