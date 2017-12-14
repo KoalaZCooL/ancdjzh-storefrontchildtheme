@@ -107,7 +107,7 @@ function anc_featured_products( $args ) {
 		if ( false !== strpos( $shortcode_content, 'product' ) ) {
 		?><section class="storefront-product-section storefront-featured-products" aria-label="<?=esc_attr__( 'Featured Products', 'storefront' )?>">
 			<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( $args['title'] )?></h2></div>
-			<?=$shortcode_content?>
+			<?=$shortcode_content #uses the template yourtheme/woocommerce/content-product.php?>
 			</section><?php
 		}
 	}

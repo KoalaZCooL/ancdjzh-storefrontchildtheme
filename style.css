@@ -4,7 +4,7 @@ Template: storefront
 Author: Digital Jungle
 Author URI: http://digitaljunglegroup.com/
 Description: ANC Chinese website
-Tags: e-commerce,two-columns,left-sidebar,right-sidebar,custom-background,custom-colors,custom-header,custom-menu,featured-images,full-width-template,threaded-comments,accessibility-ready,rtl-language-support,footer-widgets,sticky-post,theme-options
+Tags: e-commerce,two-columns,left-sidebar,custom-background,custom-colors,custom-header,custom-menu,featured-images,full-width-template,threaded-comments,accessibility-ready,rtl-language-support,footer-widgets,sticky-post,theme-options
 Version: 0.0.0.1512368852
 Updated: 2017-12-04 14:27:32
 
@@ -121,6 +121,70 @@ Updated: 2017-12-04 14:27:32
 .widget-area .widget ul li:last-child{
 	margin-bottom: 0;
 }
+/*ANC FRONTPAGE FEATURED PAGES*/
+.anc-featured-pages ul.featured_pages{
+	font-size: 0;
+	margin: 0;
+	text-align: center;
+	list-style: none;
+}
+.anc-featured-pages ul.featured_pages li.feature-page{
+	font-size: 16px;
+	width: 32%;
+	display: inline-block;
+	margin-right: 2%;
+	margin-bottom: 2em;
+}
+.anc-featured-pages ul.featured_pages li.feature-page:nth-child(3n){
+	margin-right: 0;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .thumbnail{
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	height: 255.5px;
+	width: 100%;
+	overflow: hidden;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .thumbnail p:empty{
+	display: none;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .thumbnail img{
+	margin: 0;
+	width: 100%;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .thumbnail .caption{
+	border-top: 2px solid #d0a747;
+	background: rgba(0,0,0,0.7);
+	position: absolute;
+	padding:0 0.5em;
+	width: 100%;
+	color: white;
+	bottom: -0em;
+	font-size: 2em;
+	font-weight: 300;
+	text-align: right;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .thumbnail .caption:before{
+	content: ">>>";
+	left: 0.5em;
+	position: absolute;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .thumbnail:hover .caption:before,
+.anc-featured-pages ul.featured_pages li.feature-page .thumbnail .caption:hover:before{
+	animation: readmore-shaky-loop 0.4s;
+	animation-iteration-count: infinite;;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .excerpt{
+	position: relative;
+	text-align: left;
+	font-size: 0.8em;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .excerpt .readmore{
+	color: inherit;
+}
+/*EOF ANC FRONTPAGE FEATURED PAGES*/
+
 /*ANC FRONTPAGE FEATURED PRODUCTS*/
 .page-template-template-homepage-php .site-main .columns-4 ul.products li.product{
 	border-top: 1px solid #d0a747;
