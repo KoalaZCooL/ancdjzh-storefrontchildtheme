@@ -35,9 +35,11 @@ function override_actions_parent_theme() {
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 7 );
 };
+add_shortcode( 'anc_frontpage_featured_pages', 'anc_frontpage_featured_pages');
 add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
 add_shortcode( 'anc_featured_products', 'anc_featured_products');
 add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
+add_shortcode( 'anc_frontpage_latest_articles', 'anc_frontpage_latest_articles');
 
 function custom_excerpt_more( $more ) {
 //	global $post;get_permalink().
@@ -47,7 +49,7 @@ add_filter( 'excerpt_more', 'custom_excerpt_more' );
 
 function storefront_primary_navigation() {
 	?><nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>"
-	><button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?php echo esc_attr( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) ); ?></span></button><?php
+	><button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?=esc_attr( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) )?></span></button><?php
 		wp_nav_menu(
 			array(
 				'theme_location'	=> 'primary',
@@ -81,6 +83,88 @@ if (!function_exists('woocommerce_template_loop_add_to_cart')) {
 }
 //*///
 
+function anc_frontpage_featured_pages( $args ) {
+	ob_start();
+?><section class="anc-featured-pages" aria-label="特 色 板 块">
+		<div class="anc-section-divider"><h2 class="section-title">特 色 板 块</h2></div>
+		<ul class="featured_pages">
+			<li class="feature-page">
+				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/towels.jpg)">
+					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
+						健康产品
+					</div></a>
+				</div>
+				<div class="excerpt">
+					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
+语，并竭力成为忠心的管家，善用主所托付给我们的每
+一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
+				</div>
+			</li>
+			<li class="feature-page">
+				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/beauty.jpg)">
+					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
+						健康产品
+					</div></a>
+				</div>
+				<div class="excerpt">
+					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
+语，并竭力成为忠心的管家，善用主所托付给我们的每
+一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
+				</div>
+			</li>
+			<li class="feature-page">
+				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/vitamin-supplements.jpg)">
+					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
+						健康产品
+					</div></a>
+				</div>
+				<div class="excerpt">
+					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
+语，并竭力成为忠心的管家，善用主所托付给我们的每
+一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
+				</div>
+			</li>
+			<li class="feature-page">
+				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/cocoa-powder.jpg);">
+					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
+						健康产品
+					</div></a>
+				</div>
+				<div class="excerpt">
+					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
+语，并竭力成为忠心的管家，善用主所托付给我们的每
+一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
+				</div>
+			</li>
+			<li class="feature-page">
+				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/sunlight-hands.jpg)">
+					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
+						健康产品
+					</div></a>
+				</div>
+				<div class="excerpt">
+					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
+语，并竭力成为忠心的管家，善用主所托付给我们的每
+一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
+				</div>
+			</li>
+			<li class="feature-page">
+				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/youghurt-strawberry.jpg);">
+					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
+						健康产品
+					</div></a>
+				</div>
+				<div class="excerpt">
+					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
+语，并竭力成为忠心的管家，善用主所托付给我们的每
+一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
+				</div>
+			</li>
+		</ul>
+	</section><?php
+	return ob_get_clean();
+}
+
 //https://wordpress.stackexchange.com/questions/195425/display-featured-products-through-custom-loop-in-woocommerce-on-template-page
 function anc_featured_products( $args ) {
 	ob_start();
@@ -91,7 +175,7 @@ function anc_featured_products( $args ) {
 			'columns' => 4,
 			'orderby' => 'date',
 			'order'   => 'desc',
-			'title'   => __( '特 色 产 品', 'storefront' ),
+			'title'   => __( '特 色 产 品', 'anc' ),
 		) );
 
 		$shortcode_content = storefront_do_shortcode( 'featured_products', apply_filters( 'storefront_featured_products_shortcode_args', array(
@@ -111,6 +195,41 @@ function anc_featured_products( $args ) {
 			</section><?php
 		}
 	}
+	return ob_get_clean();
+}
+
+function anc_frontpage_latest_articles( $args ) {
+	$qry = array(
+		'numberposts' => 3,
+		'offset' => 0,
+		'category' => 0,
+		'orderby' => 'post_date',
+		'order' => 'DESC',
+		'include' => '',
+		'exclude' => '',
+		'meta_key' => '',
+		'meta_value' =>'',
+		'post_type' => 'post',
+		'post_status' => 'publish',
+		'suppress_filters' => true
+	);
+
+	$recent_posts = wp_get_recent_posts( $qry, ARRAY_A );
+	ob_start();
+?><section class="anc-featured-pages" aria-label="健 康 信 息">
+		<div class="anc-section-divider"><h2 class="section-title">健 康 信 息</h2></div>
+		<ul class="featured_pages"><?php
+		foreach ($recent_posts as $v) {
+			$post_thumbnail_id = get_post_thumbnail_id( $v['ID'] );
+			$readmore = '<a target="_blank" href="'.$v['guid'].'"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>';
+		?><li class="feature-page">
+		<div class="article thumbnail" <?php if($post_thumbnail_id){?>style="background-image: url(<?=get_the_post_thumbnail_url($v['ID'])?>)"<?php }?> >
+				</div>
+				<div class="excerpt"><?=wp_kses_post( wp_trim_words( $v['post_content'], 55, $readmore ) )?>
+				</div>
+			</li><?php
+		}
+?></ul></section><?php
 	return ob_get_clean();
 }
 

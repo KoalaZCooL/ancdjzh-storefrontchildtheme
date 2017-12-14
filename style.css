@@ -181,6 +181,9 @@ Updated: 2017-12-04 14:27:32
 	width: 100%;
 	overflow: hidden;
 }
+.anc-featured-pages ul.featured_pages li.feature-page .article.thumbnail{
+	height: 156.5px;
+}
 .anc-featured-pages ul.featured_pages li.feature-page .thumbnail p:empty{
 	display: none;
 }
