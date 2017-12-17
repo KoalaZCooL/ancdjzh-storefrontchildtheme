@@ -58,33 +58,32 @@ Updated: 2017-12-04 14:27:32
 	background-position: top right;
 	overflow: hidden;
 }
-#masthead-tilted-bg-gray,#masthead-tilted-bg-white{
+#masthead-tilted-bg-white, #masthead-tilted-bg-slope{
 	position: absolute;
+	height: 100%;
 	top: 0;
-	left: 0;
-	height: 0;width: 47.2%;
-	border-top: 130px solid gray;
-	border-right: 75px solid transparent;
 }
 #masthead-tilted-bg-white{
-	width: 46.94%;
-	border-top: 130px solid white;
+	background: white;
+	width: 39.8%;
+}
+#masthead-tilted-bg-slope{
+	left: 39.8%;
 }
 .slider-tilted-lyr{
-	width: 20% !important;
-	border-top: 470px solid rgba(255,255,255,0.4);
-	border-right: 270px solid transparent;
+	background: url(./images/slope-white-sliderbg.png) top right no-repeat;
+	background-size: cover;
+	width: 40% !important;
 }
 .slider-txt h1{
-	color: white;
-	text-align: left;
 	font-size: 2em !important;
 }
 .slider-txt{
 	font-size: 1.4em !important;
-	margin-left: 6% !important;
+	margin: 0 !important;
 	position: absolute !important;
-	bottom: 40px;
+	top: 1em;
+	left: 2em;
 }
 .page-template-template-homepage:not(.has-post-thumbnail) .site-main{
 	padding-top: 0;
@@ -738,6 +737,9 @@ div.post .wri_content_clear_both{
 	}
 }
 @media (min-width:768px) {
+	.col-full{
+		max-width: 100%;
+	}
 	.site-header{
 		padding-top: 0;
 		border: 0;
@@ -880,6 +882,19 @@ div.post .wri_content_clear_both{
 	}
 }
 @media (max-width:568px) {
+	.site-header .site-branding{
+		max-width: 50%;
+	}
+	.site-header .site-branding .custom-logo{
+		max-width: 88%;
+	}
+	.main-navigation ul.menu>li>a, .main-navigation ul.nav-menu>li>a{
+		color: #d0a747;
+		padding-bottom: 0;
+	}
+	.site-header ul.menu li.current-menu-item > a{
+		color: #666;
+	}
 	.anc-featured-pages ul.featured_pages li.feature-page{
 		width: 100%;
 		margin-right: 0;
