@@ -76,7 +76,8 @@ Updated: 2017-12-04 14:27:32
 	width: 40% !important;
 }
 .slider-txt h1{
-	font-size: 2em !important;
+	font-size: 3em !important;
+	text-align: left;
 }
 .slider-txt{
 	font-size: 1.4em !important;
@@ -154,6 +155,9 @@ Updated: 2017-12-04 14:27:32
 }
 .widget-area .widget ul li:last-child{
 	margin-bottom: 0;
+}
+.anc-sticky-box{
+	display: none;
 }
 /*ANC FRONTPAGE FEATURED PAGES*/
 .anc-featured-pages ul.featured_pages{
@@ -737,6 +741,19 @@ div.post .wri_content_clear_both{
 	}
 }
 @media (min-width:768px) {
+	.anc-sticky-box{
+		display: block;
+		width: 200px;
+    float: right;
+    margin-top: -256px;
+	}
+	.anc-sticky-box .txt-ontop-banner{
+		background: rgba(255,255,255,0.7);
+		color: black;
+	}
+	.anc-sticky-box img{
+		max-width: 100%;
+	}
 	.col-full{
 		max-width: 100%;
 	}
