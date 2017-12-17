@@ -223,8 +223,12 @@ function anc_frontpage_latest_articles( $args ) {
 			$post_thumbnail_id = get_post_thumbnail_id( $v['ID'] );
 			$readmore = '<a target="_blank" href="'.$v['guid'].'"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>';
 		?><li class="feature-page">
-		<div class="article thumbnail" <?php if($post_thumbnail_id){?>style="background-image: url(<?=get_the_post_thumbnail_url($v['ID'])?>)"<?php }?> >
-				</div>
+				<a target="_blank" href="<?=$v['guid']?>"><div class="article thumbnail" <?php if($post_thumbnail_id){?>style="background-image: url(<?=get_the_post_thumbnail_url($v['ID'])?>)"<?php }?> >
+					<div class="goto">
+						<img src="<?=get_stylesheet_directory_uri()?>/images/petals_halftop.png">
+						全文阅读
+					</div>
+				</div></a>
 				<div class="excerpt"><?=wp_kses_post( wp_trim_words( $v['post_content'], 55, $readmore ) )?>
 				</div>
 			</li><?php

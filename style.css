@@ -187,6 +187,21 @@ Updated: 2017-12-04 14:27:32
 .anc-featured-pages ul.featured_pages li.feature-page .article.thumbnail{
 	height: 156.5px;
 }
+.anc-featured-pages ul.featured_pages li.feature-page .article.thumbnail .goto{
+	background: rgba(0,0,0,0.7);
+	padding-top: 2em;
+	color: #d0a747;
+	height: 100%;
+	opacity: 0;
+	transition-duration: 0.4s;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .article.thumbnail:hover .goto{
+	opacity: 1;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .article.thumbnail .goto img{
+	margin: 0 auto -1em;
+	width: 4em;
+}
 .anc-featured-pages ul.featured_pages li.feature-page .thumbnail p:empty{
 	display: none;
 }
