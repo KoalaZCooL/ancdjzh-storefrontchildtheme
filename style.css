@@ -98,6 +98,7 @@ Updated: 2017-12-04 14:27:32
 		url(./images/divider_L.png) center left no-repeat,	/* On top,		like z-index: 4; */
 		url(./images/divider_R.png) center right no-repeat;	/* On bottom,	like z-index: 1; */
 	background-size: 20% 20%;
+	clear: both;
 }
 .blognshop-intro{
 	margin-top: 1em;
@@ -461,9 +462,16 @@ nav.pagination{
 	font-size: 0;
 }
 .single-product div.product form.cart .quantity{
+	position: relative;
 	font-size: 16px;
 	margin: 0;
 	width: 50%;
+}
+.single-product div.product form.cart .quantity:before{
+	content:"数量";
+	position:absolute;
+	top:0;
+	left:1em;
 }
 .single-product div.product form.cart .quantity .qty{
 	background-color: transparent;
@@ -843,13 +851,21 @@ div.post .wri_content_clear_both{
 	
 	.anc-sticky-box{
 		display: block;
-		width: 200px;
-    float: right;
-    margin-top: -256px;
+		width: 300px;
+		float: right;
+		margin-top: -200px;
+		position: relative;
 	}
 	.anc-sticky-box .txt-ontop-banner{
 		background: rgba(255,255,255,0.7);
+		position: absolute;
 		color: black;
+		width: 100%;
+		opacity: 0;
+		transition-duration: 0.4s;
+	}
+	.anc-sticky-box:hover .txt-ontop-banner{
+		opacity: 1;
 	}
 	.anc-sticky-box img{
 		max-width: 100%;
