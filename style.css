@@ -756,19 +756,6 @@ div.post .wri_content_clear_both{
 	}
 }
 @media (min-width:768px) {
-	.anc-sticky-box{
-		display: block;
-		width: 200px;
-    float: right;
-    margin-top: -256px;
-	}
-	.anc-sticky-box .txt-ontop-banner{
-		background: rgba(255,255,255,0.7);
-		color: black;
-	}
-	.anc-sticky-box img{
-		max-width: 100%;
-	}
 	.col-full{
 		max-width: 100%;
 	}
@@ -781,32 +768,51 @@ div.post .wri_content_clear_both{
 		margin: 0;
 		margin-left: 45%;
 	}
+	.site-header-cart{
+		width: 10em !important;
+		text-align: right;
+	}
 	.site-header-cart .cart-contents{
-    padding-top: 1em;
-    padding-bottom: 0;
+		padding-top: 1em;
+		padding-bottom: 0;
+	}
+	.site-header-cart .cart-contents:after{
+		content:"\f07a";
+		float: left;
 	}
 	.site-header .site-search{
 		margin-bottom: 0;
+		margin-top: 2em;
+		margin-right: 1em !important;
+		width: 20em !important;
 	}
 	.site-search .widget_product_search input[type=search], .site-search .widget_product_search input[type=text]{
 		background-color: rgba(255,255,255,0.4);
 		padding: 0;
+		padding-left: 1em !important;
+		box-shadow: none;
 	}
 	.site-search .widget_product_search form:before{
 		content: "";
-    position: initial;
+		top: 2px;
+		left: -9px;
+		position: absolute;
+		border-left: 9px solid transparent;
+		border-bottom: 18px solid rgba(255,255,255,0.4);
 	}
 	.site-search .widget_product_search form:after{
 		display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f002";
-    position: absolute;
-		top: 1.8em;
-		right: 1em;
+		font: normal normal normal 14px/1 FontAwesome;
+		font-size: inherit;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		content: "";/*\f002*/
+		position: absolute;
+		top: 2px;
+		right: -9px;
+		border-top: 18px solid rgba(255,255,255,0.4);
+		border-right: 9px solid transparent;
 	}
 	.site-search .widget_product_search form input[type=submit]{
 		padding: 0;
@@ -832,6 +838,20 @@ div.post .wri_content_clear_both{
 	}
 	.anc-section-divider{
 		background-size: 40%;
+	}
+	
+	.anc-sticky-box{
+		display: block;
+		width: 200px;
+    float: right;
+    margin-top: -256px;
+	}
+	.anc-sticky-box .txt-ontop-banner{
+		background: rgba(255,255,255,0.7);
+		color: black;
+	}
+	.anc-sticky-box img{
+		max-width: 100%;
 	}
 	.anc-featured-pages ul.featured_pages li.feature-page{
 		width: 32%;
