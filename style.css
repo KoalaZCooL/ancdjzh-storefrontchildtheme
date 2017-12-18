@@ -57,6 +57,7 @@ Updated: 2017-12-04 14:27:32
 	background-repeat: no-repeat;
 	background-position: top right;
 	overflow: hidden;
+	border-bottom: 0;
 }
 #masthead-tilted-bg-white, #masthead-tilted-bg-slope{
 	position: absolute;
@@ -934,6 +935,9 @@ div.post .wri_content_clear_both{
 	}
 }
 @media (max-width:568px) {
+	#masthead-tilted-bg-slope{
+		margin-left: -1px;
+	}
 	.site-header .site-branding{
 		max-width: 50%;
 	}
@@ -946,6 +950,14 @@ div.post .wri_content_clear_both{
 	}
 	.site-header ul.menu li.current-menu-item > a{
 		color: #666;
+	}
+	.slider-txt h1{
+		font-size: 2.4em !important;
+	}
+	.slider-txt{
+		font-size: 0.8em !important;
+		top: 1em;
+		left: 1em;
 	}
 	.anc-featured-pages ul.featured_pages li.feature-page{
 		width: 100%;
