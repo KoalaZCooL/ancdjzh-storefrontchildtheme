@@ -5,7 +5,7 @@ Author: Digital Jungle
 Author URI: http://digitaljunglegroup.com/
 Description: ANC Chinese website
 Tags: e-commerce,two-columns,left-sidebar,custom-background,custom-colors,custom-header,custom-menu,featured-images,full-width-template,threaded-comments,accessibility-ready,rtl-language-support,footer-widgets,sticky-post,theme-options
-Version: 0.0.0.1512368852
+Version: 0.1.0
 Updated: 2017-12-04 14:27:32
 
 #555 (dark grey) 
@@ -52,12 +52,15 @@ Updated: 2017-12-04 14:27:32
   }
 }
 .f-right{float: right;}
-
+#post-11 #jiathis_style_32x32, 
+.site-main .yarpp-related .columns-3 .storefront-sorting{
+	display:none;
+}
 .site-header{
 	background-repeat: no-repeat;
 	background-position: top right;
 	overflow: hidden;
-	border-bottom: 0;
+	border-bottom: 1px solid #d0a747;
 }
 #masthead-tilted-bg-white, #masthead-tilted-bg-slope{
 	position: absolute;
@@ -551,6 +554,12 @@ nav.pagination{
 	background-color: #f6edda;
 	padding: 1em 2em;
 }
+table.shop_attributes th, table.shop_attributes td,
+table.shop_attributes tr:nth-child(2n) td{
+	background:transparent;
+	border-bottom: 1px solid #d0a747;
+}
+table.shop_attributes th{width:7em;}
 .related.products ul.products{
 	text-align: center;
 	font-size: 0;/*css tricks to fix empty spaces for inline-blocks*/
@@ -577,7 +586,7 @@ nav.pagination{
 }
 .yarpp-related ul.wri-thumbnails-group li.wri-thumbnail{
 	font-size: 16px;
-	width: 50%;
+	width: 49%;
 	margin: 1em 0;
 	display: inline-block;
 }
@@ -592,6 +601,7 @@ nav.pagination{
 	vertical-align: top;
 	text-align: left;
 	font-weight: 400;
+	padding-left:1em;
 }
 .yarpp-related ul.wri-thumbnails-group li.wri-thumbnail span.wri-thumbnail-title p{
 	font-size: 0.8em;
@@ -705,7 +715,7 @@ div.post .wri_content_clear_both{
 	border: none;
 	font-size: 0;
 	top: -24px;
-	left: 24px;
+	left: 0;
 	position: relative;
 	color: #d0a747;
 	line-height: 0;
@@ -747,14 +757,18 @@ div.post .wri_content_clear_both{
 		display: inline-block;
     vertical-align: top;
 		position: relative;
-    width: 77%;
 		height: 7em;
-		margin-left: 2%;
+    width: 80%;
+    width: calc(100% - 7em);
+		padding-left:1em;
+		margin-left: 0;
 	}
 	article.post .summary-wrapper.no-img{
     width: 100%;
 		height: auto;
+		margin-top:2em;
 		margin-left: 0;
+		padding-left:0;
 	}
 	article.post .summary-wrapper .author{
 		position: absolute;
@@ -771,14 +785,13 @@ div.post .wri_content_clear_both{
 		width: 50%;
 		border-left: 1px solid #d0a747;
 	}
+	.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail:nth-child(2n){
+		margin-left: 2%;
+	}
 }
 @media (min-width:768px) {
 	.col-full{
 		max-width: 100%;
-	}
-	.site-header{
-		padding-top: 0;
-		border: 0;
 	}
 	#site-navigation{
 		width: 55%;
@@ -929,18 +942,7 @@ div.post .wri_content_clear_both{
 		background-color: rgba(0,0,0,0.7);
 	}
 	article.post .summary-wrapper{
-		display: inline-block;
-    vertical-align: top;
-		position: relative;
-    width: 77%;
 		height: 10em;
-		margin-left: 2%;
-	}
-	article.post .summary-wrapper .author{
-		position: absolute;
-		bottom: 0;
-		margin: 0;
-		width: 100%;
 	}
 }
 @media (max-width:66.4989378333em) {
