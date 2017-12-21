@@ -59,8 +59,9 @@ Updated: 2017-12-04 14:27:32
 .site-header{
 	background-repeat: no-repeat;
 	background-position: top right;
-	overflow: hidden;
 	border-bottom: 1px solid #d0a747;
+	overflow: hidden;
+	padding-top: 0;
 }
 #masthead-tilted-bg-white, #masthead-tilted-bg-slope{
 	position: absolute;
