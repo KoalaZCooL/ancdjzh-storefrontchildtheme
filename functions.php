@@ -35,6 +35,7 @@ function override_actions_parent_theme() {
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 7 );
 	add_action( 'woocommerce_single_product_summary', 'anc_singleproduct_sellingpoints', 8 );
+	add_action( 'woocommerce_single_product_summary', 'anc_products_usp', 51 );
 };
 add_shortcode( 'anc_frontpage_featured_pages', 'anc_frontpage_featured_pages');
 add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
@@ -338,6 +339,16 @@ function anc_singleproduct_sellingpoints() {
 		echo '<li>'.$v.'</li>';
 	}
 	echo '</ul>';
+}
+
+function anc_products_usp() {?>
+<ul class="anc-prod-usp">
+	<li><span>Free Shipping Orders Over $99</span></li>
+	<li><span>Australian Made Vitamins</span></li>
+	<li><span>60 Days Returns</span></li>
+	<li><span>Free Gift With Orders Over $90</span></li>
+</ul>
+<?php
 }
 
 function storefront_credit() {

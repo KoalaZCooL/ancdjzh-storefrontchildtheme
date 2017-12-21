@@ -521,6 +521,56 @@ nav.pagination{
 .single-product div.product .product_meta{
 	border-top: none;
 }
+
+ul.sellingpoints{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.sellingpoints li {
+	position: relative;
+	padding-left: 1em;
+	font-weight: 700;
+}
+
+ul.sellingpoints li:before{
+	position: absolute;
+	left: 0;
+	content: "\f058";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	color: #d0a747;
+}
+
+.anc-prod-usp {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	margin-top: 20px;
+}
+
+.anc-prod-usp li {
+	font-size: 16px;
+	width: 50%;
+	height: 3em;
+	line-height: 2.4;
+	padding-left: 3.4em;
+	display: inline-block;
+	vertical-align: middle;
+	margin-bottom: 1em;
+	background: url(./images/petals_full.png) no-repeat left top;
+	background-size: contain;
+}
+
+.anc-prod-usp li span {
+	line-height: 16px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
 .woocommerce-tabs{
 	padding-top: 0;
 }
@@ -759,7 +809,7 @@ div.post .wri_content_clear_both{
 		position: relative;
 		height: 7em;
     width: 80%;
-    width: calc(100% - 7em);
+    width: calc(100% - 8em);
 		padding-left:1em;
 		margin-left: 0;
 	}
@@ -943,6 +993,7 @@ div.post .wri_content_clear_both{
 	}
 	article.post .summary-wrapper{
 		height: 10em;
+    width: calc(100% - 11em);
 	}
 }
 @media (max-width:66.4989378333em) {
