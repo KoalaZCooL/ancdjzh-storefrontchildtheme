@@ -39,6 +39,8 @@ if ( $max_value && $min_value === $max_value ) {
 				foreach ( $attribute_values as $attribute_value ) {
 					$specvalue = esc_html( $attribute_value->name );
 				}
+				if('数量'===$specname)
+					break;
 		endforeach;
 		
 		?><pre><?=print_r([$specname,$specvalue],1)?></pre><?php 

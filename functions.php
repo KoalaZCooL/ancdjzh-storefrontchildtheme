@@ -34,6 +34,7 @@ function override_actions_parent_theme() {
 	#PRODUCT-SINGLE PAGE
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
 	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 7 );
+	add_action( 'woocommerce_single_product_summary', 'anc_singleproduct_sellingpoints', 8 );
 };
 add_shortcode( 'anc_frontpage_featured_pages', 'anc_frontpage_featured_pages');
 add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
@@ -307,6 +308,36 @@ function anc_blognshop_header()
 			</div><?php
 		}	
 	}
+}
+
+function anc_singleproduct_sellingpoints() {
+	$product = $GLOBALS['product'];
+	$attributes = $product->get_attributes();
+
+	$sellingpoints = array();
+	foreach ( $attributes as $attribute ) :
+			$specname = wc_attribute_label( $attribute->get_name() );
+			$attribute_value = $product->get_attribute($specname);
+			
+			switch ($specname) {
+				case 'sp1':
+				case 'sp2':
+				case 'sp3':
+					if($attribute_value){
+						$sellingpoints[$specname] = $attribute_value;
+					}
+					break;
+
+				default:
+					break;
+			}
+	endforeach;
+	
+	echo '<ul class="sellingpoints">';
+	foreach ($sellingpoints as $v) {
+		echo '<li>'.$v.'</li>';
+	}
+	echo '</ul>';
 }
 
 function storefront_credit() {
