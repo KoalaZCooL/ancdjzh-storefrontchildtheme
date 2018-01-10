@@ -49,6 +49,49 @@ function custom_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'custom_excerpt_more' );
 
+function search_autocomplete() {
+	echo '
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			jQuery(function($){
+				var availableTags = [
+				';
+			// Get All Products 
+			$args = array(
+				'post_type'     =>  'product', // Get Product Post Type
+				'numberposts'   =>  -1,        // Display all Products
+				'order'         =>  'ASC'      // Order By Ascend
+			);
+
+			// Get All Products & data
+			$selectableOptions = get_posts( $args );
+
+			// Loop though each product and display their titles.
+			foreach ($selectableOptions as $key => $val){
+				$products = '"' . sanitize_text_field( $val->post_title ) . '",';
+				echo $products;
+			}
+				echo '
+				];
+				jQuery( "#woocommerce-product-search-field-0" ).autocomplete({
+					source: availableTags,
+					appendTo: ".site-search",
+					minLength: 2
+				});
+				jQuery( "#woocommerce-product-search-field-1" ).autocomplete({
+					source: availableTags,
+					appendTo: ".storefront-handheld-footer-bar",
+					position: { my: "left bottom", at: "left top" },
+					minLength: 2
+				});
+			});
+		</script>
+';
+}
+add_action('wp_footer', 'search_autocomplete');
+
 function storefront_primary_navigation() {
 	?><nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>"
 	><button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?=esc_attr( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) )?></span></button><?php

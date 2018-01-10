@@ -60,7 +60,7 @@ Updated: 2017-12-04 14:27:32
 	background-repeat: no-repeat;
 	background-position: top right;
 	border-bottom: 1px solid #d0a747;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	padding-top: 0;
 }
 #masthead-tilted-bg-white, #masthead-tilted-bg-slope{
@@ -1077,6 +1077,11 @@ div.post .wri_content_clear_both{
 		border-top: none;
 	}
 	.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail{
+		width: 100%;
+	}
+	.storefront-handheld-footer-bar .ui-autocomplete{
+	}
+	.storefront-handheld-footer-bar .ui-autocomplete .ui-menu-item{
 		width: 100%;
 	}
 }
