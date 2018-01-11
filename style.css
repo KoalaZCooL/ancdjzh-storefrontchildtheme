@@ -15,46 +15,13 @@ Updated: 2017-12-04 14:27:32
 #f15c2d (orange) 
 #f6edda (cream)
 */
-@keyframes readmore-shaky-loop-desktop {
-  0% {
-    left: 0.5em;
-  }
-  /* Finish changes by here */
-  50% {
-    left: 40%;
-  }
-  100% {
-    left: 0.5em;
-  }
-}
-@keyframes readmore-shaky-loop-tab {
-  0% {
-    left: 0.5em;
-  }
-  /* Finish changes by here */
-  50% {
-    left: 20%;
-  }
-  100% {
-    left: 0.5em;
-  }
-}
-@keyframes readmore-shaky-loop-mobile {
-  0% {
-    left: 0.5em;
-  }
-  /* Finish changes by here */
-  50% {
-    left: 30%;
-  }
-  100% {
-    left: 0.5em;
-  }
-}
 .f-right{float: right;}
 #post-11 #jiathis_style_32x32, 
 .site-main .yarpp-related .columns-3 .storefront-sorting{
 	display:none;
+}
+#post-11{
+	padding-top: 1em;
 }
 .site-header{
 	background-repeat: no-repeat;
@@ -80,22 +47,28 @@ Updated: 2017-12-04 14:27:32
 	background-size: cover;
 	width: 40% !important;
 }
-.slider-txt h1{
-	font-size: 3em !important;
-	text-align: left;
-}
 .slider-txt{
-	font-size: 1.4em !important;
+	font-size: 1em !important;
 	margin: 0 !important;
 	position: absolute !important;
-	top: 1em;
 	left: 2em;
+}
+.slider-txt h1{
+	font-size: 2em !important;
+	text-align: left;
+}
+.slider-txt p{
+	font-weight: 300 !important;
 }
 .page-template-template-homepage:not(.has-post-thumbnail) .site-main{
 	padding-top: 0;
 }
 .page-template-template-homepage .entry-content, .page-template-template-homepage .entry-header {
-    max-width: 100%;
+		max-width: 100%;
+}
+.anc-page-intro p{
+	text-align: left;
+	font-size: 13px;
 }
 .anc-section-divider{
 	background: 
@@ -132,9 +105,8 @@ Updated: 2017-12-04 14:27:32
 	text-decoration: none;
 }
 .widget-area .widget ul{
-	background-color: rgba(0,0,0,0.7);
 	padding: 0.5em 0;
-	color: white;
+	color: #333;
 }
 .widget-area .widget ul li{
 	padding: 0.5em 1em;
@@ -147,11 +119,21 @@ Updated: 2017-12-04 14:27:32
 .widget-area .widget ul li:before{
 	content: "";
 	border-top: 0.5em solid transparent;
-	border-left: 0.5em solid white;
+	border-left: 0.5em solid #333;
 	border-bottom: 0.5em solid transparent;
 	margin-right: 0;
 	margin-left: 0;
 	opacity: 1;
+}
+.widget-area .widget ul li:hover:before{
+	border-left: 0.5em solid white;
+}
+.widget-area .widget ul li a:not(.button){
+	color: #333;
+	text-decoration: none;
+}
+.widget-area .widget ul li:hover a:not(.button){
+	color: white;
 }
 .widget-area .widget ul li.current-cat:before{
 	border-left: 0.5em solid #d0a747;
@@ -226,16 +208,6 @@ Updated: 2017-12-04 14:27:32
 	font-size: 2em;
 	font-weight: 300;
 	text-align: right;
-}
-.anc-featured-pages ul.featured_pages li.feature-page .thumbnail .caption:before{
-	content: ">>>";
-	left: 0.5em;
-	position: absolute;
-}
-.anc-featured-pages ul.featured_pages li.feature-page .thumbnail:hover .caption:before,
-.anc-featured-pages ul.featured_pages li.feature-page .thumbnail .caption:hover:before{
-	animation: readmore-shaky-loop-tab 0.4s;
-	animation-iteration-count: infinite;
 }
 .anc-featured-pages ul.featured_pages li.feature-page .excerpt{
 	position: relative;
@@ -316,7 +288,7 @@ Updated: 2017-12-04 14:27:32
 	overflow: hidden;
 }
 .page-template-template-homepage-php .site-main .columns-4 ul.products li.product:hover .anc-goto-featuredproduct{
-  border-top: 1px solid #ad7200;
+	border-top: 1px solid #ad7200;
 }
 .page-template-template-homepage-php .site-main .columns-4 ul.products li.product .anc-goto-featuredproduct h2{
 	position: relative;
@@ -791,8 +763,8 @@ div.post .wri_content_clear_both{
 	}
 	article.post .thumbnail-image {
 		display: inline-block;
-    width: 7em;
-    height: 7em;
+		width: 7em;
+		height: 7em;
 	}
 	article.post .thumbnail-image.no-img{
 		display: none;
@@ -806,16 +778,16 @@ div.post .wri_content_clear_both{
 	}
 	article.post .summary-wrapper{
 		display: inline-block;
-    vertical-align: top;
+		vertical-align: top;
 		position: relative;
 		height: 7em;
-    width: 80%;
-    width: calc(100% - 8em);
+		width: 80%;
+		width: calc(100% - 8em);
 		padding-left:1em;
 		margin-left: 0;
 	}
 	article.post .summary-wrapper.no-img{
-    width: 100%;
+		width: 100%;
 		height: auto;
 		margin-top:2em;
 		margin-left: 0;
@@ -841,9 +813,6 @@ div.post .wri_content_clear_both{
 	}
 }
 @media (min-width:768px) {
-	.col-full{
-		max-width: 100%;
-	}
 	#site-navigation{
 		width: 55%;
 		margin: 0;
@@ -897,9 +866,9 @@ div.post .wri_content_clear_both{
 	}
 	.site-search .widget_product_search form input[type=submit]{
 		padding: 0;
-    left: unset;
-    right: 0;
-    top: 1.6em;
+		left: unset;
+		right: 0;
+		top: 1.6em;
 	}
 	.main-navigation ul.menu>li:first-child .anc-nav-divider,
 	.main-navigation ul.nav-menu>li:first-child .anc-nav-divider{
@@ -907,20 +876,22 @@ div.post .wri_content_clear_both{
 	}
 	.anc-nav-divider{
 		background-color: white;
-    position: absolute;
-    height: 30px;
-    width: 1px;
-    bottom: 0;
-    margin-bottom: -2px;
-    transform: rotate(30deg);
+		position: absolute;
+		height: 30px;
+		width: 1px;
+		bottom: 0;
+		margin-bottom: -2px;
+		transform: rotate(30deg);
 	}
 	.main-navigation ul.menu>li>a, .main-navigation ul.nav-menu>li>a{
 		padding: 0 7px 7px 17px;
 	}
 	.anc-section-divider{
 		background-size: 40%;
+		font-size: 0.8em;
+		letter-spacing: 0.4em;
 	}
-	
+
 	.anc-sticky-box{
 		display: block;
 		width: 300px;
@@ -982,8 +953,8 @@ div.post .wri_content_clear_both{
 	}
 	article.post .thumbnail-image {
 		display: inline-block;
-    width: 10em;
-    height: 10em;
+		width: 10em;
+		height: 10em;
 	}
 	article.post .thumbnail-image img{
 		margin: 0;
@@ -994,13 +965,13 @@ div.post .wri_content_clear_both{
 	}
 	article.post .summary-wrapper{
 		height: 10em;
-    width: calc(100% - 11em);
+		width: calc(100% - 11em);
 	}
 }
 @media (max-width:66.4989378333em) {
 	.page-template-template-homepage-php .site-main .columns-4 ul.products li.product{
 		width: 48%;
-    display: inline-block;
+		display: inline-block;
 	}
 	.page-template-template-homepage-php .site-main .columns-4 ul.products li.product:nth-of-type(2n){
 		margin-left: 3%;
@@ -1029,6 +1000,7 @@ div.post .wri_content_clear_both{
 	.site-header ul.menu li.current-menu-item > a{
 		color: #666;
 	}
+	.slider-tilted-lyr, .slider-txt{display: none;}
 	.slider-txt h1{
 		font-size: 2.4em !important;
 	}
