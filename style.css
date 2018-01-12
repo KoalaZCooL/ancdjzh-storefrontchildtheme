@@ -37,26 +37,27 @@ Updated: 2017-12-04 14:27:32
 }
 #masthead-tilted-bg-white{
 	background: white;
-	width: 39.8%;
+	width: 44%;
 }
 #masthead-tilted-bg-slope{
-	left: 39.8%;
+	left: 44%;
 }
 .slider-tilted-lyr{
 	background: url(./images/slope-white-sliderbg.png) top right no-repeat;
 	background-size: cover;
-	width: 40% !important;
+	width: 44.2% !important;
 }
 .slider-txt{
 	font-size: 1em !important;
-	margin: 0 !important;
+	font-size: 1.9vw !important;
+	margin: 0 !important;	
 }
-.slider-txt h1{
-	font-size: 2em !important;
-	text-align: left;
+.slider-txt b{
+	font-size: 1.7em !important;
 }
 .slider-txt p{
 	font-weight: 300 !important;
+	max-width: 40%;
 }
 .page-template-template-homepage:not(.has-post-thumbnail) .site-main{
 	padding-top: 0;
@@ -205,8 +206,16 @@ Updated: 2017-12-04 14:27:32
 	bottom: -0em;
 	font-size: 1.8em;
 	font-weight: 300;
-	text-align: right;
+	/*text-align: right;*/
 	letter-spacing: 0.2em;
+	height: 1.8em;
+	transition-duration: 0.4s;
+}
+.anc-featured-pages ul.featured_pages li.feature-page .thumbnail:hover .caption,
+.anc-featured-pages ul.featured_pages li.feature-page .thumbnail .caption:hover{
+	height: 100%;
+	padding-top: 2em;
+	background: rgba(191, 134, 0, 0.7);
 }
 .anc-featured-pages ul.featured_pages li.feature-page .excerpt{
 	position: relative;
@@ -369,11 +378,16 @@ Updated: 2017-12-04 14:27:32
 }
 .site-main .columns-3 ul.products li.product .quantity .qty{
 	width: 100%;
-	padding-right: 0;
+	padding: 0;
 	border: 1px solid #d0a747;
 	background-color: transparent;
 	font-size: 15px;
 	height: 2em;
+}
+.site-main .columns-3 ul.products li.product .quantity .qty::-webkit-inner-spin-button, 
+.site-main .columns-3 ul.products li.product .quantity .qty::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  opacity: 0; 
 }
 .site-main .columns-3 ul.products li.product .cart .button{
 	display: inline-block;
@@ -815,9 +829,10 @@ div.post .wri_content_clear_both{
 }
 @media (min-width:768px) {
 	#site-navigation{
-		width: 55%;
+		width: 100%;
 		margin: 0;
-		margin-left: 45%;
+    padding-right: 10px;
+    text-align: right;
 	}
 	.site-header-cart{
 		width: 10em !important;
