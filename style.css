@@ -455,7 +455,7 @@ nav.pagination{
 .single-product div.product form.cart .specification{
 	border: 1px solid #d0a747;
 	font-size: 16px;
-	width: 49%;
+	width: 39%;
 	float: left;
 	text-align: center;
 	margin-right: 1%;
@@ -464,7 +464,7 @@ nav.pagination{
 	position: relative;
 	font-size: 16px;
 	margin: 0;
-	width: 50%;
+	width: 60%;
 }
 .single-product div.product form.cart .quantity:before{
 	content:"数量";
@@ -591,6 +591,9 @@ ul.sellingpoints li:before{
 	width: 100%;
 	background-color: #f6edda;
 	padding: 1em 2em;
+}
+.woocommerce-tabs .panel p{
+	font-size: 14px;
 }
 table.shop_attributes th, table.shop_attributes td,
 table.shop_attributes tr:nth-child(2n) td{
@@ -962,13 +965,13 @@ div.post .wri_content_clear_both{
 	.single-product div.product .woocommerce-product-gallery .flex-viewport{
 		min-height: 400px;
 	}
-	.woocommerce-tabs ul.tabs li:first-child{
-		border-left: 1px solid #f6edda;
-	}
 	.woocommerce-tabs ul.tabs li{
 		display: inline-block;
-		width: auto;
+		width: 25%;
 		border-right: 1px solid #f6edda;
+	}
+	.woocommerce-tabs ul.tabs li:last-child{
+		border-right: none;
 	}
 	.related.products ul.products li.product{
 		margin-bottom: 4em;
