@@ -434,7 +434,7 @@ nav.pagination{
 /*SINGLE PRODUCT PAGES*/
 .single-product div.product .woocommerce-product-gallery{
 	border-right: 1px solid #d0a747;
-	background: url(./images/petals_halfleft_bg.png) top right no-repeat;
+	background: url(./images/petals_halfleft_soft_bg.png) top right no-repeat;
 	background-size: auto 400px;
 }
 .single-product div.product .summary h1{
