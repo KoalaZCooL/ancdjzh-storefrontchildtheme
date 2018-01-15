@@ -19,13 +19,13 @@
 </head>
 
 <body <?php body_class(); ?>
-><?php do_action( 'storefront_before_site' ); 
+	><?php do_action( 'storefront_before_site' ); 
 ?><div id="page" class="hfeed site"
 	><?php do_action( 'storefront_before_header' ); 
 ?><header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>"
 		><div id="masthead-tilted-bg-white"></div
 		><img id="masthead-tilted-bg-slope" src="<?=get_stylesheet_directory_uri()?>/images/slope-siteheader.png"
-		><div class="col-full"><?php
+		><div class="col-full">中文<a href="http://www.ausnaturalcare.com.au/"> | English</a><?php
 			/**
 			 * Functions hooked into storefront_header action
 			 *
