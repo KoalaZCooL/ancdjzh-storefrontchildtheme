@@ -104,8 +104,9 @@ Updated: 2017-12-04 14:27:32
 	text-decoration: none;
 }
 .widget-area .widget ul{
+	background-color: rgba(0,0,0,0.7);
 	padding: 0.5em 0;
-	color: #333;
+	color: white;
 }
 .widget-area .widget ul li{
 	padding: 0.5em 1em;
@@ -118,13 +119,13 @@ Updated: 2017-12-04 14:27:32
 .widget-area .widget ul li:before{
 	content: "";
 	border-top: 0.5em solid transparent;
-	border-left: 0.5em solid #333;
+	border-left: 0.5em solid white;
 	border-bottom: 0.5em solid transparent;
 	margin-right: 0;
 	margin-left: 0;
 	opacity: 1;
 }
-.widget-area .widget ul li:hover:before{
+/*.widget-area .widget ul li:hover:before{
 	border-left: 0.5em solid white;
 }
 .widget-area .widget ul li a:not(.button){
@@ -133,7 +134,7 @@ Updated: 2017-12-04 14:27:32
 }
 .widget-area .widget ul li:hover a:not(.button){
 	color: white;
-}
+}*/
 .widget-area .widget ul li.current-cat:before{
 	border-left: 0.5em solid #d0a747;
 }
