@@ -15,6 +15,9 @@ Updated: 2017-12-04 14:27:32
 #f15c2d (orange) 
 #f6edda (cream)
 */
+input[type=number]{
+	-moz-appearance: textfield;/* disable numeric spinner*/
+}
 .f-right{float: right;}
 #post-11 #jiathis_style_32x32, 
 .site-main .yarpp-related .columns-3 .storefront-sorting{
@@ -385,8 +388,10 @@ Updated: 2017-12-04 14:27:32
 	height: 2em;
 }
 .site-main .columns-3 ul.products li.product .quantity .qty::-webkit-inner-spin-button, 
-.site-main .columns-3 ul.products li.product .quantity .qty::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
+.site-main .columns-3 ul.products li.product .quantity .qty::-webkit-outer-spin-button,
+.single-product div.product form.cart .quantity .qty::-webkit-inner-spin-button,
+.single-product div.product form.cart .quantity .qty::-webkit-outer-spin-button{
+  -webkit-appearance: none;
   opacity: 0; 
 }
 .site-main .columns-3 ul.products li.product .cart .button{
@@ -860,6 +865,7 @@ div.post .wri_content_clear_both{
 		padding: 0;
 		padding-left: 1em !important;
 		box-shadow: none;
+		height: 1.28em;
 	}
 	.site-search .widget_product_search form:before{
 		content: "";
