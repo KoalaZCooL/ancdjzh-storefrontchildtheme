@@ -15,9 +15,6 @@ Updated: 2017-12-04 14:27:32
 #f15c2d (orange) 
 #f6edda (cream)
 */
-input[type=number]{
-	-moz-appearance: textfield;/* disable numeric spinner*/
-}
 .f-right{float: right;}
 #post-11 #jiathis_style_32x32, 
 .site-main .yarpp-related .columns-3 .storefront-sorting{
@@ -386,12 +383,11 @@ input[type=number]{
 	background-color: transparent;
 	font-size: 15px;
 	height: 2em;
+	-moz-appearance: textfield;/* disable numeric spinner*/
 }
 .site-main .columns-3 ul.products li.product .quantity .qty::-webkit-inner-spin-button, 
-.site-main .columns-3 ul.products li.product .quantity .qty::-webkit-outer-spin-button,
-.single-product div.product form.cart .quantity .qty::-webkit-inner-spin-button,
-.single-product div.product form.cart .quantity .qty::-webkit-outer-spin-button{
-  -webkit-appearance: none;
+.site-main .columns-3 ul.products li.product .quantity .qty::-webkit-outer-spin-button{
+	-webkit-appearance: none;
   opacity: 0; 
 }
 .site-main .columns-3 ul.products li.product .cart .button{
@@ -485,6 +481,20 @@ nav.pagination{
 	width: 100%;
 	padding-top: 0;
 	padding-bottom: 0;
+	-moz-appearance: textfield;/* disable numeric spinner*/
+}
+.single-product div.product form.cart .quantity .qty::-webkit-inner-spin-button,
+.single-product div.product form.cart .quantity .qty::-webkit-outer-spin-button{
+	-webkit-appearance: none;
+	opacity: 1;
+	background: url(images/anc-qty.png) no-repeat center center;
+	background-size: contain;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 33%;
+	transform: rotate(270deg) scale(3.2);
 }
 .single-product div.product form.cart .button{
 	vertical-align: top;
