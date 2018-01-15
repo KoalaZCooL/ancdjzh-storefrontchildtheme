@@ -31,7 +31,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 	#front page featured products
 	if(is_front_page() ){
-	?><div class="ft-content"><?=woocommerce_get_product_thumbnail()
+	?><div class="ft-content"><?=woocommerce_get_product_thumbnail('medium')
 		?><h2 class="woocommerce-loop-product__title"><?=get_the_title()?></h2
 		><?php
 

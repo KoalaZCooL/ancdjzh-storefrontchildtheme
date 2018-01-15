@@ -41,6 +41,7 @@ Updated: 2017-12-04 14:27:32
 }
 #masthead-tilted-bg-slope{
 	left: 44%;
+	margin-left: -1px;
 }
 .slider-tilted-lyr{
 	background: url(./images/slope-white-sliderbg.png) top right no-repeat;
@@ -240,6 +241,7 @@ Updated: 2017-12-04 14:27:32
 }
 .page-template-template-homepage-php .site-main .columns-4 ul.products li.product img{
 	margin-bottom: 0;
+	width: 85%;
 }
 .page-template-template-homepage-php .site-main .columns-4 ul.products li.product h2{
 	display: inline-block;
@@ -352,6 +354,9 @@ Updated: 2017-12-04 14:27:32
 	padding-left: 15px;
 	padding-right: 15px;
 }
+.site-main .columns-3 ul.products li.product img{
+	width: 85%;
+}
 .site-main .columns-3 ul.products li.product h2{
 	height: 2em;
 }
@@ -389,7 +394,7 @@ Updated: 2017-12-04 14:27:32
 .site-main .columns-3 ul.products li.product .quantity .qty::-webkit-inner-spin-button, 
 .site-main .columns-3 ul.products li.product .quantity .qty::-webkit-outer-spin-button{
 	-webkit-appearance: none;
-  opacity: 0; 
+	opacity: 0; 
 }
 .site-main .columns-3 ul.products li.product .cart .button{
 	display: inline-block;
@@ -850,8 +855,8 @@ div.post .wri_content_clear_both{
 	#site-navigation{
 		width: 100%;
 		margin: 0;
-    padding-right: 10px;
-    text-align: right;
+		padding-right: 10px;
+		text-align: right;
 	}
 	.site-header-cart{
 		width: 10em !important;
