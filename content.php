@@ -9,9 +9,9 @@ $has_thumbnail = has_post_thumbnail();
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 	<div>
 		<a target="_blank" href="<?=get_permalink()?>"
-		><div class="thumbnail-image <?= $has_thumbnail?:'no-img';?>">
+		><div class="thumbnail-image <?= $has_thumbnail?'':'no-img';?>">
 			<?php if ( $has_thumbnail ) {
-				the_post_thumbnail( 'full' );
+				the_post_thumbnail( 'thumbnail' );
 			}?>
 			<div class="caption">
 				<div>全文阅读</div>

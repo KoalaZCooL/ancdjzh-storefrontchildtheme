@@ -718,7 +718,6 @@ article.post .summary-wrapper .author .label a span.f-right{
 
 /*ARTICLE SINGLE PAGE*/
 div.post div.thumbnail-image{
-	float: right;
 }
 div.post .wri_content_clear_both{
 	clear: none;
@@ -764,7 +763,7 @@ div.post .wri_content_clear_both{
 .site-main .yarpp-related .columns-3 ul.products li.product span.price span.amount{
 	font-size: 32px;
 }
-/*EOF ARTICLE SINGEL PAGE*/
+/*EOF ARTICLE SINGLE PAGE*/
 @media (min-width:569px){
 	.site-main .columns-3 ul.products li.product{
 		width: 50%;
@@ -789,6 +788,7 @@ div.post .wri_content_clear_both{
 	}
 	article.post .thumbnail-image img{
 		margin: 0;
+		width: 100%;
 	}
 	article.post .thumbnail-image:hover .caption,
 	article.post .thumbnail-image:hover .caption:hover{
