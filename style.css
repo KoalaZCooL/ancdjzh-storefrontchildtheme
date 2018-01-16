@@ -91,6 +91,35 @@ Updated: 2017-12-04 14:27:32
 .woocommerce-breadcrumb{
 	margin-bottom: 0;
 }
+
+.widget-area .widget .ui-accordion .ui-accordion-header{
+	font-size: 1.41575em;
+	background: transparent;
+	border: none;
+	padding: 0;
+}
+.widget-area .widget .ui-accordion .ui-accordion-header a:not(.button){
+	color: #666666;
+	font-weight: 500;
+}
+.widget-area .widget .ui-accordion .ui-accordion-header .ui-accordion-header-icon{
+	right: 0;
+	height:0;
+	left: unset;
+	background-image: none;
+	border-right: 0.4em solid transparent;
+	border-left: 0.4em solid transparent;
+	border-top: 0.5em solid #d0a747;
+}
+.widget-area .widget .ui-accordion .ui-accordion-header.ui-state-active .ui-accordion-header-icon{
+	border-top: none;
+	border-bottom: 0.5em solid #d0a747;
+}
+.widget-area .widget .ui-accordion .ui-accordion-content{
+	margin-bottom: 0 !important;
+	padding: 0 !important;
+	border: none;
+}
 .widget-area .widget {
 	padding-bottom: 0;
 	margin-bottom: 1em;
