@@ -110,13 +110,14 @@ Updated: 2017-12-04 14:27:32
 	border-right: 0.4em solid transparent;
 	border-left: 0.4em solid transparent;
 	border-top: 0.5em solid #d0a747;
+	margin-top: 0.3em;
+	position: absolute;
 }
 .widget-area .widget .ui-accordion .ui-accordion-header.ui-state-active .ui-accordion-header-icon{
 	border-top: none;
 	border-bottom: 0.5em solid #d0a747;
 }
 .widget-area .widget .ui-accordion .ui-accordion-content{
-	margin-bottom: 0 !important;
 	padding: 0 !important;
 	border: none;
 }
@@ -500,7 +501,7 @@ nav.pagination{
 	position: relative;
 	font-size: 16px;
 	margin: 0;
-	width: 60%;
+	width: 41%;
 }
 .single-product div.product form.cart .quantity:before{
 	content:"数量";
@@ -521,15 +522,39 @@ nav.pagination{
 .single-product div.product form.cart .quantity .qty::-webkit-inner-spin-button,
 .single-product div.product form.cart .quantity .qty::-webkit-outer-spin-button{
 	-webkit-appearance: none;
-	opacity: 1;
-	background: url(images/anc-qty.png) no-repeat center center;
-	background-size: contain;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	width: 33%;
-	transform: rotate(270deg) scale(3.2);
+	opacity: 0;
+}
+.single-product div.product form.cart .qty-nav{
+	width: 19%;
+	height: 1em;
+	font-size: 27px;
+	background: #d0a747;
+	display: inline-block;
+}
+.single-product div.product form.cart .qty-nav .qty-up,
+.single-product div.product form.cart .qty-nav .qty-down{
+	border-right: 0.4em solid transparent;
+	border-left: 0.4em solid transparent;
+	border-bottom: 0.5em solid white;
+	margin: 0.25em 0.3em;
+	float: left;
+	cursor: pointer;
+}
+.single-product div.product form.cart .qty-nav .qty-down{
+	border-top: 0.5em solid white;
+	border-bottom: none;
+}
+.single-product div.product form.cart .qty-nav .qty-up:active,
+.single-product div.product form.cart .qty-nav .qty-down:active{
+	transform: scale(0.9);
+}
+.single-product div.product form.cart .qty-nav .qty-nav-divider{
+	width: 1px;
+	height: 100%;
+	float: left;
+	background: white;
+	border-top: 1px solid #d0a747;
+	border-bottom: 1px solid #d0a747;
 }
 .single-product div.product form.cart .button{
 	vertical-align: top;
