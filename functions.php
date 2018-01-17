@@ -37,9 +37,8 @@ function override_actions_parent_theme() {
 	add_action( 'woocommerce_single_product_summary', 'anc_singleproduct_sellingpoints', 8 );
 	add_action( 'woocommerce_single_product_summary', 'anc_products_usp', 51 );
 };
-add_shortcode( 'anc_frontpage_featured_pages', 'anc_frontpage_featured_pages');
+add_shortcode( 'anc_frontpage_featured', 'anc_frontpage_featured');
 add_filter('woocommerce_is_purchasable', 'anc_homepage_products_filter');
-add_shortcode( 'anc_featured_products', 'anc_featured_products');
 add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
 add_shortcode( 'anc_frontpage_latest_articles', 'anc_frontpage_latest_articles');
 
@@ -128,94 +127,24 @@ if (!function_exists('woocommerce_template_loop_add_to_cart')) {
 }
 //*///
 
-function anc_frontpage_featured_pages( $args ) {
-	ob_start();
-?><section class="anc-featured-pages" aria-label="特 色 板 块">
-		<div class="anc-section-divider"><h2 class="section-title">特 色 板 块</h2></div>
-		<ul class="featured_pages">
-			<li class="feature-page">
-				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/towels.jpg)">
-					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
-						健康产品
-					</div></a>
-				</div>
-				<div class="excerpt">
-					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
-语，并竭力成为忠心的管家，善用主所托付给我们的每
-一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
-				</div>
-			</li>
-			<li class="feature-page">
-				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/beauty.jpg)">
-					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
-						健康产品
-					</div></a>
-				</div>
-				<div class="excerpt">
-					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
-语，并竭力成为忠心的管家，善用主所托付给我们的每
-一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
-				</div>
-			</li>
-			<li class="feature-page">
-				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/vitamin-supplements.jpg)">
-					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
-						健康产品
-					</div></a>
-				</div>
-				<div class="excerpt">
-					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
-语，并竭力成为忠心的管家，善用主所托付给我们的每
-一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
-				</div>
-			</li>
-			<li class="feature-page">
-				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/cocoa-powder.jpg);">
-					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
-						健康产品
-					</div></a>
-				</div>
-				<div class="excerpt">
-					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
-语，并竭力成为忠心的管家，善用主所托付给我们的每
-一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
-				</div>
-			</li>
-			<li class="feature-page">
-				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/sunlight-hands.jpg)">
-					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
-						健康产品
-					</div></a>
-				</div>
-				<div class="excerpt">
-					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
-语，并竭力成为忠心的管家，善用主所托付给我们的每
-一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
-				</div>
-			</li>
-			<li class="feature-page">
-				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/youghurt-strawberry.jpg);">
-					<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><div class="caption">
-						健康产品
-					</div></a>
-				</div>
-				<div class="excerpt">
-					圣经是我们的基础。我们抓紧每个机会去分享上帝的话
-语，并竭力成为忠心的管家，善用主所托付给我们的每
-一项资源。<a target="_blank" href="http://www.ausnaturalcare.com.au/vitamins-supplements"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
-				</div>
-			</li>
-		</ul>
-	</section><?php
-	return ob_get_clean();
-}
+#DIRTY usage of shortcode params using LineBreaks
+#one liners shortcode params will pass the associative array correctly, BUT the page editor will be harder to manage
+function anc_frontpage_featured( $atts ) {
+//	$atts = shortcode_atts(
+//		array(
+//			'urls' => '',
+//			'images' => ''
+//		), $atts
+//	);
 
-//https://wordpress.stackexchange.com/questions/195425/display-featured-products-through-custom-loop-in-woocommerce-on-template-page
-function anc_featured_products( $args ) {
-	ob_start();
+//	$atts['urls'] = explode(';', $atts['urls']);
+//	$atts['images'] = explode(';', $atts['images']);
+
+	//https://wordpress.stackexchange.com/questions/195425/display-featured-products-through-custom-loop-in-woocommerce-on-template-page
+	$shortcode_content_featured_products = '';
 	if ( storefront_is_woocommerce_activated() ) {
 
-		$args = apply_filters( 'storefront_featured_products_args', array(
+		$args_featured_products = apply_filters( 'storefront_featured_products_args', array(
 			'limit'   => 8,
 			'columns' => 4,
 			'orderby' => 'date',
@@ -223,23 +152,46 @@ function anc_featured_products( $args ) {
 			'title'   => __( '特 色 产 品', 'anc' ),
 		) );
 
-		$shortcode_content = storefront_do_shortcode( 'featured_products', apply_filters( 'storefront_featured_products_shortcode_args', array(
-			'per_page' => intval( $args['limit'] ),
-			'columns'  => intval( $args['columns'] ),
-			'orderby'  => esc_attr( $args['orderby'] ),
-			'order'    => esc_attr( $args['order'] ),
+		$shortcode_content_featured_products = storefront_do_shortcode( 'featured_products', apply_filters( 'storefront_featured_products_shortcode_args', array(
+			'per_page' => intval( $args_featured_products['limit'] ),
+			'columns'  => intval( $args_featured_products['columns'] ),
+			'orderby'  => esc_attr( $args_featured_products['orderby'] ),
+			'order'    => esc_attr( $args_featured_products['order'] ),
 		) ) );
-
-		/**
-		 * Only display the section if the shortcode returns products
-		 */
-		if ( false !== strpos( $shortcode_content, 'product' ) ) {
-		?><section class="storefront-product-section storefront-featured-products" aria-label="<?=esc_attr__( 'Featured Products', 'storefront' )?>">
-			<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( $args['title'] )?></h2></div>
-			<?=$shortcode_content #uses the template yourtheme/woocommerce/content-product.php?>
-			</section><?php
-		}
 	}
+	ob_start();
+?><section class="anc-featured-pages desktop" aria-label="特 色 板 块">
+		<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( __( '特 色 板 块', 'anc' ) )?></h2></div>
+		<ul class="featured_pages">
+			<?php $l = 0;
+			if(is_array($atts) )
+			foreach ($atts as $featured_page) {
+				if(empty(str_replace(['<p>','</p>'], '', trim($featured_page))) ){	continue;}
+				$featured_page = explode(';', $featured_page);
+			?><li class="feature-page">
+				<div class="thumbnail" style="background-image: url(<?=$featured_page[1]?>)">
+					<a target="_blank" href="<?=$featured_page[0]?>"><div class="caption">
+						健康产品
+					</div></a>
+				</div>
+				<div class="excerpt">
+					<?=$featured_page[2]?>
+					<a target="_blank" href="<?=$featured_page[0]?>"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
+				</div>
+			</li>
+			<?php $l++;}?>
+		</ul>
+	</section><?php
+	/**
+	 * Only display the section if the featured products shortcode returns products
+	 */
+	if ( false !== strpos( $shortcode_content_featured_products, 'product' ) ) {
+	?><section class="storefront-product-section storefront-featured-products" aria-label="<?=esc_attr__( 'Featured Products', 'storefront' )?>">
+		<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( $args_featured_products['title'] )?></h2></div>
+		<?=$shortcode_content_featured_products #uses the template yourtheme/woocommerce/content-product.php?>
+		</section><?php
+	}
+	
 	return ob_get_clean();
 }
 
