@@ -44,7 +44,7 @@ add_shortcode( 'anc_frontpage_latest_articles', 'anc_frontpage_latest_articles')
 
 function custom_excerpt_more( $more ) {
 //	global $post;get_permalink().
-	return '<a target="_blank" href="'.get_permalink().'"><span class="readmore">全文阅读</span></a>';
+	return '<a href="'.get_permalink().'"><span class="readmore">全文阅读</span></a>';
 }
 add_filter( 'excerpt_more', 'custom_excerpt_more' );
 
@@ -206,13 +206,13 @@ function anc_frontpage_featured( $atts ) {
 				<ul class="subcategories">
 				<?php foreach ($product_subcategories as $subcat) {?>
 					<li class="cat">
-						<a target="_blank" href="/product-category/<?=$subcat->name?>"><?=$subcat->name?></a>
+						<a href="/product-category/<?=$subcat->name?>"><?=$subcat->name?></a>
 					</li>
 				<?php }?>
 				</ul>
 			</li><li class="feature-page">
 				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/cinnamon.jpg)">
-					<a target="_blank" href="/blog"><div class="caption">
+					<a href="/blog"><div class="caption">
 						健康信息
 					</div></a>
 				</div>
@@ -246,9 +246,9 @@ function anc_frontpage_latest_articles( $args ) {
 		<ul class="featured_pages"><?php
 		foreach ($recent_posts as $v) {
 			$post_thumbnail_id = get_post_thumbnail_id( $v['ID'] );
-			$readmore = '<a target="_blank" href="'.$v['guid'].'"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>';
+			$readmore = '<a href="'.$v['guid'].'"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>';
 		?><li class="feature-page">
-				<a target="_blank" href="<?=$v['guid']?>"><div class="article thumbnail" <?php if($post_thumbnail_id){?>style="background-image: url(<?=get_the_post_thumbnail_url($v['ID'])?>)"<?php }?> >
+				<a href="<?=$v['guid']?>"><div class="article thumbnail" <?php if($post_thumbnail_id){?>style="background-image: url(<?=get_the_post_thumbnail_url($v['ID'])?>)"<?php }?> >
 					<div class="goto">
 						<img src="<?=get_stylesheet_directory_uri()?>/images/petals_halftop.png">
 						全文阅读
