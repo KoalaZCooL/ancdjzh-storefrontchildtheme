@@ -48,31 +48,31 @@ function custom_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'custom_excerpt_more' );
 
-function search_autocomplete() {
-	echo '
+function search_autocomplete() {?>
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<script src="//code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script>
-			jQuery(function($){
+			jQuery(function(){
 				var availableTags = [
-				';
-			// Get All Products 
-			$args = array(
-				'post_type'     =>  'product', // Get Product Post Type
-				'numberposts'   =>  -1,        // Display all Products
-				'order'         =>  'ASC'      // Order By Ascend
-			);
+			<?php
+					// Get All Products 
+					$args = array(
+						'post_type'     =>  'product', // Get Product Post Type
+						'numberposts'   =>  -1,        // Display all Products
+						'order'         =>  'ASC'      // Order By Ascend
+					);
 
-			// Get All Products & data
-			$selectableOptions = get_posts( $args );
+					// Get All Products & data
+					$selectableOptions = get_posts( $args );
 
-			// Loop though each product and display their titles.
-			foreach ($selectableOptions as $key => $val){
-				$products = '"' . sanitize_text_field( $val->post_title ) . '",';
-				echo $products;
-			}
-				echo '
+					// Loop though each product and display their titles.
+					foreach ($selectableOptions as $key => $val)
+					{
+						$products = '"' . sanitize_text_field( $val->post_title ) . '",';
+						echo $products;
+					}
+			?>
 				];
 				jQuery( "#woocommerce-product-search-field-0" ).autocomplete({
 					source: availableTags,
@@ -87,7 +87,7 @@ function search_autocomplete() {
 				});
 			});
 		</script>
-';
+	<?php
 }
 add_action('wp_footer', 'search_autocomplete');
 
@@ -160,7 +160,7 @@ function anc_frontpage_featured( $atts ) {
 		) ) );
 	}
 	ob_start();
-?><section class="anc-featured-pages desktop" aria-label="特 色 板 块">
+?><section class="anc-featured-pages hide-on-mobile" aria-label="特 色 板 块">
 		<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( __( '特 色 板 块', 'anc' ) )?></h2></div>
 		<ul class="featured_pages">
 			<?php $l = 0;
@@ -191,6 +191,29 @@ function anc_frontpage_featured( $atts ) {
 		<?=$shortcode_content_featured_products #uses the template yourtheme/woocommerce/content-product.php?>
 		</section><?php
 	}
+
+?><section class="anc-featured-pages hide-on-desktop" aria-label="特 色 板 块">
+		<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( __( '特 色 板 块', 'anc' ) )?></h2></div>
+		<ul class="featured_pages">
+			<?php $l = 0;
+			if(is_array($atts) )
+			foreach ($atts as $featured_page) {
+				if(empty(str_replace(['<p>','</p>'], '', trim($featured_page))) ){	continue;}
+				$featured_page = explode(';', $featured_page);
+			?><li class="feature-page">
+				<div class="thumbnail" style="background-image: url(<?=$featured_page[1]?>)">
+					<a target="_blank" href="<?=$featured_page[0]?>"><div class="caption">
+						健康产品
+					</div></a>
+				</div>
+				<div class="excerpt">
+					<?=$featured_page[2]?>
+					<a target="_blank" href="<?=$featured_page[0]?>"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
+				</div>
+			</li>
+			<?php $l++;}?>
+		</ul>
+	</section><?php
 	
 	return ob_get_clean();
 }
