@@ -627,14 +627,14 @@ ul.sellingpoints li:before{
 .woocommerce-tabs ul.tabs li{
 	display: inline-block;
 	border: none;
-	width: 50%;
+	width: 100%;
 }
 .woocommerce-tabs ul.tabs li.active{
 	background-color: #f6edda;
 }
 .woocommerce-tabs ul.tabs li a{
 	font-size: 16px;
-	padding: 1em 2em;
+	padding: 1em 0;
 	color: white;
 }
 .woocommerce-tabs .panel{
@@ -1011,7 +1011,6 @@ div.post .wri_content_clear_both{
 		min-height: 400px;
 	}
 	.woocommerce-tabs ul.tabs li{
-		display: inline-block;
 		width: 25%;
 		border-right: 1px solid #f6edda;
 	}
@@ -1238,12 +1237,33 @@ div.post .wri_content_clear_both{
 	.single-product div.product form.cart .button.tinvwl_add_to_wishlist_button{
 		left: 0.5em;
 	}
-	.related.products ul.products li.product{
-		margin: 0;
-		border-top: 1px solid #d0a747;
+	.woocommerce-tabs ul.tabs{
+		background-color: transparent;
 	}
-	.related.products ul.products li.product:first-child{
-		border-top: none;
+	.woocommerce-tabs ul.tabs li{
+		border-bottom: 1px solid #4c4c4c;
+	}
+	.woocommerce-tabs ul.tabs li:first-child{
+		border-top: 1px solid #4c4c4c;
+	}
+	.woocommerce-tabs ul.tabs li a{
+		padding: 0.2em 0;
+		color: #4c4c4c;
+	}
+	.related.products ul.products li.product{
+		display: none;
+		width: 49%;
+		margin: 0;
+	}
+	.related.products ul.products li.product:first-child,
+	.related.products ul.products li.product:nth-child(2){
+		display: inline-block;
+	}
+	.related.products ul.products li.product:nth-child(2){
+		border-left: 1px solid #d0a747;
+	}
+	.related.products ul.products li.product h2{
+		font-size: 1em;
 	}
 	article.post{
 		margin-bottom: 4em;
