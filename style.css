@@ -1199,8 +1199,18 @@ div.post .wri_content_clear_both{
 		color: white;
 		right: 1em;
 	}
+	.widget-area .widget{
+		display: none;
+	}
 	.site-main .columns-3 ul.products li.product{
+		width: 50%;
+		padding: 0 0.4rem;
+	}
+	.site-main .columns-3 ul.products li.product img{
 		width: 100%;
+	}
+	.site-main .columns-3 ul.products li.product h2{
+		font-size: 0.7rem;
 	}
 	.single-product div.product .woocommerce-product-gallery{
 		margin-bottom: 0;
@@ -1249,6 +1259,10 @@ div.post .wri_content_clear_both{
 	.woocommerce-tabs ul.tabs li a{
 		padding: 0.2em 0;
 		color: #4c4c4c;
+	}
+	.related.products h2{
+		font-weight: 500;
+		font-size: 1.25em;
 	}
 	.related.products ul.products li.product{
 		display: none;
