@@ -159,6 +159,8 @@ function anc_frontpage_featured( $atts ) {
 			'order'    => esc_attr( $args_featured_products['order'] ),
 		) ) );
 	}
+
+	$product_subcategories = get_terms(['taxonomy'   => "product_cat"]);
 	ob_start();
 ?><section class="anc-featured-pages hide-on-mobile" aria-label="特 色 板 块">
 		<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( __( '特 色 板 块', 'anc' ) )?></h2></div>
@@ -170,13 +172,13 @@ function anc_frontpage_featured( $atts ) {
 				$featured_page = explode(';', $featured_page);
 			?><li class="feature-page">
 				<div class="thumbnail" style="background-image: url(<?=$featured_page[1]?>)">
-					<a target="_blank" href="<?=$featured_page[0]?>"><div class="caption">
+					<a href="<?=$featured_page[0]?>"><div class="caption">
 						健康产品
 					</div></a>
 				</div>
 				<div class="excerpt">
 					<?=$featured_page[2]?>
-					<a target="_blank" href="<?=$featured_page[0]?>"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
+					<a href="<?=$featured_page[0]?>"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
 				</div>
 			</li>
 			<?php $l++;}?>
@@ -195,23 +197,26 @@ function anc_frontpage_featured( $atts ) {
 ?><section class="anc-featured-pages hide-on-desktop" aria-label="特 色 板 块">
 		<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( __( '特 色 板 块', 'anc' ) )?></h2></div>
 		<ul class="featured_pages">
-			<?php $l = 0;
-			if(is_array($atts) )
-			foreach ($atts as $featured_page) {
-				if(empty(str_replace(['<p>','</p>'], '', trim($featured_page))) ){	continue;}
-				$featured_page = explode(';', $featured_page);
-			?><li class="feature-page">
-				<div class="thumbnail" style="background-image: url(<?=$featured_page[1]?>)">
-					<a target="_blank" href="<?=$featured_page[0]?>"><div class="caption">
-						健康产品
+			<li class="feature-page">
+				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/banner_beauty.jpg)">
+					<div class="caption">
+						产品分类
+					</div>
+				</div>
+				<ul class="subcategories">
+				<?php foreach ($product_subcategories as $subcat) {?>
+					<li class="cat">
+						<a target="_blank" href="/product-category/<?=$subcat->name?>"><?=$subcat->name?></a>
+					</li>
+				<?php }?>
+				</ul>
+			</li><li class="feature-page">
+				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/cinnamon.jpg)">
+					<a target="_blank" href="/blog"><div class="caption">
+						健康信息
 					</div></a>
 				</div>
-				<div class="excerpt">
-					<?=$featured_page[2]?>
-					<a target="_blank" href="<?=$featured_page[0]?>"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
-				</div>
 			</li>
-			<?php $l++;}?>
 		</ul>
 	</section><?php
 	
@@ -236,8 +241,8 @@ function anc_frontpage_latest_articles( $args ) {
 
 	$recent_posts = wp_get_recent_posts( $qry, ARRAY_A );
 	ob_start();
-?><section class="anc-featured-pages" aria-label="健 康 信 息">
-		<div class="anc-section-divider"><h2 class="section-title">健 康 信 息</h2></div>
+?><section class="anc-featured-pages hide-on-mobile" aria-label="健 康 信 息">
+		<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( __( '健 康 信 息', 'anc' ) )?></h2></div>
 		<ul class="featured_pages"><?php
 		foreach ($recent_posts as $v) {
 			$post_thumbnail_id = get_post_thumbnail_id( $v['ID'] );
