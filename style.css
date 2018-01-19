@@ -364,14 +364,14 @@ Updated: 2017-12-04 14:27:32
 .site-main .columns-3 ul.products li.product h2{
 	height: 2em;
 }
-.site-main .columns-3  ul.products li.product span.price{
+.site-main .columns-3 ul.products li.product span.price{
 	border-top: 1px solid #d0a747;
 	font-size: 16px;
 	font-weight: 200;
 	margin-bottom: 0;
 	color: black;
 }
-.site-main .columns-3  ul.products li.product span.price span.amount{
+.site-main .columns-3 ul.products li.product span.price span.amount{
 	font-size: 2em;
 	margin-left: 1em;
 }
@@ -1211,6 +1211,9 @@ div.post .wri_content_clear_both{
 	}
 	.site-main .columns-3 ul.products li.product h2{
 		font-size: 0.7rem;
+	}
+	.site-main .columns-3 ul.products li.product span.price span.amount{
+		margin: 0;
 	}
 	.single-product div.product .woocommerce-product-gallery{
 		margin-bottom: 0;
