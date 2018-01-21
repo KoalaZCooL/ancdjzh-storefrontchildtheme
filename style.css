@@ -1223,6 +1223,9 @@ div.post .wri_content_clear_both{
 		margin: 0 auto;
 		width: auto;
 	}
+	.single-product div.product .woocommerce-product-gallery .zoomImg{
+		display: none !important;
+	}
 	.single-product div.product .summary{
 		text-align: center;
 	}
