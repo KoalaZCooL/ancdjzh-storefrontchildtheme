@@ -1217,6 +1217,7 @@ div.post .wri_content_clear_both{
 	}
 	.single-product div.product .woocommerce-product-gallery{
 		margin-bottom: 0;
+		background-size: contain;
 	}
 	.single-product div.product .woocommerce-product-gallery img{
 		max-height: 200px;
@@ -1251,7 +1252,7 @@ div.post .wri_content_clear_both{
 		display: none;
 	}
 	.single-product div.product form.cart .button.tinvwl_add_to_wishlist_button{
-		left: 0.5em;
+		left: 0;
 	}
 	.woocommerce-tabs ul.tabs{
 		background-color: transparent;
