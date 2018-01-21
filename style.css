@@ -28,7 +28,6 @@ Updated: 2017-12-04 14:27:32
 	background-repeat: no-repeat;
 	background-position: top right;
 	border-bottom: 1px solid #d0a747;
-	/*overflow: hidden;*/
 	padding-top: 0;
 }
 #masthead-tilted-bg-white, #masthead-tilted-bg-slope{
@@ -1070,18 +1069,30 @@ div.post .wri_content_clear_both{
 	.hide-on-desktop{
 		display: initial;
 	}
+	#masthead-tilted-bg-white, #masthead-tilted-bg-slope,
 	.hide-on-mobile{
 		display: none;
+	}
+	.site-header{
+		background-image: url(images/anc_logo_white.png) !important;
+		background-position: center;
+		background-size: 50vw;
+		padding: 0;
 	}
 	.col-full{
 		margin-left: 0;
 		margin-right: 0;
 	}
-	#masthead-tilted-bg-slope{
-		margin-left: -1px;
+	#curr-zh{
+		color: #b8860b;
+	}
+	#goto-en{
+		color: white;
 	}
 	.site-header .site-branding{
-		max-width: 50%;
+		max-width: 100%;
+		width: 100%;
+		opacity: 0;
 	}
 	.site-header .site-branding .custom-logo{
 		max-width: 88%;
