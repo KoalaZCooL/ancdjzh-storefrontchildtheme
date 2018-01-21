@@ -1074,7 +1074,7 @@ div.post .wri_content_clear_both{
 		display: none;
 	}
 	.site-header{
-		background-image: url(images/anc_logo_white.png) !important;
+		background-image: none !important;
 		background-position: center;
 		background-size: 50vw;
 		padding: 0;
@@ -1090,18 +1090,27 @@ div.post .wri_content_clear_both{
 		color: white;
 	}
 	.site-header .site-branding{
-		max-width: 100%;
 		width: 100%;
-		opacity: 0;
+		background-image: url(images/anc_logo_white.png);
+		background-size: contain;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	.site-header .site-branding .custom-logo-link{
+		width: 100%;
 	}
 	.site-header .site-branding .custom-logo{
-		max-width: 88%;
+		margin: 0 auto;
+		opacity: 0;
 	}
-	.main-navigation ul.menu>li>a, .main-navigation ul.nav-menu>li>a{
-		color: #d0a747;
-		padding-bottom: 0;
+	button.menu-toggle{
+		float: left;
+		border: none;
 	}
-	.site-header ul.menu li.current-menu-item > a{
+	.main-navigation .menu li>a{
+		padding: 0.5em;
+	}
+	.site-header .menu li.current_page_item > a{
 		color: #666;
 	}
 	.woocommerce-breadcrumb{
