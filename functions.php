@@ -93,7 +93,7 @@ add_action('wp_footer', 'search_autocomplete');
 
 function storefront_primary_navigation() {
 	?><nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>"
-	><button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?=esc_attr( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) )?></span></button><?php
+	><button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?=esc_attr( apply_filters( 'storefront_menu_toggle_text', __( '菜单', 'storefront' ) ) )?></span></button><?php
 		wp_nav_menu(
 			array(
 				'theme_location'	=> 'primary',
@@ -110,6 +110,10 @@ function storefront_primary_navigation() {
 				)
 		);
 		?></nav><!-- #site-navigation --><?php
+}
+
+function storefront_handheld_footer_bar_account_link() {
+	echo '<a></a>';//do_shortcode('[responsive_menu]').
 }
 
 //https://wordpress.stackexchange.com/questions/107141/check-if-current-page-is-the-blog-page
@@ -377,7 +381,7 @@ function anc_products_usp() {?>
 function storefront_credit() {
 	?>
 	<div class="site-info">
-		版权所有ANC健康私人有限公司2017年
+		版权所有ANC健康私人有限公司2018年
 		<span class="f-right">免责声明</span>
 	</div><!-- .site-info -->
 	<?php

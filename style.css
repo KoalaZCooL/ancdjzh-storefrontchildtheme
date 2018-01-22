@@ -1103,9 +1103,15 @@ div.post .wri_content_clear_both{
 		margin: 0 auto;
 		opacity: 0;
 	}
-	button.menu-toggle{
-		float: left;
-		border: none;
+	.storefront-handheld-footer-bar ul li.my-account > a:before{
+		content: none;
+	}
+	#responsive-menu-button{
+		background: transparent !important;
+		top: unset !important;
+		right: unset !important;
+		bottom: 0.5em;
+		left: 8vw;
 	}
 	.main-navigation .menu li>a{
 		padding: 0.5em;
