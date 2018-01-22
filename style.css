@@ -1419,4 +1419,8 @@ div.post .wri_content_clear_both{
 	.storefront-handheld-footer-bar .ui-autocomplete .ui-menu-item{
 		width: 100%;
 	}
+	#post-11{
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
 }

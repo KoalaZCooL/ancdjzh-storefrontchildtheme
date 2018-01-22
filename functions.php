@@ -165,6 +165,7 @@ function anc_frontpage_featured( $atts ) {
 	}
 
 	$product_subcategories = get_terms(['taxonomy'   => "product_cat"]);
+	$blog_subcategories = get_categories();
 	ob_start();
 ?><section class="anc-featured-pages hide-on-mobile" aria-label="特 色 板 块">
 		<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( __( '特 色 板 块', 'anc' ) )?></h2></div>
@@ -216,10 +217,19 @@ function anc_frontpage_featured( $atts ) {
 				</ul>
 			</li><li class="feature-page">
 				<div class="thumbnail" style="background-image: url(/wp-content/uploads/2017/12/cinnamon.jpg)">
-					<a href="/blog"><div class="caption">
+					<div class="caption">
 						健康信息
-					</div></a>
+					</div>
 				</div>
+				<ul class="subcategories">
+				<?php foreach ($blog_subcategories as $blogcat) {
+					if($blogcat->category_count > 11){continue;}
+//['自然生活','营养保健','维生素','减肥']?>
+					<li class="cat">
+						<a href="/category/<?=$blogcat->name?>"><?=$blogcat->name?></a>
+					</li>
+				<?php }//*///?>
+				</ul>
 			</li>
 		</ul>
 	</section><?php
