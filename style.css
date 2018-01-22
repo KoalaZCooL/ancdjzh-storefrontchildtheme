@@ -1410,6 +1410,14 @@ div.post .wri_content_clear_both{
 	article.post{
 		margin-bottom: 4em;
 	}
+	.content-area .post .entry-title{
+		text-align: center;
+	}
+	.content-area .post .author .label,
+	.content-area .post p:not(.wri-thumbnail-excerpt){
+		padding-left: 1em;
+		padding-right: 1em;
+	}
 	.site-main .yarpp-related .columns-3 ul.products li.product{
 		width: 100%;
 		padding: 0;
