@@ -590,15 +590,19 @@ ul.sellingpoints li:before{
 
 .anc-prod-usp li {
 	font-size: 16px;
-	width: 50%;
+	width: 48%;
 	height: 2em;
 	line-height: 1;
 	padding-left: 2.4em;
 	display: inline-block;
 	vertical-align: middle;
 	margin-bottom: 1em;
+	margin-left: 2%;
 	background: url(./images/petals_full.png) no-repeat left top;
 	background-size: contain;
+}
+.anc-prod-usp li:nth-child(2n){
+	margin-left: 0;
 }
 
 .anc-prod-usp li span {
@@ -650,6 +654,10 @@ table.shop_attributes tr:nth-child(2n) td{
 	border-bottom: 1px solid #d0a747;
 }
 table.shop_attributes th{width:7em;}
+.related.products h2{
+	font-weight: bold;
+	font-size: 1.25em;
+}
 .related.products ul.products{
 	text-align: center;
 	font-size: 0;/*css tricks to fix empty spaces for inline-blocks*/
@@ -1380,10 +1388,9 @@ div.post .wri_content_clear_both{
 	.product-mobile-tabs .tab [type="checkbox"]:checked ~ .tab-panel {
 		display: inline;
 	}
-
-	.related.products h2{
-		font-weight: 500;
-		font-size: 1.25em;
+	.related.products h2,
+	.yarpp-related h3{
+		text-align: center;
 	}
 	.related.products ul.products li.product{
 		display: none;
