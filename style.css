@@ -1067,7 +1067,7 @@ div.post .wri_content_clear_both{
 }
 @media (max-width:568px) {
 	.hide-on-desktop{
-		display: initial;
+		display: block;
 	}
 	#masthead-tilted-bg-white, #masthead-tilted-bg-slope,
 	.hide-on-mobile{
@@ -1280,6 +1280,7 @@ div.post .wri_content_clear_both{
 	.single-product div.product form.cart .button.tinvwl_add_to_wishlist_button{
 		left: 0;
 	}
+
 	.woocommerce-tabs ul.tabs{
 		background-color: transparent;
 	}
@@ -1293,6 +1294,93 @@ div.post .wri_content_clear_both{
 		padding: 0.2em 0;
 		color: #4c4c4c;
 	}
+
+	.product-mobile-tabs {
+		font-size: 0;
+		margin-bottom: 32px;
+		border-bottom: 1px solid #4c4c4c;
+	}
+
+	.product-mobile-tabs:after {
+		clear: both;
+		content: '';
+		display: table;
+	}
+
+	.product-mobile-tabs .tab {
+		display: inline-block;
+		width: 100%;
+	}
+
+	.product-mobile-tabs .tab-label {
+		border-top: 1px solid #4c4c4c;
+		display: inline-block;
+		font-size: 16px;
+		font-size: 1rem;
+		left: 1px;
+		margin-left: -1px;
+		padding: 0.5em; 
+		position: relative;
+		width: 100%;
+		text-align: center;
+	}
+	.product-mobile-tabs .tab-label:after{
+		font: normal normal normal 1em/1 FontAwesome;
+    position: absolute;
+		top: 0.75em;
+		right: 1em;
+		content: "\f0d7";
+		color: #d0a747;
+	}
+
+	.product-mobile-tabs .tab > [type="checkbox"] {
+		clip: rect(0 0 0 0);
+		height: 1px;
+		opacity: 0;
+		position: fixed;
+		width: 1px;
+		z-index: -1;
+	}
+
+	.product-mobile-tabs .tab-panel {
+		display: inline;
+		display: inline-block;
+		overflow: hidden;
+		position: relative;
+		height: 0;
+		width: 0;
+	}
+
+	.product-mobile-tabs .tab-content {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		display: block;
+		background: #f6edda;
+		padding: 1em;
+		border: 1px solid #4c4c4c;
+		border-top: none;
+		float: left;
+		font-size: 16px;
+		font-size: 1rem;
+		margin-bottom: -1px;
+		width: 100%;
+	}
+
+	.product-mobile-tabs .tab [type="checkbox"]:checked + .tab-label {
+		border-left: 1px solid #4c4c4c;
+		border-right: 1px solid #4c4c4c;
+		border-bottom: 1px solid #d0a747;
+		background: #f6edda;
+	}
+	.product-mobile-tabs .tab [type="checkbox"]:checked + .tab-label:after {
+		content: '\f0d8';
+	}
+
+	.product-mobile-tabs .tab [type="checkbox"]:checked ~ .tab-panel {
+		display: inline;
+	}
+
 	.related.products h2{
 		font-weight: 500;
 		font-size: 1.25em;
