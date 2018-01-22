@@ -1111,16 +1111,6 @@ div.post .wri_content_clear_both{
 		margin: 0 auto;
 		opacity: 0;
 	}
-	.storefront-handheld-footer-bar ul li.my-account > a:before{
-		content: none;
-	}
-	#responsive-menu-button{
-		background: transparent !important;
-		top: unset !important;
-		right: unset !important;
-		bottom: 0.5em;
-		left: 8vw;
-	}
 	.main-navigation .menu li>a{
 		padding: 0.5em;
 	}
@@ -1334,7 +1324,7 @@ div.post .wri_content_clear_both{
 	}
 	.product-mobile-tabs .tab-label:after{
 		font: normal normal normal 1em/1 FontAwesome;
-    position: absolute;
+		position: absolute;
 		top: 0.75em;
 		right: 1em;
 		content: "\f0d7";
@@ -1429,10 +1419,27 @@ div.post .wri_content_clear_both{
 	.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail{
 		width: 100%;
 	}
-	.storefront-handheld-footer-bar .ui-autocomplete{
+	.storefront-handheld-footer-bar ul li>a{
+		height: 3em;
+	}
+	.storefront-handheld-footer-bar ul li > a:before{
+		line-height: 1.8;
+	}
+	.storefront-handheld-footer-bar ul li.my-account > a:before{
+		content: none;
+	}
+	#responsive-menu-button{
+		background: transparent !important;
+		top: unset !important;
+		right: unset !important;
+		bottom: 0;
+		left: 8vw;
 	}
 	.storefront-handheld-footer-bar .ui-autocomplete .ui-menu-item{
 		width: 100%;
+	}
+	.storefront-handheld-footer-bar ul li.cart .count{
+		top: 0.4em;
 	}
 	#post-11{
 		margin-bottom: 0;
