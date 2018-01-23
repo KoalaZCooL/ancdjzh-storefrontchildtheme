@@ -7,9 +7,9 @@
 $has_thumbnail = has_post_thumbnail();
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
-	<div>
-		<a target="_blank" href="<?=get_permalink()?>"
-		><div class="thumbnail-image <?= $has_thumbnail?'':'no-img';?>">
+	<div class="posts-wrapper">
+		<a href="<?=get_permalink()?>"
+		><div class="thumbnail-image <?= $has_thumbnail?'':'no-img';?>" >
 			<?php if ( $has_thumbnail ) {
 				the_post_thumbnail( 'thumbnail' );
 			}?>
@@ -19,7 +19,7 @@ $has_thumbnail = has_post_thumbnail();
 		</div
 		></a>
 		
-		<div class="summary-wrapper <?= $has_thumbnail?:'no-img';?>">
+		<div class="summary-wrapper <?= $has_thumbnail?'':'no-img';?>">
 			<?php if ( is_single() ) {
 				the_title( '<span class="entry-title">', '</span>' );
 			} else {
@@ -28,12 +28,13 @@ $has_thumbnail = has_post_thumbnail();
 			<div class="excerpt">
 				<?=get_the_excerpt()?>
 			</div>
+			<?php if ( 'post' == get_post_type() ) {?>
 			<div class="author">
-				<?php if ( 'post' == get_post_type() ) {?>
-					<div class="label"><?= esc_attr( __( '作者: ', 'storefront' ) ); the_author_posts_link(); ?> <?php storefront_posted_on();
-					?><a target="_blank" href="<?=get_permalink()?>"><span class="f-right">全文阅读</span></a><?php
-				?></div><?php }?>
+				<div class="label">
+				<?= esc_attr( __( '作者: ', 'storefront' ) ); the_author_posts_link(); ?> <?php storefront_posted_on();?>
+				</div>
 			</div>
+			<?php }?>
 		</div>
 	</div>
 <?php

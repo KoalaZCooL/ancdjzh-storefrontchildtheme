@@ -714,9 +714,6 @@ span.readmore{
 	color: #d0a747;
 	font-weight: 400;
 }
-article.post span.readmore{
-	display: none;
-}
 .related.products ul.products li.product .cart,
 .site-main .yarpp-related ul.products li.product .cart,
 .site-main .yarpp-related ul.products li.product .tinv-wraper.tinv-wishlist{
@@ -727,9 +724,19 @@ article.post span.readmore{
 article.post{
 	margin-top: 5px;
 	margin-bottom: 2em;
-}	
+}
 article.post .thumbnail-image {
+	width: 7em;
+	height: 7em;
+	display: inline-block;
 	position: relative;
+}
+article.post .thumbnail-image.no-img{
+	display: none;
+}
+article.post .thumbnail-image img{
+	margin: 0;
+	width: 100%;
 }
 article.post .thumbnail-image .caption{
 	height: 100%;
@@ -750,6 +757,24 @@ article.post .thumbnail-image .caption div{
 	background-size: contain;
 	padding-top: 2em;
 }
+article.post .summary-wrapper{
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	height: 7em;
+	width: 80%;
+	width: calc(100% - 8.2em);
+	padding-left: 0;
+	margin-left: 1em;
+	border-bottom: 1px solid #d0a747;
+}
+article.post .summary-wrapper.no-img{
+	width: 100%;
+	height: auto;
+	margin-top:2em;
+	margin-left: 0;
+	padding-left:0;
+}
 article.post .summary-wrapper .entry-title{
 	font-size: 1em;
 	margin-bottom:1em;
@@ -763,7 +788,13 @@ article.post .summary-wrapper .excerpt{
 	font-size: 0.8em;
 }
 article.post .summary-wrapper .author{
-	border-bottom: 1px solid #d0a747;
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+}
+article.post .summary-wrapper.no-img .author{
+	position: initial;
+	margin-top:1em;
 }
 article.post .summary-wrapper .author .label a{
 	color:#666;
@@ -835,48 +866,9 @@ div.post .wri_content_clear_both{
 	.related.products ul.products li.product:first-child{
 		border-left:none;
 	}
-	article.post .thumbnail-image {
-		display: inline-block;
-		width: 7em;
-		height: 7em;
-	}
-	article.post .thumbnail-image.no-img{
-		display: none;
-	}
-	article.post .thumbnail-image img{
-		margin: 0;
-		width: 100%;
-	}
 	article.post .thumbnail-image:hover .caption,
 	article.post .thumbnail-image:hover .caption:hover{
 		opacity: 1;
-	}
-	article.post .summary-wrapper{
-		display: inline-block;
-		vertical-align: top;
-		position: relative;
-		height: 7em;
-		width: 80%;
-		width: calc(100% - 8em);
-		padding-left:1em;
-		margin-left: 0;
-	}
-	article.post .summary-wrapper.no-img{
-		width: 100%;
-		height: auto;
-		margin-top:2em;
-		margin-left: 0;
-		padding-left:0;
-	}
-	article.post .summary-wrapper .author{
-		position: absolute;
-		bottom: 0;
-		margin: 0;
-		width: 100%;
-	}
-	article.post .summary-wrapper.no-img .author{
-		position: initial;
-		margin-top:1em;
 	}
 	.site-main .yarpp-related .columns-3 ul.products li.product{
 		float: left;
@@ -1028,12 +1020,8 @@ div.post .wri_content_clear_both{
 		margin-bottom: 4em;
 	}
 	article.post .thumbnail-image {
-		display: inline-block;
 		width: 10em;
 		height: 10em;
-	}
-	article.post .thumbnail-image img{
-		margin: 0;
 	}
 	article.post .thumbnail-image:hover .caption,
 	article.post .thumbnail-image:hover .caption:hover{
@@ -1041,7 +1029,7 @@ div.post .wri_content_clear_both{
 	}
 	article.post .summary-wrapper{
 		height: 10em;
-		width: calc(100% - 11em);
+		width: calc(100% - 11.2em);
 	}
 	.anc-featured-pages ul.featured_pages li.feature-page .article.thumbnail:hover .goto{
 		opacity: 1;
@@ -1128,6 +1116,9 @@ div.post .wri_content_clear_both{
 		font-size: 0.8em !important;
 		top: 1em;
 		left: 1em;
+	}
+	.anc-page-intro, .blognshop-intro{
+		padding: 0 1em;
 	}
 	.anc-featured-pages ul.featured_pages li.feature-page{
 		width: 100%;
@@ -1238,6 +1229,13 @@ div.post .wri_content_clear_both{
 	}
 	.site-main .columns-3 ul.products li.product span.price span.amount{
 		margin: 0;
+	}
+	.pagination .page-numbers, .woocommerce-pagination .page-numbers{
+		text-align: center;
+	}
+	.pagination .page-numbers li .page-numbers:not(.current), .woocommerce-pagination .page-numbers li .page-numbers:not(.current),
+	.pagination .page-numbers li .page-numbers.current, .woocommerce-pagination .page-numbers li .page-numbers.current{
+		padding: 0 11px;
 	}
 	.single-product div.product .woocommerce-product-gallery{
 		margin-bottom: 0;
@@ -1398,12 +1396,47 @@ div.post .wri_content_clear_both{
 		font-size: 1em;
 	}
 	article.post{
-		margin-bottom: 4em;
+		margin: 2em 16px 1em;
+		border-bottom: 1px solid #d0a747;
 	}
-	.content-area .post .entry-title{
-		text-align: center;
+	article.post .thumbnail-image {
+		width: 30%;
 	}
-	.content-area .post .author .label,
+	article.post .summary-wrapper{
+		height: auto;
+		width: 66%;
+		padding-left: 0;
+		margin-left: 2%;
+		border-bottom: none;
+	}
+	article.post .summary-wrapper.no-img{
+		margin-top: 0;
+	}
+	article.post .summary-wrapper .entry-title{
+		margin-bottom: 0;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+	article.post .summary-wrapper .excerpt{
+		text-overflow: ellipsis;
+		overflow: hidden;
+		height: 5em;
+	}
+	article.post .summary-wrapper:not(.no-img) .author{
+		border-bottom: none;
+		position: relative;
+	}
+	article.post .summary-wrapper .author .label{
+		display: none;
+	}
+	article.post .summary-wrapper:not(.no-img) span.readmore{
+		bottom: -2em;
+	}
+	.content-area .post h1{
+		padding: 0 16px;
+	}
+	.content-area .post  div:not(.summary-wrapper) > .author .label,
 	.content-area .post p:not(.wri-thumbnail-excerpt){
 		padding-left: 1em;
 		padding-right: 1em;
@@ -1415,6 +1448,9 @@ div.post .wri_content_clear_both{
 	}
 	.site-main .yarpp-related .columns-3 ul.products li.product:first-child{
 		border-top: none;
+	}
+	.yarpp-related ul.wri-thumbnails-group{
+		padding: 0 16px;
 	}
 	.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail{
 		width: 100%;

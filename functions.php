@@ -173,7 +173,8 @@ function anc_frontpage_featured( $atts ) {
 			<?php $l = 0;
 			if(is_array($atts) )
 			foreach ($atts as $featured_page) {
-				if(empty(str_replace(['<p>','</p>'], '', trim($featured_page))) ){	continue;}
+				$featured_page = str_replace(['<p>','</p>'], '', trim($featured_page));
+				if(empty($featured_page) ){	continue;}
 				$featured_page = explode(';', $featured_page);
 			?><li class="feature-page">
 				<div class="thumbnail" style="background-image: url(<?=$featured_page[1]?>)">
