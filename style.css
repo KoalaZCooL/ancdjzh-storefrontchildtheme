@@ -1080,15 +1080,20 @@ div.post .wri_content_clear_both{
 		margin-right: 0;
 	}
 	#curr-zh{
+		position: absolute;
+		right: 0;
 		color: #b8860b;
 	}
 	#goto-en{
+		position: absolute;
+		top: 1.4em;
+		right: 0.4em;
 		color: white;
 	}
 	.site-header .site-branding{
 		width: 100%;
 		background-image: url(images/anc_logo_white.png);
-		background-size: contain;
+		background-size: 200px;
 		background-position: center;
 		background-repeat: no-repeat;
 	}
@@ -1096,6 +1101,7 @@ div.post .wri_content_clear_both{
 		width: 100%;
 	}
 	.site-header .site-branding .custom-logo{
+		max-width: 77%;
 		margin: 0 auto;
 		opacity: 0;
 	}
