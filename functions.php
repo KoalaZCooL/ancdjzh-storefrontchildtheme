@@ -392,6 +392,20 @@ function anc_singleproduct_sellingpoints() {
 	echo '</ul>';
 }
 
+function storefront_paging_nav() {
+	global $wp_query;
+
+	$args = array(
+		'type' 	    => 'list',
+		'next_text' => _x( '&nbsp;', 'Next post', 'storefront' ),
+		'prev_text' => _x( '&nbsp;', 'Previous post', 'storefront' ),
+		'end_size'     => 1,
+		'mid_size'     => 1
+		);
+
+	the_posts_pagination( $args );
+}
+
 function anc_products_usp() {?>
 <ul class="anc-prod-usp">
 	<li><span>Free Shipping Orders Over $99</span></li>

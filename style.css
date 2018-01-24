@@ -460,6 +460,29 @@ nav.pagination{
 	background-color: #d0a747;
 	color: #f6edda;
 }
+.pagination .page-numbers li .prev,
+.pagination .page-numbers li .next{
+	position: relative;
+}
+.pagination .page-numbers li .prev:after,
+.pagination .page-numbers li .next:after{
+	display: inline-block;
+	font: normal normal normal 1em/1 FontAwesome;
+	content: "\f0d9";
+	text-indent: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 1em;
+	height: 1em;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	line-height: 1;
+}
+.pagination .page-numbers li .next:after{
+	content: "\f0da";
+}
 /*EOF PRODUCTS LISTING PAGES*/
 
 /*SINGLE PRODUCT PAGES*/
@@ -1347,7 +1370,8 @@ div.post .wri_content_clear_both{
 	}
 	.pagination .page-numbers li .page-numbers:not(.current), .woocommerce-pagination .page-numbers li .page-numbers:not(.current),
 	.pagination .page-numbers li .page-numbers.current, .woocommerce-pagination .page-numbers li .page-numbers.current{
-		padding: 0 11px;
+		font-size: 16px;
+		padding: 0 0.5em;
 	}
 	.single-product div.product .woocommerce-product-gallery{
 		margin-bottom: 0;
