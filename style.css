@@ -196,6 +196,9 @@ Updated: 2017-12-04 14:27:32
 .widget-area .widget ul li:last-child{
 	margin-bottom: 0;
 }
+h1.page-title{
+	font-size: 2em;
+}
 .anc-sticky-box{
 	display: none;
 }
@@ -790,7 +793,7 @@ article.post .summary-wrapper{
 article.post .summary-wrapper.no-img{
 	width: 100%;
 	height: auto;
-	margin-top:2em;
+	/*margin-top:2em;*/
 	margin-left: 0;
 	padding-left:0;
 }
@@ -798,6 +801,9 @@ article.post .summary-wrapper .entry-title{
 	font-size: 1em;
 	margin-bottom:1em;
 	letter-spacing: 0;
+}
+article.post .summary-wrapper.no-img  .entry-title{
+	margin-bottom: 0.2em;
 }
 article.post .summary-wrapper .entry-title a{
 	font-size: 1.1em;
@@ -813,7 +819,7 @@ article.post .summary-wrapper .author{
 }
 article.post .summary-wrapper.no-img .author{
 	position: initial;
-	margin-top:1em;
+	margin-top:0.2em;
 }
 article.post .summary-wrapper .author .label a{
 	color:#666;
@@ -1504,7 +1510,6 @@ div.post .wri_content_clear_both{
 		font-size: 1em;
 	}
 	h1.page-title{
-		font-size: 2em;
 		padding: 0 16px;
 	}
 	article.post{
