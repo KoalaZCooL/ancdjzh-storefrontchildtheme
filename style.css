@@ -394,7 +394,6 @@ h1.page-title{
 }
 .site-main .columns-3 ul.products li.product span.price span.amount{
 	font-size: 2em;
-	margin-left: 1em;
 }
 .site-main .columns-3 ul.products li.product .cart{
 	display: inline-block;
@@ -1337,7 +1336,6 @@ div.post .wri_content_clear_both{
 		padding-top: 5px;
 	}
 	.site-main .columns-3 ul.products li.product span.price span.amount{
-		margin: 0;
 		width: 100%;
 		display: inline-block;
 	}
@@ -1509,7 +1507,9 @@ div.post .wri_content_clear_both{
 	.related.products ul.products li.product h2{
 		font-size: 1em;
 	}
-	h1.page-title{
+	h1.page-title,
+	header.entry-header h1.entry-title,
+	.entry-content{
 		padding: 0 16px;
 	}
 	article.post{
