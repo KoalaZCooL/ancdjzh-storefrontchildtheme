@@ -888,13 +888,15 @@ div.post .wri_content_clear_both{
 }
 .site-main .yarpp-related .columns-3 ul.products li.product span.price{
 	display: inline-block;
+	position: relative;
 	border: none;
 	font-size: 0;
 	top: -24px;
-	left: 0;
-	position: relative;
 	color: #d0a747;
 	line-height: 0;
+	width: 50%;
+	float: right;
+	text-align: left;
 }
 .site-main .yarpp-related .columns-3 ul.products li.product span.price span.amount{
 	font-size: 32px;
