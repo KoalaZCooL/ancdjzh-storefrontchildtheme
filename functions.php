@@ -308,7 +308,7 @@ function anc_blognshop_header()
 			rewind_posts();
 		endif;
 
-	}else if(is_category())#BLOGS
+	}else if(is_category())#BLOGS 
 	{
 		global $wp_query;
 		$cat = $wp_query->get_queried_object();
@@ -332,7 +332,7 @@ function anc_blognshop_header()
 			</div>
 		<?php }
 
-	}else if(is_shop())
+	}else if(is_shop() ) //||is_product_tag()
 	{
 		echo do_shortcode('[smartslider3 slider=2]');
 
@@ -342,34 +342,23 @@ function anc_blognshop_header()
 			?></div>
 			</div><?php
 
-	}else if(is_product_category()||is_product_tag())
+	}else if(is_product_category() )
 	{
-		echo do_shortcode('[smartslider3 slider=2]');
-
 		global $wp_query;
 		$cat = $wp_query->get_queried_object();
 
-		if(empty($cat->description))
-		{
-			$page_for_posts_id = get_option('woocommerce_shop_page_id');
-			if ( $page_for_posts_id ) :
-				$post = get_page($page_for_posts_id);
-				setup_postdata($post);
-			?><div class="col-full">
-					<div id="post-<?php the_ID(); ?>" class="blognshop-intro">
-						<?php the_content(); ?>
-					</div>
-				</div><?php
-				rewind_posts();
-			endif;
+		$banner_img = function_exists('z_taxonomy_image_url')?z_taxonomy_image_url():'';
 
-		}else{
-		?><div class="col-full">
-				<div class="blognshop-intro">
-					<p><?=$cat->description ?></p>
+		if($banner_img){?>
+			<div class="category_banner" style="background-image:url(<?=$banner_img?>)">
+				<img class="slope" src="<?=get_stylesheet_directory_uri().'/images/slope-white-sliderbg.png'?>" alt="" />
+			</div>
+			<div class="col-full">
+				<div  class="blognshop-intro">
+					<h1>欢迎来到博客的<?=$cat->name?>素部分。</h1>
 				</div>
-			</div><?php
-		}	
+			</div>
+		<?php }
 	}
 }
 
