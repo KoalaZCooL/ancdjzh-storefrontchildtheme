@@ -14,6 +14,7 @@
 						<img src="<?=get_stylesheet_directory_uri()?>/images/weixin.jpg" />
 					</div>
 					<div class="qr_container">
+						<img src="<?=get_stylesheet_directory_uri()?>/images/weibo_anc.png" />
 						<img src="<?=get_stylesheet_directory_uri()?>/images/weibo.jpg" />
 					</div>
 				</div>
