@@ -1565,6 +1565,9 @@ div.post .wri_content_clear_both{
 	.storefront-handheld-footer-bar ul li.cart .count{
 		top: 0.4em;
 	}
+	.anc_footer_social{
+		margin-bottom: 0;
+	}
 	.anc_footer_social .anc_social_qrs,
 	.anc_footer_social .anc_subscribe{
 		float: none;

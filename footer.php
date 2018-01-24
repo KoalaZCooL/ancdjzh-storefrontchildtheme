@@ -49,6 +49,12 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
+<script>
+	jQuery(function() {
+		<?php if(is_category()){?>
+		jQuery('#ui-id-3').click();
+		<?php }?>
+	});
+</script>
 </body>
 </html>
