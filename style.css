@@ -16,13 +16,14 @@ Updated: 2017-12-04 14:27:32
 #f6edda (cream)
 */
 .hide-on-desktop{display: none;}
-.f-right{float: right;}
 #post-11 #jiathis_style_32x32, 
 .site-main .yarpp-related .columns-3 .storefront-sorting{
 	display:none;
 }
 #post-11{
 	padding-top: 1em;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 .site-header{
 	background-repeat: no-repeat;
@@ -852,6 +853,66 @@ div.post .wri_content_clear_both{
 	font-size: 32px;
 }
 /*EOF ARTICLE SINGLE PAGE*/
+.anc_footer_social{
+	background: #a8a9ad;
+	width: 100%;
+	clear: both;
+	padding: 1em;
+	margin-bottom: 1em;
+}
+.anc_footer_social .anc_social_qrs{
+	float: right;
+	font-size: 0;
+	width: 50%;
+	display: inline-block;
+}
+.anc_footer_social .anc_social_qrs .qr_container{
+	display: inline-block;
+	text-align: center;
+	background: white;
+	margin-left: 4%;
+	width: 46%;
+	height: 100px;
+}
+.anc_footer_social .anc_social_qrs .qr_container img{
+	display: inline-block;
+	max-height: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+}
+.anc_footer_social .anc_subscribe {
+	width: 50%;
+	/*padding: 0 4%;*/
+	position: relative;
+	display: inline-block;
+	/*float: right;*/
+}
+.anc_footer_social .anc_subscribe .es_lablebox{
+	display: none;
+}
+.anc_footer_social .anc_subscribe .es_textbox{
+	width: 77%;
+	display: inline-block;
+}
+.anc_footer_social .anc_subscribe .es_textbox #es_txt_email_pg{
+	width: 98%;
+}
+.anc_footer_social .anc_subscribe .es_button{
+	width: 23%;
+	display: inline-block;
+}
+.anc_footer_social .anc_subscribe .es_button #es_txt_button_pg{
+	width: 100%;
+	background: transparent;
+	border: 1px solid white;
+	padding-left: 0;
+	padding-right: 0;
+}
+.anc_footer_social .anc_subscribe .es_caption{
+	color: white;
+	position: absolute;
+	bottom: -0em;
+}
 @media (min-width:569px){
 	.site-main .columns-3 ul.products li.product{
 		width: 50%;
@@ -1504,9 +1565,16 @@ div.post .wri_content_clear_both{
 	.storefront-handheld-footer-bar ul li.cart .count{
 		top: 0.4em;
 	}
-	#post-11{
-		margin-bottom: 0;
-		padding-bottom: 0;
+	.anc_footer_social .anc_social_qrs,
+	.anc_footer_social .anc_subscribe{
+		float: none;
+		width: 100%;
+		padding: 0;
+	}
+	.anc_footer_social .anc_social_qrs .qr_container{
+		margin-bottom: 10px;
+		margin-left: 0;
+		width: 100%;
 	}
 	.site-footer .footer-widgets{
 		margin-left: 16px;

@@ -393,7 +393,6 @@ function storefront_credit() {
 	?>
 	<div class="site-info">
 		版权所有ANC健康私人有限公司2018年
-		<span class="f-right">免责声明</span>
 	</div><!-- .site-info -->
 	<?php
 }

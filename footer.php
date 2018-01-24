@@ -6,11 +6,24 @@
  *
  * @package storefront
  */
-
 ?>
-<div class="col-full">
-	<img class="anc_footer_social" style="opacity:0.4;margin-bottom:3em;" src="<?=get_stylesheet_directory_uri()?>/images/anc_footer_social.jpg">
-</div>
+			<div class="anc_footer_social">
+				<div class="anc_social_qrs">
+					<div class="qr_container">
+						<img src="<?=get_stylesheet_directory_uri()?>/images/weixin_anc.jpg" />
+						<img src="<?=get_stylesheet_directory_uri()?>/images/weixin.jpg" />
+					</div>
+					<div class="qr_container">
+						<img src="<?=get_stylesheet_directory_uri()?>/images/weibo.jpg" />
+					</div>
+				</div>
+				<div class="anc_subscribe">
+				<?php
+				if(function_exists('es_subbox') ){
+					es_subbox($namefield = "NO", $desc = "订阅我们的新闻", $group = "Public"); 
+				}?>
+				</div>
+			</div>
 		</div><!-- .col-full -->
 	</div><!-- #content -->
 
