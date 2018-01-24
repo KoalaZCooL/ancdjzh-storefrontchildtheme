@@ -290,7 +290,7 @@ function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product 
 
 function anc_blognshop_header()
 {
-	if(is_home()||is_category()||is_tag())#BLOGS
+	if(is_home())#BLOGS ||is_tag()
 	{
 		echo do_shortcode('[smartslider3 slider=3]');
 
@@ -307,6 +307,30 @@ function anc_blognshop_header()
 			</div><?php
 			rewind_posts();
 		endif;
+
+	}else if(is_category())#BLOGS
+	{
+		global $wp_query;
+		$cat = $wp_query->get_queried_object();
+
+		$banner_img = function_exists('z_taxonomy_image_url')?z_taxonomy_image_url():'';
+
+//			$filename = get_stylesheet_directory()."/images/categories/{$cat->term_id}.jpg";
+//			if(file_exists($filename)){
+//				$banner_img = get_stylesheet_directory_uri()."/images/categories/{$cat->term_id}.jpg";
+//			} else {
+//				$banner_img = '/wp-content/uploads/2017/12/cinnamon.jpg';
+//			}
+		if($banner_img){?>
+			<div class="category_banner" style="background-image:url(<?=$banner_img?>)">
+				<img class="slope" src="<?=get_stylesheet_directory_uri().'/images/slope-white-sliderbg.png'?>" alt="" />
+			</div>
+			<div class="col-full">
+				<div  class="blognshop-intro">
+					<h1>欢迎来到博客的<?=$cat->name?>素部分。</h1>
+				</div>
+			</div>
+		<?php }
 
 	}else if(is_shop())
 	{

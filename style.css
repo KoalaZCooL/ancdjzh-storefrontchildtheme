@@ -80,6 +80,24 @@ Updated: 2017-12-04 14:27:32
 	font-size: 0.6em;
 	letter-spacing: 0.4em;
 }
+.category_banner{
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	height: 300px;
+	height: 24vw;
+	background-position: center;
+	background-size: cover;
+}
+.category_banner .cat_image{
+	margin: 0 auto;
+	width: 100%;
+}
+.category_banner .slope{
+	position: absolute;
+	top: 0;
+	width: 44%;
+}
 .blognshop-intro{
 	margin-top: 1em;
 	border-bottom: 1px solid #d0a747;
@@ -1080,6 +1098,9 @@ div.post .wri_content_clear_both{
 	.related.products ul.products li.product{
 		margin-bottom: 4em;
 	}
+	.category_banner .cat_image{
+		max-height: 300px;
+	}
 	article.post .thumbnail-image {
 		width: 10em;
 		height: 10em;
@@ -1289,6 +1310,9 @@ div.post .wri_content_clear_both{
 		right: 1em;
 	}
 	.widget-area .widget{
+		display: none;
+	}
+	.category_banner .slope{
 		display: none;
 	}
 	.site-main .columns-3 ul.products li.product{
