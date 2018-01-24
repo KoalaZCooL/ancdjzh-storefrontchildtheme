@@ -86,6 +86,7 @@ Updated: 2017-12-04 14:27:32
 	text-align: center;
 	height: 300px;
 	height: 24vw;
+	min-height: 150px;
 	background-position: center;
 	background-size: cover;
 }
@@ -196,7 +197,7 @@ Updated: 2017-12-04 14:27:32
 .widget-area .widget ul li:last-child{
 	margin-bottom: 0;
 }
-h1.page-title{
+h1.page-title, header.entry-header h1.entry-title{
 	font-size: 2em;
 }
 .anc-sticky-box{
@@ -1175,7 +1176,10 @@ div.post .wri_content_clear_both{
 	.hide-on-desktop{
 		display: block;
 	}
-	#masthead-tilted-bg-white, #masthead-tilted-bg-slope,
+	#masthead-tilted-bg-white,
+	#masthead-tilted-bg-slope,
+	.category_banner .slope,
+	.slider-tilted-lyr,
 	.hide-on-mobile{
 		display: none;
 	}
@@ -1203,7 +1207,7 @@ div.post .wri_content_clear_both{
 	.site-header .site-branding{
 		width: 100%;
 		background-image: url(images/anc_logo_white.png);
-		background-size: 200px;
+		background-size: 220px;
 		background-position: center;
 		background-repeat: no-repeat;
 	}
@@ -1211,7 +1215,7 @@ div.post .wri_content_clear_both{
 		width: 100%;
 	}
 	.site-header .site-branding .custom-logo{
-		max-width: 77%;
+		max-width: 270px;
 		margin: 0 auto;
 		opacity: 0;
 	}
@@ -1338,9 +1342,6 @@ div.post .wri_content_clear_both{
 		right: 1em;
 	}
 	.widget-area .widget{
-		display: none;
-	}
-	.category_banner .slope{
 		display: none;
 	}
 	.site-main .columns-3 ul.products li.product{
@@ -1535,6 +1536,9 @@ div.post .wri_content_clear_both{
 	header.entry-header h1.entry-title,
 	.entry-content{
 		padding: 0 16px;
+	}
+	#post-11 .entry-content{
+		padding: 0;
 	}
 	article.post{
 		margin: 2em 16px 1em;
