@@ -44,6 +44,9 @@ Updated: 2017-12-04 14:27:32
 	left: 44%;
 	margin-left: -1px;
 }
+#curr-zh{
+	border-right: 1px solid #d0a747;
+}
 .slider-tilted-lyr{
 	background: url(./images/slope-white-sliderbg.png) top right no-repeat;
 	background-size: cover;
@@ -1195,16 +1198,19 @@ div.post .wri_content_clear_both{
 		margin-left: 0;
 		margin-right: 0;
 	}
-	#curr-zh{
-		position: absolute;
-		right: 0;
-		color: #b8860b;
-	}
+	#curr-zh,
 	#goto-en{
 		position: absolute;
-		top: 1.4em;
+		top: 1.9em;
 		right: 0.4em;
 		color: white;
+	}
+	#curr-zh{
+		top: 0.3em;
+		color: #b8860b;
+		line-height: 1.5;
+		border-right: none;
+		border-bottom: 1px solid white;
 	}
 	.site-header .site-branding{
 		width: 100%;
@@ -1229,6 +1235,8 @@ div.post .wri_content_clear_both{
 	}
 	.woocommerce-breadcrumb{
 		font-size: 0.7em;
+		border-left: 16px solid transparent;
+		border-right: 16px solid transparent;
 	}
 	.slider-txt{
 		font-size: 0 !important;
