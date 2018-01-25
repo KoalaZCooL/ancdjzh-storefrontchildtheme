@@ -749,10 +749,10 @@ table.shop_attributes th{width:7em;}
 .yarpp-related ul.wri-thumbnails-group li.wri-thumbnail span.wri-thumbnail-title p{
 	font-size: 0.8em;
 	font-weight: 200;
-	text-overflow: ellipsis;
-	white-space: nowrap;
 	overflow: hidden;
-	height: 2em;
+	height: 3em;
+/*	white-space: nowrap;
+	text-overflow: ellipsis;*/
 }
 /*EOF SINGLE PRODUCT PAGES*/
 
@@ -1616,6 +1616,9 @@ div.post .wri_content_clear_both{
 	}
 	.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail{
 		width: 100%;
+	}
+	.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail:not(:last-child){
+		border-bottom: 1px solid #d0a747;
 	}
 	.storefront-handheld-footer-bar ul li>a{
 		height: 3em;
