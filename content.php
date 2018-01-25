@@ -9,17 +9,19 @@ $has_thumbnail = has_post_thumbnail();
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 	<div class="posts-wrapper">
 		<a href="<?=get_permalink()?>"
-		><div class="thumbnail-image <?= $has_thumbnail?'':'no-img';?>" >
+		><div class="thumbnail-image" >
 			<?php if ( $has_thumbnail ) {
 				the_post_thumbnail( 'thumbnail' );
-			}?>
+			}else{?>
+				<img width="150" height="150" src="<?=get_stylesheet_directory_uri()?>/images/petals_full.png" class="attachment-thumbnail size-thumbnail wp-post-image">
+			<?php }?>
 			<div class="caption">
 				<div>全文阅读</div>
 			</div>
 		</div
 		></a>
 		
-		<div class="summary-wrapper <?= $has_thumbnail?'':'no-img';?>">
+		<div class="summary-wrapper">
 			<?php if ( is_single() ) {
 				the_title( '<span class="entry-title">', '</span>' );
 			} else {
