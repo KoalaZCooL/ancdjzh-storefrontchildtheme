@@ -44,9 +44,6 @@ Updated: 2017-12-04 14:27:32
 	left: 44%;
 	margin-left: -1px;
 }
-#curr-zh{
-	border-right: 1px solid #d0a747;
-}
 .slider-tilted-lyr{
 	background: url(./images/slope-white-sliderbg.png) top right no-repeat;
 	background-size: cover;
@@ -752,6 +749,10 @@ table.shop_attributes th{width:7em;}
 .yarpp-related ul.wri-thumbnails-group li.wri-thumbnail span.wri-thumbnail-title p{
 	font-size: 0.8em;
 	font-weight: 200;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	height: 2em;
 }
 /*EOF SINGLE PRODUCT PAGES*/
 
@@ -1200,17 +1201,7 @@ div.post .wri_content_clear_both{
 	}
 	#curr-zh,
 	#goto-en{
-		position: absolute;
-		top: 1.9em;
-		right: 0.4em;
-		color: white;
-	}
-	#curr-zh{
-		top: 0.3em;
-		color: #b8860b;
-		line-height: 1.5;
-		border-right: none;
-		border-bottom: 1px solid white;
+		display: none;
 	}
 	.site-header .site-branding{
 		width: 100%;
@@ -1335,10 +1326,10 @@ div.post .wri_content_clear_both{
 	.anc-goto-featuredproduct{
 		background: #4c4c4c;
 		line-height: 0;
-		padding: 0.4em;
+		padding: 0.6em;
 	}
 	.page-template-template-homepage-php .site-main .columns-4 ul.products li.product .anc-goto-featuredproduct h2{
-		font-size: 0.7em;
+		font-size: 0.8em;
 		margin: 0;
 	}
 	.anc-goto-featuredproduct .bg-gray-tilted{
@@ -1362,7 +1353,7 @@ div.post .wri_content_clear_both{
 		width: 100%;
 	}
 	.site-main .columns-3 ul.products li.product h2{
-		font-size: 0.7rem;
+		font-size: 0.8rem;
 	}
 	.site-main .columns-3 ul.products li.product span.price{
 		line-height: 1;
@@ -1420,10 +1411,26 @@ div.post .wri_content_clear_both{
 	.single-product div.product form.cart .qty-nav{
 		display: none;
 	}
+	.single-product div.product form.cart .button{
+		width: 100%;
+	}
 	.single-product div.product form.cart .button.tinvwl_add_to_wishlist_button{
+		border-radius: 2px;
+		top: 5px;
 		left: 0;
 	}
-
+	.single-product div.product form.cart .tinv-wraper.tinv-wishlist{
+		position: fixed;
+		top: 260px;
+		right: 0;
+		width: 48px;
+		height: 48px;
+		z-index: 9999;
+		padding: 8px;
+		background: white;
+		border-top-left-radius: 6px;
+		border-top-right-radius: 6px;
+	}
 	.woocommerce-tabs ul.tabs{
 		background-color: transparent;
 	}
