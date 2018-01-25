@@ -1563,7 +1563,7 @@ div.post .wri_content_clear_both{
 		padding: 0;
 	}
 	article.post{
-		margin: 2em 16px 1em;
+		margin: 1em 16px;
 		border-bottom: 1px solid #d0a747;
 	}
 	article.post .thumbnail-image {
