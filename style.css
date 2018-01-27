@@ -155,9 +155,8 @@ Updated: 2017-12-04 14:27:32
 .widget-area .widget a:not(.button){
 	color: white;
 	text-decoration: none;
-/*	display: inline-block;
-	padding-left: 1em;
-	width: 100%;*/
+	display: inline-block;
+	width: 100%;
 }
 .widget-area .widget ul{
 	background-color: rgba(0,0,0,0.7);
@@ -165,30 +164,41 @@ Updated: 2017-12-04 14:27:32
 	color: white;
 }
 .widget-area .widget ul li{
-	padding: 0.5em 1em;
-	line-height: 1;
+	padding: 0.1em 0;
+	padding-right: 0.5em;
+	line-height: 2;
 	margin: 0;
+	position:  relative;
+	text-align: right;
 }
 .widget-area .widget ul li:hover,
 .widget-area .widget ul li.current-cat{
 	background-color: #d0a747;
 }
 .widget-area .widget ul li:before{
-	/*position: absolute;*/
+	position: absolute;
+	font-size: 14px;
 	content: "";
 	border-top: 0.5em solid transparent;
 	border-left: 0.5em solid white;
 	border-bottom: 0.5em solid transparent;
 	margin-right: 0;
-	margin-left: 0;
+	margin-left: 1em;
+	margin-top: 0.5em;
 	opacity: 1;
+	width: 0;
+}
+.widget-area .widget ul li a:not(.button){
+	position: absolute;
+	font-size: 14px;
+	left: 0;
+	right: unset;
+	padding: 0.5em 2em;
+	text-align: left;
+	line-height: 1;
 }
 /*.widget-area .widget ul li:hover:before{
 	border-left: 0.5em solid white;
-}
-.widget-area .widget ul li a:not(.button){
-	color: #333;
-	text-decoration: none;
 }
 .widget-area .widget ul li:hover a:not(.button){
 	color: white;
