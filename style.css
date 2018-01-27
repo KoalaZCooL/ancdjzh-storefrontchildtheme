@@ -716,31 +716,6 @@ table.shop_attributes tr:nth-child(2n) td{
 	border-bottom: 1px solid #d0a747;
 }
 table.shop_attributes th{width:7em;}
-.related.products h2{
-	font-weight: bold;
-	font-size: 1.25em;
-}
-.related.products ul.products{
-	text-align: center;
-	font-size: 0;/*css tricks to fix empty spaces for inline-blocks*/
-}
-.related.products ul.products li.product{
-	font-size: 16px;/*css tricks to fix empty spaces for inline-blocks*/
-}
-.related.products ul.products li.product h2{
-	font-size: 1.4em;
-	font-weight: 300;
-	height: 2em;
-	margin: 0;
-}
-.related.products ul.products li.product span.price{
-	font-size: 0;
-	margin: 0;
-}
-.related.products ul.products li.product span.price span.amount{
-	font-size: 32px;
-	color: #d0a747;
-}
 .yarpp-related ul.wri-thumbnails-group{
 	font-size: 0;
 }
@@ -884,44 +859,43 @@ div.post .wri_content_clear_both{
 	padding-top: 1em;
 	margin-top: 0;
 }
+.related.products h2{
+	font-weight: bold;
+	font-size: 1.25em;
+}
+.related.products ul.products{
+	text-align: center;
+	font-size: 0;/*css tricks to fix empty spaces for inline-blocks*/
+}
+.site-main .yarpp-related .columns-3 ul.products{
+	border-bottom: 1px solid #d0a747;
+}
+.related.products ul.products li.product,
 .site-main .yarpp-related .columns-3 ul.products li.product{
-	margin-bottom: 0;
+	font-size: 16px;/*css tricks to fix empty spaces for inline-blocks*/
 }
-.site-main .yarpp-related .columns-3 ul.products li.product:first-child{
-	border-left: none;
-	padding-left: 0;
-}
-.site-main .yarpp-related .columns-3 ul.products li.product:last-child{
-	padding-right: 0;
-}
-.site-main .yarpp-related .columns-3 ul.products li.product img{
-	margin: 0;
-	display: inline-block;
-	max-width: 50%;
-}
+.related.products ul.products li.product h2,
 .site-main .yarpp-related .columns-3 ul.products li.product h2{
-	width: 50%;
+	font-size: 1.4em;
+	font-weight: 300;
+	height: 2em;
 	margin: 0;
-	margin-top: 1em;
-	display: inline-block;
-	vertical-align: top;
-	text-align: left;
 }
+.related.products ul.products li.product span.price,
 .site-main .yarpp-related .columns-3 ul.products li.product span.price{
-	display: inline-block;
-	position: relative;
-	border: none;
 	font-size: 0;
-	top: -24px;
-	color: #d0a747;
-	line-height: 0;
-	width: 50%;
-	float: right;
-	text-align: left;
+	margin: 0;
+	border: none;
 }
+.related.products ul.products li.product span.price span.amount,
 .site-main .yarpp-related .columns-3 ul.products li.product span.price span.amount{
 	font-size: 32px;
+	color: #d0a747;
 }
+.site-main .yarpp-related .storefront-sorting{
+	display: none;
+}
+
 /*EOF ARTICLE SINGLE PAGE*/
 .anc_footer_social{
 	background: #a8a9ad;
@@ -987,24 +961,28 @@ div.post .wri_content_clear_both{
 	.site-main .columns-3 ul.products li.product{
 		width: 50%;
 	}
-	.related.products ul.products li.product{
+	.related.products ul.products li.product,
+	.site-main .yarpp-related .columns-3 ul.products li.product{
 		display: inline-block;
 		border-left: 1px solid #d0a747;
 		margin-bottom: 2em !important;
 		margin-right: 0;
 		width: 33.3%;
 	}
-	.related.products ul.products li.product:first-child{
+	.site-main .yarpp-related .columns-3 ul.products li.product{
+		width: 50%;
+	}
+	.site-main .yarpp-related .columns-3 ul.products li.product img{
+		margin-bottom: 1em;
+		width: 60%;
+	}
+	.related.products ul.products li.product:first-child,
+	.site-main .yarpp-related .columns-3 ul.products li.product:first-child{
 		border-left:none;
 	}
 	article.post .thumbnail-image:hover .caption,
 	article.post .thumbnail-image:hover .caption:hover{
 		opacity: 1;
-	}
-	.site-main .yarpp-related .columns-3 ul.products li.product{
-		float: left;
-		width: 50%;
-		border-left: 1px solid #d0a747;
 	}
 	.yarpp-related ul.wri-thumbnails-group li.wri-thumbnail:nth-child(2n){
 		margin-left: 2%;
@@ -1551,19 +1529,23 @@ div.post .wri_content_clear_both{
 	.yarpp-related h3{
 		text-align: center;
 	}
-	.related.products ul.products li.product{
+	.related.products ul.products li.product,
+	.site-main .yarpp-related .columns-3 ul.products li.product{
 		display: none;
 		width: 49%;
-		margin: 0;
 	}
 	.related.products ul.products li.product:first-child,
-	.related.products ul.products li.product:nth-child(2){
+	.related.products ul.products li.product:nth-child(2),
+	.site-main .yarpp-related .columns-3 ul.products li.product:first-child,
+	.site-main .yarpp-related .columns-3 ul.products li.product:nth-child(2){
 		display: inline-block;
 	}
-	.related.products ul.products li.product:nth-child(2){
+	.related.products ul.products li.product:nth-child(2),
+	.site-main .yarpp-related .columns-3 ul.products li.product:nth-child(2){
 		border-left: 1px solid #d0a747;
 	}
-	.related.products ul.products li.product h2{
+	.related.products ul.products li.product h2,
+	.site-main .yarpp-related .columns-3 ul.products li.product h2{
 		font-size: 1em;
 	}
 	h1.page-title,
@@ -1619,14 +1601,6 @@ div.post .wri_content_clear_both{
 	.content-area .post p:not(.wri-thumbnail-excerpt){
 		padding-left: 1em;
 		padding-right: 1em;
-	}
-	.site-main .yarpp-related .columns-3 ul.products li.product{
-		width: 100%;
-		padding: 0;
-		border-top: 1px solid #d0a747;
-	}
-	.site-main .yarpp-related .columns-3 ul.products li.product:first-child{
-		border-top: none;
 	}
 	.yarpp-related ul.wri-thumbnails-group{
 		padding: 0 16px;
