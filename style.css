@@ -165,11 +165,13 @@ Updated: 2017-12-04 14:27:32
 }
 .widget-area .widget ul li{
 	padding: 0.1em 0;
-	padding-right: 0.5em;
-	line-height: 2;
+	padding-right: 0.7em;
+	line-height: 2.2;
 	margin: 0;
 	position:  relative;
 	text-align: right;
+	height: 28px;
+	font-size: 12px;
 }
 .widget-area .widget ul li:hover,
 .widget-area .widget ul li.current-cat{
@@ -183,7 +185,7 @@ Updated: 2017-12-04 14:27:32
 	border-left: 0.5em solid white;
 	border-bottom: 0.5em solid transparent;
 	margin-right: 0;
-	margin-left: 1em;
+	margin-left: 0.8em;
 	margin-top: 0.5em;
 	opacity: 1;
 	width: 0;
@@ -193,7 +195,7 @@ Updated: 2017-12-04 14:27:32
 	font-size: 14px;
 	left: 0;
 	right: unset;
-	padding: 0.5em 2em;
+	padding: 0.5em 1.7em;
 	text-align: left;
 	line-height: 1;
 }
