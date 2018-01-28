@@ -188,7 +188,7 @@ Updated: 2017-12-04 14:27:32
 	border-bottom: 0.5em solid transparent;
 	margin-right: 0;
 	margin-left: 0.8em;
-	margin-top: 0.5em;
+	margin-top: 0.4em;
 	opacity: 1;
 	width: 0;
 }
@@ -197,7 +197,7 @@ Updated: 2017-12-04 14:27:32
 	font-size: 14px;
 	left: 0;
 	right: unset;
-	padding: 0.5em 1.7em;
+	padding: 0.4em 1.7em;
 	text-align: left;
 	line-height: 1;
 }
@@ -540,7 +540,7 @@ nav.pagination{
 	width: 41%;
 }
 .single-product div.product form.cart .quantity:before{
-	content:"æ•°é‡";
+	content:"数量";
 	position:absolute;
 	top:0;
 	left:1em;
