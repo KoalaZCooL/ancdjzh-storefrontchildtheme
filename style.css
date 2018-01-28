@@ -1347,6 +1347,20 @@ div.post .wri_content_clear_both{
 	.widget-area .widget{
 		display: none;
 	}
+	.storefront-sorting{
+		padding-left: 16px;
+		padding-right: 16px;
+		margin-bottom: 0;
+	}
+	.storefront-sorting .woocommerce-ordering{
+		margin-bottom: 1em;
+	}
+	.storefront-sorting .woocommerce-ordering .orderby{
+		background: #4c4c4c;
+		color: white;
+		border: 1px solid #d0a747;
+		border-radius: 0;
+	}
 	.site-main .columns-3 ul.products li.product{
 		width: 50%;
 		padding: 0 0.4rem;
