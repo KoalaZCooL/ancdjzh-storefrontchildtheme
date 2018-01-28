@@ -767,7 +767,7 @@ span.readmore{
 /*ARTICLES LISTING*/
 article.post{
 	margin-top: 5px;
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 article.post .thumbnail-image {
 	width: 7em;
@@ -1596,14 +1596,11 @@ div.post .wri_content_clear_both{
 	}
 	article.post .summary-wrapper .entry-title{
 		margin-bottom: 0;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		white-space: nowrap;
 	}
 	article.post .summary-wrapper .excerpt{
 		text-overflow: ellipsis;
 		overflow: hidden;
-		height: 5em;
+		height: 3em;
 	}
 	article.post .summary-wrapper:not(.no-img) .author{
 		border-bottom: none;
