@@ -731,6 +731,7 @@ table.shop_attributes th{width:7em;}
 	margin: 0;
 	width: 30%;
 	display: inline-block;
+	background: rgba(0,0,0,0.03);
 }
 .yarpp-related ul.wri-thumbnails-group li.wri-thumbnail span.wri-thumbnail-title{
 	width: 70%;
