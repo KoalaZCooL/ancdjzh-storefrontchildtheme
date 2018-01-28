@@ -159,7 +159,7 @@ Updated: 2017-12-04 14:27:32
 	width: 100%;
 }
 .widget-area .widget ul{
-	background-color: rgba(0,0,0,0.7);
+	background-color: #4c4c4c;
 	padding: 0.5em 0;
 	color: white;
 }
@@ -172,10 +172,12 @@ Updated: 2017-12-04 14:27:32
 	text-align: right;
 	height: 28px;
 	font-size: 12px;
+	color: #4c4c4c;
 }
 .widget-area .widget ul li:hover,
 .widget-area .widget ul li.current-cat{
 	background-color: #d0a747;
+	color: white;
 }
 .widget-area .widget ul li:before{
 	position: absolute;
@@ -538,7 +540,7 @@ nav.pagination{
 	width: 41%;
 }
 .single-product div.product form.cart .quantity:before{
-	content:"数量";
+	content:"æ•°é‡";
 	position:absolute;
 	top:0;
 	left:1em;
