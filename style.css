@@ -1188,6 +1188,9 @@ div.post .wri_content_clear_both{
 	.hide-on-mobile{
 		display: none;
 	}
+	.n2-ss-background-image{
+		background-position: center right !important;
+	}
 	.site-header{
 		background-image: none !important;
 		background-position: center;
