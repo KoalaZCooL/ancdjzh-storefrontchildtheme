@@ -773,6 +773,7 @@ article.post .thumbnail-image {
 	height: 7em;
 	display: inline-block;
 	position: relative;
+	background: rgba(0,0,0,0.05);
 }
 article.post .thumbnail-image.no-img{
 	display: none;
