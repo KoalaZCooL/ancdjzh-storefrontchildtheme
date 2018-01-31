@@ -27,8 +27,8 @@ if ( $price_html = $product->get_price_html() ) :
 	if(is_front_page() ){
 	?><div class="anc-frontpage-featuredproducts-price"><h2 class="price-prefix">价格</h2> <span class="price"><?=$price_html?></span><h2>/瓶</h2></div><?php
 
-	#default product listings loop
+	#default product listings loop 在线零售价格
 	}else{
-	?><span class="price">在线零售价格 <?=$price_html?></span><?php	
+	?><span class="price">价格 <?=$price_html?></span><?php	
 	}
 endif; ?>
