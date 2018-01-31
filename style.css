@@ -80,6 +80,39 @@ Updated: 2017-12-04 14:27:32
 	font-size: 0.6em;
 	letter-spacing: 0.4em;
 }
+
+.onsale{
+	position: absolute;
+	top: 0;
+	left:0;
+	color: white;
+	border:none;
+	border-radius:0;
+	background:#f15c2d;
+	font-size:14px;
+}
+.onsale:after{
+	background:#f15c2d;
+	content: '';
+	width:1.2em;
+	height:100%;
+	position:absolute;
+	right:-0.6em;
+	top:0;
+	transform: skewx(-30deg);
+}
+.page-template-template-homepage-php .site-main .columns-4 ul.products li.product .price del{
+	font-size: 0.5em;
+}
+.site-main .columns-3 ul.products li.product .onsale{
+	left:1em;
+}
+.site-main .columns-3 ul.products li.product span.price del span.amount{
+	font-size:1em;
+}
+.single-product div.product .summary .price del span.amount{
+	font-size:1.5em
+}
 .category_banner{
 	position: relative;
 	overflow: hidden;
@@ -1343,6 +1376,9 @@ div.post .wri_content_clear_both{
 		transform: scale(2);
 		color: white;
 		right: 1em;
+	}
+	.onsale:after{
+		height: 99%;
 	}
 	.widget-area .widget{
 		display: none;
