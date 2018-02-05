@@ -34,58 +34,58 @@ switch ($_SERVER['REMOTE_ADDR']) {
 
 function export(){
 	$fields = [
-			'Order ID',
-			'Order Status',
-			'Sales Channel Code',
-			'Sales Channel Fulfilment Warehouse Code',
-			'Username',
-			'Email',
-			'Sales Group Code',
-			'Ship First Name',
-			'Ship Last Name',
-			'Ship Company',
-			'Ship Address Line 1',
-			'Ship Address Line 2',
-			'Ship City',
-			'Ship State',
-			'Ship Post Code',
-			'Ship Country',
-			'Ship Phone',
-			'Ship Fax',
-			'Bill First Name',
-			'Bill Last Name',
-			'Bill Company',
-			'Bill Address Line 1',
-			'Bill Address Line 2',
-			'Bill City',
-			'Bill State',
-			'Bill Post Code',
-			'Bill Country',
-			'Bill Phone',
-			'Bill Fax',
-			'Payment Method',
-			'Shipping Method',
-			'Shipping Cost - Aus',
-			'Shipping Cost - RMB',
-			'Shipping Discount Amount - Aus',
-			'Shipping Discount Amount - RMB',
-			'Customer Instructions',
-			'Internal Notes',
-			'Amount Paid - Aus',
-			'Amount Paid - RMB',
-			'Date Paid', //*WC_DateTime Object
-			'Order Line SKU',
-			'Order Line Qty',
-			'Order Line Description - English',
-			'Order Line Unit Price - Aus',
-			'Order Line Extended Value - Aus',
-			'Order Line Discount Amount - Aus',
-			'Order Line Description - Chinese',
-			'Order Line Unit Price - RMB',
-			'Order Line Extended Value - RMB',
-			'Order Line Discount Amount - RMB',
-			'RMB Conversion Rate',
-		];
+		'Order ID',
+		'Order Status',
+		'Sales Channel Code',
+		'Sales Channel Fulfilment Warehouse Code',
+		'Username',
+		'Email',
+		'Sales Group Code',
+		'Ship First Name',
+		'Ship Last Name',
+		'Ship Company',
+		'Ship Address Line 1',
+		'Ship Address Line 2',
+		'Ship City',
+		'Ship State',
+		'Ship Post Code',
+		'Ship Country',
+		'Ship Phone',
+		'Ship Fax',
+		'Bill First Name',
+		'Bill Last Name',
+		'Bill Company',
+		'Bill Address Line 1',
+		'Bill Address Line 2',
+		'Bill City',
+		'Bill State',
+		'Bill Post Code',
+		'Bill Country',
+		'Bill Phone',
+		'Bill Fax',
+		'Payment Method',
+		'Shipping Method',
+		'Shipping Cost - Aus',
+		'Shipping Cost - RMB',
+		'Shipping Discount Amount - Aus',
+		'Shipping Discount Amount - RMB',
+		'Customer Instructions',
+		'Internal Notes',
+		'Amount Paid - Aus',
+		'Amount Paid - RMB',
+		'Date Paid', //*WC_DateTime Object
+		'Order Line SKU',
+		'Order Line Qty',
+		'Order Line Description - English',
+		'Order Line Unit Price - Aus',
+		'Order Line Extended Value - Aus',
+		'Order Line Discount Amount - Aus',
+		'Order Line Description - Chinese',
+		'Order Line Unit Price - RMB',
+		'Order Line Extended Value - RMB',
+		'Order Line Discount Amount - RMB',
+		'RMB Conversion Rate',
+	];
 
 	//# https://github.com/woocommerce/woocommerce/wiki/wc_get_orders-and-WC_Order_Query#date
 	$wc_qry_params =  array(
@@ -115,22 +115,48 @@ function export(){
 	foreach ($new_orders as $the_order) {
 		$order_data = $the_order->get_data();
 		$user_data = $the_order->get_user();
-		$coupons = [];
 
-		$SalesChannelFulfilmentWarehouseCode = 'NXSYD';
-		$ShippingMethod = 'AUSPOST';
-		
-		if('AU'!=$order_data['shipping']['country']){
-			$SalesChannelFulfilmentWarehouseCode = 'DaigouSalesChannel';
-			$ShippingMethod = 'CrossBorder';
+		if('CNY'==$order_data['currency'])
+		{
+			$order_data['Xrate'] = 5;
+			$prices = [
+				'AUD'=> [
+						'Shipping Cost' => $order_data['shipping_total']/$order_data['Xrate'],
+						'Amount Paid' => $order_data['total']/$order_data['Xrate']
+				],
+				'CNY'=> [
+						'Shipping Cost' => $order_data['shipping_total'],
+						'Amount Paid' => $order_data['total']
+				]
+			];
+		}else{
+			$order_data['Xrate'] = '';
+			$prices = [
+				'AUD'=> [
+					'Shipping Cost' => $order_data['shipping_total'],
+					'Amount Paid' => $order_data['total']
+				],
+				'CNY'=> [
+					'Shipping Cost' => '',
+					'Amount Paid' => ''
+				]
+			];
 		}
 
-	//	$order_data['currency'];
 	//	$order_data['prices_include_tax'];
 	//	$order_data['discount_total'];
 	//	$order_data['customer_user_agent'];
 	//	$order_data['customer_ip_address'];
 
+		$SalesChannelFulfilmentWarehouseCode = 'NXSYD';
+		$ShippingMethod = 'AUSPOST';
+
+		if('AU'!=$order_data['shipping']['country']){
+			$SalesChannelFulfilmentWarehouseCode = 'DaigouSalesChannel';
+			$ShippingMethod = 'CrossBorder';
+		}
+
+		$coupons = [];
 		// Coupons used in the order LOOP (as they can be multiple)
 		foreach( $the_order->get_used_coupons() as $coupon_name ){
 
@@ -159,6 +185,23 @@ function export(){
 			$item_disc_amt = $item_data['subtotal'];
 			foreach ($coupons as $disc) {
 				$item_disc_amt = $item_disc_amt - $item_disc_amt * $coupons[$coupon_name]['calc'];
+			}
+
+			if('CNY' == $order_data['currency'])
+			{
+				$prices['AUD']['Order Line Unit Price'] = ($item_data['subtotal']/$item_data['quantity'])/$order_data['Xrate'];
+				$prices['AUD']['Order Line Extended Value'] = $item_data['subtotal']/$order_data['Xrate'];
+				$prices['AUD']['Order Line Discount Amount'] = $item_disc_amt/$order_data['Xrate'];
+				$prices['CNY']['Order Line Unit Price'] = $item_data['subtotal']/$item_data['quantity'];
+				$prices['CNY']['Order Line Extended Value'] = $item_data['subtotal'];
+				$prices['CNY']['Order Line Discount Amount'] = $item_disc_amt;
+			}else{
+				$prices['AUD']['Order Line Unit Price'] = $item_data['subtotal']/$item_data['quantity'];
+				$prices['AUD']['Order Line Extended Value'] = $item_data['subtotal'];
+				$prices['AUD']['Order Line Discount Amount'] = $item_disc_amt;
+				$prices['CNY']['Order Line Unit Price'] = '';
+				$prices['CNY']['Order Line Extended Value'] = '';
+				$prices['CNY']['Order Line Discount Amount'] = '';
 			}
 
 			$product = new WC_Product($item_data['product_id']);
@@ -194,66 +237,68 @@ function export(){
 					'Bill Fax' => '',
 					'Payment Method' => $order_data['payment_method'],
 					'Shipping Method' => $ShippingMethod,
-					'Shipping Cost - Aus' => $order_data['shipping_total'],
-					'Shipping Cost - RMB' => '',
+					'Shipping Cost - Aus' => $prices['AUD']['Shipping Cost'],
+					'Shipping Cost - RMB' => $prices['CNY']['Shipping Cost'],
 					'Shipping Discount Amount - Aus' => '',
 					'Shipping Discount Amount - RMB' => '',
 					'Customer Instructions' => $order_data['customer_note'],
 					'Internal Notes' => '',
-					'Amount Paid - Aus' => $order_data['total'],
-					'Amount Paid - RMB' => '',
+					'Amount Paid - Aus' => $prices['AUD']['Amount Paid'],
+					'Amount Paid - RMB' => $prices['CNY']['Amount Paid'],
 					'Date Paid' => $order_data['date_paid']->date_i18n('n/j/Y'), //*WC_DateTime Object
 					'Order Line SKU' => $product->get_sku(),
 					'Order Line Qty' => $item_data['quantity'],
 					'Order Line Description - English' => '',
-					'Order Line Unit Price - Aus' => $item_data['subtotal']/$item_data['quantity'],
-					'Order Line Extended Value - Aus' => $item_data['subtotal'],
-					'Order Line Discount Amount - Aus' => $item_disc_amt,
+					'Order Line Unit Price - Aus' => $prices['AUD']['Order Line Unit Price'],
+					'Order Line Extended Value - Aus' => $prices['AUD']['Order Line Extended Value'],
+					'Order Line Discount Amount - Aus' => $prices['AUD']['Order Line Discount Amount'],
 					'Order Line Description - Chinese' => $product->get_title(),
-					'Order Line Unit Price - RMB' => '',
-					'Order Line Extended Value - RMB' => '',
-					'Order Line Discount Amount - RMB' => '',
-					'RMB Conversion Rate' => ''
+					'Order Line Unit Price - RMB' => $prices['CNY']['Order Line Unit Price'],
+					'Order Line Extended Value - RMB' => $prices['CNY']['Order Line Extended Value'],
+					'Order Line Discount Amount - RMB' => $prices['CNY']['Order Line Discount Amount'],
+					'RMB Conversion Rate' => $order_data['Xrate']
 			];
 		}
 	}
 
-	$filenamepath = '/var/www/batchorders/orders_from_website/'. str_replace('-','',$wc_qry_params['date_paid']);
-	$fcsv = fopen($filenamepath.'.csv', 'w');
-	fputcsv($fcsv, $fields);
+	if($order_lines){//
+		$filenamepath = '/var/www/batchorders/orders_from_website/'. str_replace('-','',$wc_qry_params['date_paid']);
+		$fcsv = fopen($filenamepath.'.csv', 'w');
+		fputcsv($fcsv, $fields);
 
-	$spreadsheet = new Spreadsheet();
-	$sheet = $spreadsheet->getActiveSheet();
-	$l = 'A';
-	foreach ($fields as $fld) {
-		$sheet->setCellValue("{$l}1", $fld);
-		$l++;
-	}
-
-	$i=2;
-	foreach ($order_lines as $odr) {
-	fputcsv($fcsv, $odr);
+		$spreadsheet = new Spreadsheet();
+		$sheet = $spreadsheet->getActiveSheet();
 		$l = 'A';
-		foreach ($odr as $vl) {
-			switch ($l) {
-				case 'Q':
-				case 'AB':
-					$sheet->getCell("{$l}{$i}")->setValueExplicit($vl, DataType::TYPE_STRING);
-					break;
-
-				default:
-					$sheet->setCellValue("{$l}{$i}", $vl);
-					break;
-			}
+		foreach ($fields as $fld) {
+			$sheet->setCellValue("{$l}1", $fld);
 			$l++;
 		}
-		$i++;
+
+		$i=2;
+		foreach ($order_lines as $odr) {
+		fputcsv($fcsv, $odr);
+			$l = 'A';
+			foreach ($odr as $vl) {
+				switch ($l) {
+					case 'Q':
+					case 'AB':
+						$sheet->getCell("{$l}{$i}")->setValueExplicit($vl, DataType::TYPE_STRING);
+						break;
+
+					default:
+						$sheet->setCellValue("{$l}{$i}", $vl);
+						break;
+				}
+				$l++;
+			}
+			$i++;
+		}
+
+		$writer = new Xlsx($spreadsheet);
+		$writer->save($filenamepath.'.xlsx');
+
+		fclose($fcsv);
 	}
-
-	$writer = new Xlsx($spreadsheet);
-	$writer->save($filenamepath.'.xlsx');
-
-	fclose($fcsv);
 }
 
 function import_update_orders(){
