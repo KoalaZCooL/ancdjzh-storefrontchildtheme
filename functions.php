@@ -423,29 +423,27 @@ function storefront_credit() {
 	</div><!-- .site-info -->
 	<?php
 }
-//add_filter('wp_head',function(){   
-//	global $WOOCS;
-//    if(is_checkout()){
-//        $WOOCS->set_currency('AUD');
-//    }else{
-//        $WOOCS->set_currency('CNY');
-//	}
-//});
 
-//add_filter('wcml_client_currency','checkout_base_currency');
-//function checkout_base_currency($client_currency) {
-//	if(is_checkout()){
-//		return 'AUD';
-//	}
-//	return $client_currency;
-//}
-//
-//add_filter( 'wcml_exchange_rates', 'checkout_base_exchange_rates', 10, 1 );
-//function checkout_base_exchange_rates( $exchange_rates ) {
-//	if(is_checkout()){
-//		foreach ($exchange_rates as &$x) {
-//			$x = 1;
-//		}
-//	}
-//	return $exchange_rates; 
-//}
+add_filter('wp_head',function(){   
+	global $WOOCS;
+	if (!session_id()){
+		session_start();
+	}
+	if(!empty($_SESSION['anc_checkout_was_paypal'])){
+		$WOOCS->set_currency('CNY');
+		unset($_SESSION['anc_checkout_was_paypal']);
+	}
+});
+
+add_action('woocommerce_checkout_process', 'anc_process_checkout');
+function anc_process_checkout() {
+
+	if(strpos(strtolower($_POST['payment_method']), 'paypal')!==false){
+		if (!session_id()){
+			session_start();
+		}
+		global $WOOCS;
+		$WOOCS->set_currency('AUD');
+		$_SESSION['anc_checkout_was_paypal'] = true;
+	}
+}
