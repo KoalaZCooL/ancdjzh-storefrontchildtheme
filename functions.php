@@ -457,10 +457,27 @@ function anc_process_checkout()
 
 #https://docs.woocommerce.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/
 add_action( 'woocommerce_checkout_update_order_meta', 'anc_checkout_field_update_order_meta' );
-function anc_checkout_field_update_order_meta( $order_id ) {
+function anc_checkout_field_update_order_meta( $order_id )
+{
 	#save order exchange rate in orders meta
 	global $WOOCS;
 	update_post_meta( $order_id, 'woocs_exchange_rate', serialize($WOOCS->get_currencies()) );
+
+	#save coupons used as meta
+	$coupons = [];
+	// Coupons used in the order LOOP (as they can be multiple)
+	foreach( wc_get_order($order_id)->get_used_coupons() as $coupon_name ){
+
+		// Retrieving the coupon ID
+		$coupon_post_obj = get_page_by_title($coupon_name, OBJECT, 'shop_coupon');
+		$coupon_id = $coupon_post_obj->ID;
+
+		// Get an instance of WC_Coupon object in an array(necesary to use WC_Coupon methods)
+		$coupons_obj = new WC_Coupon($coupon_id);
+		$coupons[$coupon_name]['type'] = $coupons_obj->get_discount_type();
+		$coupons[$coupon_name]['amount'] = $coupons_obj->get_amount();
+	}
+	update_post_meta( $order_id, 'anc_used_coupons', serialize($coupons) );
 }
 
 #add custom fields on checkout page, custom $fields will automatically be saved as orders-meta
