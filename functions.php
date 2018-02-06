@@ -234,7 +234,7 @@ function anc_frontpage_featured( $atts ) {
 			</li>
 		</ul>
 	</section><?php
-	
+
 	return ob_get_clean();
 }
 
@@ -370,7 +370,7 @@ function anc_singleproduct_sellingpoints() {
 	foreach ( $attributes as $attribute ) :
 			$specname = wc_attribute_label( $attribute->get_name() );
 			$attribute_value = $product->get_attribute($specname);
-			
+
 			switch ($specname) {
 				case 'sp1':
 				case 'sp2':
@@ -384,7 +384,7 @@ function anc_singleproduct_sellingpoints() {
 					break;
 			}
 	endforeach;
-	
+
 	echo '<ul class="sellingpoints">';
 	foreach ($sellingpoints as $v) {
 		echo '<li>'.$v.'</li>';
@@ -476,8 +476,11 @@ function anc_checkout_field_update_order_meta( $order_id )
 		$coupons_obj = new WC_Coupon($coupon_id);
 		$coupons[$coupon_name]['type'] = $coupons_obj->get_discount_type();
 		$coupons[$coupon_name]['amount'] = $coupons_obj->get_amount();
+		$coupons[$coupon_name]['products'] = $coupons_obj->get_product_ids();
 	}
-	update_post_meta( $order_id, 'anc_used_coupons', serialize($coupons) );
+	if($coupons){
+		update_post_meta( $order_id, 'anc_used_coupons', serialize($coupons) );
+	}
 }
 
 #add custom fields on checkout page, custom $fields will automatically be saved as orders-meta

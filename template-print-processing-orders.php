@@ -116,7 +116,9 @@ function export(){
 		$order_data = $the_order->get_data();
 		$user_data = $the_order->get_user();
 
+		$shipping_phone = $the_order->get_meta('_shipping_phone');
 		$xrates = unserialize($the_order->get_meta('woocs_exchange_rate'));
+
 		if('CNY'==$order_data['currency'])
 		{
 			$order_data['Xrate'] = (is_array($xrates['CNY'])&&!empty($xrates['CNY']['rate']))?$xrates['CNY']['rate']:5;
@@ -157,35 +159,41 @@ function export(){
 			$ShippingMethod = 'CrossBorder';
 		}
 
-		$coupons = [];
-		// Coupons used in the order LOOP (as they can be multiple)
-		foreach( $the_order->get_used_coupons() as $coupon_name ){
+		$coupons = unserialize($the_order->get_meta('anc_used_coupons'));
 
-				// Retrieving the coupon ID
-				$coupon_post_obj = get_page_by_title($coupon_name, OBJECT, 'shop_coupon');
-				$coupon_id = $coupon_post_obj->ID;
+		$order_total_b4_disc = 0;
+		foreach ($order_data['line_items'] as $the_item){
+			$order_total_b4_disc += $the_item->get_subtotal();
+		}
 
-				// Get an instance of WC_Coupon object in an array(necesary to use WC_Coupon methods)
-				$coupons_obj = new WC_Coupon($coupon_id);
-				$coupons[$coupon_name]['type'] = $coupons_obj->get_discount_type();
-				$coupons[$coupon_name]['amount'] = $coupons_obj->get_amount();
+		foreach ($order_data['line_items'] as $the_item)
+		{
+			$item_data = $the_item->get_data();
 
-				switch ($coupons[$coupon_name]['type']) {
+			$item_disc_amt = 0;
+
+			// Coupons used in the order LOOP (as they can be multiple)
+			foreach( $coupons as $coupon_name => $the_coupon ){
+				switch ($the_coupon['type']) {
 					case 'percent':
-						$coupons[$coupon_name]['calc'] = (1-$coupons[$coupon_name]['amount']/100);
+						if(empty($item_disc_amt)) $item_disc_amt = $item_data['subtotal'];
+						$item_disc_amt = $item_disc_amt - $item_disc_amt * (1-$the_coupon['amount']/100);
+						break;
+					case 'fixed_cart':
+						if(empty($item_disc_amt)) $item_disc_amt = $item_data['subtotal'];
+						$item_disc_amt = $item_disc_amt - ($the_coupon['amount'] * ($item_data['subtotal']/$order_total_b4_disc));
+						break;
+					case 'fixed_product':
+						if(in_array($item_data['product_id'], $the_coupon['products']))
+						{
+							$item_disc_amt = $the_coupon['amount']*$order_data['Xrate']*$item_data['quantity'];
+						}
 						break;
 
 					default:
+						$item_disc_amt = '';
 						break;
 				}
-		}
-
-		foreach ($order_data['line_items'] as $the_item) {
-			$item_data = $the_item->get_data();
-
-			$item_disc_amt = $item_data['subtotal'];
-			foreach ($coupons as $disc) {
-				$item_disc_amt = $item_disc_amt - $item_disc_amt * $coupons[$coupon_name]['calc'];
 			}
 
 			if('CNY' == $order_data['currency'])
@@ -223,7 +231,7 @@ function export(){
 					'Ship State' => $order_data['shipping']['state'],
 					'Ship Post Code' => $order_data['shipping']['postcode'],
 					'Ship Country' => $order_data['shipping']['country'],
-					'Ship Phone' => isset($order_data['shipping']['phone'])?order_data['shipping']['phone']:$order_data['billing']['phone'],
+					'Ship Phone' => !empty($shipping_phone)?$shipping_phone:$order_data['billing']['phone'],
 					'Ship Fax' => '',
 					'Bill First Name' => $order_data['billing']['first_name'],
 					'Bill Last Name' => $order_data['billing']['last_name'],
