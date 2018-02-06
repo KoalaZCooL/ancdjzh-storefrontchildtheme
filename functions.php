@@ -416,15 +416,7 @@ function anc_products_usp() {?>
 <?php
 }
 
-function storefront_credit() {
-	?>
-	<div class="site-info">
-		版权所有ANC健康私人有限公司2018年
-	</div><!-- .site-info -->
-	<?php
-}
-
-add_filter('wp_head',function(){   
+add_filter('wp_head',function(){
 	global $WOOCS;
 	if (!session_id()){
 		session_start();
@@ -436,8 +428,9 @@ add_filter('wp_head',function(){
 });
 
 add_action('woocommerce_checkout_process', 'anc_process_checkout');
-function anc_process_checkout() {
-
+function anc_process_checkout()
+{
+	#send AUD amount to paypal
 	if(strpos(strtolower($_POST['payment_method']), 'paypal')!==false){
 		if (!session_id()){
 			session_start();
@@ -446,4 +439,38 @@ function anc_process_checkout() {
 		$WOOCS->set_currency('AUD');
 		$_SESSION['anc_checkout_was_paypal'] = true;
 	}
+}
+
+#https://docs.woocommerce.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/
+add_action( 'woocommerce_checkout_update_order_meta', 'anc_checkout_field_update_order_meta' );
+function anc_checkout_field_update_order_meta( $order_id ) {
+	#save order exchange rate in orders meta
+	global $WOOCS;
+	update_post_meta( $order_id, 'woocs_exchange_rate', serialize($WOOCS->get_currencies()) );
+}
+
+#add custom fields on checkout page, custom $fields will automatically be saved as orders-meta
+add_filter( 'woocommerce_checkout_fields' , 'anc_override_checkout_fields' );
+function anc_override_checkout_fields( $fields ) {
+	$fields['shipping']['shipping_phone'] = array(
+		'label'				=> __('Phone', 'woocommerce'),
+		'placeholder'	=> _x('Phone', 'placeholder', 'woocommerce'),
+		'required'		=> false,
+		'class'				=> array('form-row-wide'),
+		'clear'				=> true
+	);
+	return $fields;
+}
+#Display field value on the order edit page
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'anc_checkout_field_display_admin_order_meta', 10, 1 );
+function anc_checkout_field_display_admin_order_meta($order){
+	echo '<p><strong>'.__('Phone From Checkout Form').':</strong> ' . get_post_meta( $order->get_id(), '_shipping_phone', true ) . '</p>';
+}
+
+function storefront_credit() {
+	?>
+	<div class="site-info">
+		版权所有ANC健康私人有限公司2018年
+	</div><!-- .site-info -->
+	<?php
 }

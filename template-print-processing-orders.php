@@ -116,9 +116,10 @@ function export(){
 		$order_data = $the_order->get_data();
 		$user_data = $the_order->get_user();
 
+		$xrates = unserialize($the_order->get_meta('woocs_exchange_rate'));
 		if('CNY'==$order_data['currency'])
 		{
-			$order_data['Xrate'] = 5;
+			$order_data['Xrate'] = (is_array($xrates['CNY'])&&!empty($xrates['CNY']['rate']))?$xrates['CNY']['rate']:5;
 			$prices = [
 				'AUD'=> [
 						'Shipping Cost' => $order_data['shipping_total']/$order_data['Xrate'],
