@@ -146,6 +146,15 @@ function export(){
 			];
 		}
 
+		$addrs = [
+			'billing' => [
+				'state' => 'CN'==$order_data['billing']['country']?WC()->countries->states[$order_data['billing']['country']][$order_data['billing']['state']]:$order_data['billing']['state']
+			],
+			'shipping' => [
+				'state' => 'CN'==$order_data['shipping']['country']?WC()->countries->states[$order_data['shipping']['country']][$order_data['shipping']['state']]:$order_data['shipping']['state']
+			]
+		];
+
 	//	$order_data['prices_include_tax'];
 	//	$order_data['discount_total'];
 	//	$order_data['customer_user_agent'];
@@ -228,7 +237,7 @@ function export(){
 					'Ship Address Line 1' => $order_data['shipping']['address_1'],
 					'Ship Address Line 2' => $order_data['shipping']['address_2'],
 					'Ship City' => $order_data['shipping']['city'],
-					'Ship State' => $order_data['shipping']['state'],
+					'Ship State' => $addrs['shipping']['state'],
 					'Ship Post Code' => $order_data['shipping']['postcode'],
 					'Ship Country' => $order_data['shipping']['country'],
 					'Ship Phone' => !empty($shipping_phone)?$shipping_phone:$order_data['billing']['phone'],
@@ -239,7 +248,7 @@ function export(){
 					'Bill Address Line 1' => $order_data['billing']['address_1'],
 					'Bill Address Line 2' => $order_data['billing']['address_2'],
 					'Bill City' => $order_data['billing']['city'],
-					'Bill State' => $order_data['billing']['state'],
+					'Bill State' => $addrs['billing']['state'],
 					'Bill Post Code' => $order_data['billing']['postcode'],
 					'Bill Country' => $order_data['billing']['country'],
 					'Bill Phone' => $order_data['billing']['phone'],
