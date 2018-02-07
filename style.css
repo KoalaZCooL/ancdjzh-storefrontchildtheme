@@ -249,6 +249,16 @@ Updated: 2017-12-04 14:27:32
 .widget-area .widget ul li:last-child{
 	margin-bottom: 0;
 }
+.widget-area .widget ul li.cat-parent ul.children{
+	position: absolute;
+	right: -100%;
+	top: -1em;
+	width: 100%;
+	display: none;
+}
+.widget-area .widget ul li.cat-parent:hover ul.children{
+	display:block;
+}
 h1.page-title, header.entry-header h1.entry-title{
 	font-size: 2em;
 }
