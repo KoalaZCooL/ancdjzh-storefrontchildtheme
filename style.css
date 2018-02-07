@@ -208,7 +208,8 @@ Updated: 2017-12-04 14:27:32
 	color: #4c4c4c;
 }
 .widget-area .widget ul li:hover,
-.widget-area .widget ul li.current-cat{
+.widget-area .widget ul li.current-cat,
+.widget-area .widget ul li.current-cat-parent{
 	background-color: #d0a747;
 	color: white;
 }
