@@ -325,13 +325,14 @@ function anc_blognshop_header()
 			<div class="category_banner" style="background-image:url(<?=$banner_img?>)">
 				<img class="slope" src="<?=get_stylesheet_directory_uri().'/images/slope-white-sliderbg.png'?>" alt="" />
 			</div>
+		<?php }//欢迎来到博客的----素部分。?>
 			<div class="col-full">
 				<div  class="blognshop-intro">
-					<h1>欢迎来到博客的<?=$cat->name?>素部分。</h1>
+					<h1><?=$cat->name?></h1>
+					<p><?=$cat->description?></p>
 				</div>
 			</div>
-		<?php }
-
+		<?php
 	}else if(is_shop() ) //||is_product_tag()
 	{
 		echo do_shortcode('[smartslider3 slider=2]');
@@ -353,12 +354,14 @@ function anc_blognshop_header()
 			<div class="category_banner" style="background-image:url(<?=$banner_img?>)">
 				<img class="slope" src="<?=get_stylesheet_directory_uri().'/images/slope-white-sliderbg.png'?>" alt="" />
 			</div>
+		<?php }//欢迎来到博客的----素部分。?>
 			<div class="col-full">
 				<div  class="blognshop-intro">
-					<h1>欢迎来到博客的<?=$cat->name?>素部分。</h1>
+					<h1><?=$cat->name?></h1>
+					<p><?=$cat->description?></p>
 				</div>
 			</div>
-		<?php }
+		<?php
 	}
 }
 
@@ -419,7 +422,7 @@ function anc_products_usp() {?>
 add_filter('wp_head',function(){
 	global $WOOCS;
 	if (!session_id()){
-		session_start();
+		@session_start();
 	}
 	if(!empty($_SESSION['anc_checkout_was_paypal'])){
 		$WOOCS->set_currency('CNY');
@@ -447,7 +450,7 @@ function anc_process_checkout()
 	#send AUD amount to paypal
 	if(strpos(strtolower($_POST['payment_method']), 'paypal')!==false){
 		if (!session_id()){
-			session_start();
+			@session_start();
 		}
 		global $WOOCS;
 		$WOOCS->set_currency('AUD');
