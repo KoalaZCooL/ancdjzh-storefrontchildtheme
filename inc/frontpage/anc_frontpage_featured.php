@@ -2,16 +2,6 @@
 #DIRTY usage of shortcode params using LineBreaks
 #one liners shortcode params will pass the associative array correctly, BUT the page editor will be harder to manage
 function anc_frontpage_featured( $atts ) {
-//	$atts = shortcode_atts(
-//		array(
-//			'urls' => '',
-//			'images' => ''
-//		), $atts
-//	);
-
-//	$atts['urls'] = explode(';', $atts['urls']);
-//	$atts['images'] = explode(';', $atts['images']);
-
 	//https://wordpress.stackexchange.com/questions/195425/display-featured-products-through-custom-loop-in-woocommerce-on-template-page
 	$shortcode_content_featured_products = '';
 	if ( storefront_is_woocommerce_activated() ) {
@@ -31,33 +21,31 @@ function anc_frontpage_featured( $atts ) {
 			'order'    => esc_attr( $args_featured_products['order'] ),
 		) ) );
 	}
+	$anc_opts = get_option('anc_frontpage_featured_pages');
 
-	$product_subcategories = get_terms(['taxonomy'   => "product_cat"]);
+	$product_subcategories = get_terms(['taxonomy' => "product_cat"]);
 	$blog_subcategories = get_categories();
 	ob_start();
+
+	if(is_array($anc_opts) ){
 ?><section class="anc-featured-pages hide-on-mobile" aria-label="特 色 板 块">
 		<div class="anc-section-divider"><h2 class="section-title"><?=wp_kses_post( __( '特 色 板 块', 'anc' ) )?></h2></div>
 		<ul class="featured_pages">
-			<?php $l = 0;
-			if(is_array($atts) )
-			foreach ($atts as $featured_page) {
-				$featured_page = str_replace(['<p>','</p>'], '', trim($featured_page));
-				if(empty($featured_page) ){	continue;}
-				$featured_page = explode(';', $featured_page);
+			<?php
+			foreach ($anc_opts as $featured_page) {
+				if(empty($featured_page['target'])||empty($featured_page['image']) ){	continue;}#||empty(implode('', $featured_page))
 			?><li class="feature-page">
-				<div class="thumbnail" style="background-image: url(<?=$featured_page[1]?>)">
-					<a href="<?=$featured_page[0]?>"><div class="caption">
-						健康产品
-					</div></a>
+				<div class="thumbnail" style="background-image: url(<?=$featured_page['image']?>)">
+					<a href="<?=$featured_page['target']?>"><div class="caption"><?=$featured_page['caption']?></div></a>
 				</div>
 				<div class="excerpt">
-					<?=$featured_page[2]?>
-					<a href="<?=$featured_page[0]?>"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
+					<?=$featured_page['excerpt']?>
+					<a href="<?=$featured_page['target']?>"><span class="readmore">阅读更多 &gt;&gt;&gt;</span></a>
 				</div>
 			</li>
-			<?php $l++;}?>
+			<?php }?>
 		</ul>
-	</section><?php
+	</section><?php }
 	/**
 	 * Only display the section if the featured products shortcode returns products
 	 */

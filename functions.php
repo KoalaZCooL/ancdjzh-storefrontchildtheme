@@ -8,7 +8,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 // END ENQUEUE PARENT ACTION
 
 require_once ( get_stylesheet_directory()  . '/inc/anc_blognshop_header.php' );
-//require_once ( get_stylesheet_directory()  . '/inc/frontpage/admin-setting.php' );
+require_once ( get_stylesheet_directory()  . '/inc/frontpage/admin-setting.php' );
 require_once ( get_stylesheet_directory()  . '/inc/frontpage/anc_frontpage_featured.php' );
 
 add_action( 'init', 'override_actions_parent_theme');
