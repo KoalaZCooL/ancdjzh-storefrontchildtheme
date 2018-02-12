@@ -8,7 +8,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 // END ENQUEUE PARENT ACTION
 
 require_once ( get_stylesheet_directory()  . '/inc/anc_blognshop_header.php' );
-require_once ( get_stylesheet_directory()  . '/inc/frontpage/admin-setting.php' );
+require_once ( get_stylesheet_directory()  . '/inc/admin-setting.php' );
 require_once ( get_stylesheet_directory()  . '/inc/frontpage/anc_frontpage_featured.php' );
 
 add_action( 'init', 'override_actions_parent_theme');
@@ -229,12 +229,13 @@ function storefront_paging_nav() {
 	the_posts_pagination( $args );
 }
 
-function anc_products_usp() {?>
+function anc_products_usp() {
+	$opts = get_option('anc_product_usp');?>
 <ul class="anc-prod-usp">
-	<li><span>Free Shipping Orders Over $99</span></li>
-	<li><span>Australian Made Vitamins</span></li>
-	<li><span>60 Days Returns</span></li>
-	<li><span>Free Gift With Orders Over $90</span></li>
+	<?php
+	foreach ($opts as $usp) {?>
+	<li><span><?=$usp?></span></li>
+	<?php }?>
 </ul>
 <?php
 }
