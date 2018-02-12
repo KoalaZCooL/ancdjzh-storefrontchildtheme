@@ -256,6 +256,7 @@ Updated: 2017-12-04 14:27:32
 	top: -1em;
 	width: 100%;
 	display: none;
+	z-index: 9999;
 }
 .widget-area .widget ul li.cat-parent:hover ul.children{
 	display:block;
