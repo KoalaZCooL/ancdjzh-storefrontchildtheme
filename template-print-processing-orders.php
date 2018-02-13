@@ -366,8 +366,8 @@ function import_update_orders(){
 		if('Ship' == $ords['status'] && 0 === strpos($order_id, 'ZH') )
 		{
 			$anc_ord = wc_get_order(str_replace('ZH', '', $order_id) );
-			if ( 'completed' != $order->status ) {
-				$order->update_status('completed', $ords['tracking']);
+			if ( 'completed' != $anc_ord->status ) {
+				$anc_ord->update_status('completed', "Tracking Number:{$ords['tracking']}");
 			}
 		}
 	}
