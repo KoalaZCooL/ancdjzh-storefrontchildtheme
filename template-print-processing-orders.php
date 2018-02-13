@@ -18,8 +18,9 @@ use PhpOffice\PhpSpreadsheet\Cell\DataType;
 //    [SERVER_PORT] => 80
 //    [SERVER_SOFTWARE] => Apache/2.4.27 (Amazon) PHP/7.0.21
 switch ($_SERVER['REMOTE_ADDR']) {
-	case '101.187.80.93':
-	case '52.65.15.153':
+	case '172.18.0.1'; #docker dev
+	case '101.187.80.93': #DJ office
+	case '52.65.15.153': #curl cron from AWS
 		if(strpos($_SERVER['QUERY_STRING'], 'orders=update')!==false){
 			import_update_orders();
 		} else {
@@ -224,7 +225,7 @@ function export(){
 
 			$product = new WC_Product($item_data['product_id']);
 			$order_lines[] = [
-					'Order ID'=> $order_data['id'],
+					'Order ID'=> 'ZH'.$order_data['id'],
 					'Order Status'=> 'New',//$order_data['status']
 					'Sales Channel Code' => 'ANCPZH',
 					'Sales Channel Fulfilment Warehouse Code' => $SalesChannelFulfilmentWarehouseCode,
@@ -320,15 +321,54 @@ function export(){
 }
 
 function import_update_orders(){
-	$inputFileName = '/var/www/batchorders/import2website/BatchRun_20160714_OrdersShipped.xlsx';
+	$inputFileName = '/var/www/batchorders/orders_shipped_push2website/BatchRun_20180129_OrdersShipped.csv';
+	$inputFileName = '/var/www/batchorders/orders_shipped_push2website/BatchRun_20160714_OrdersShipped.xlsx';
+	$inputFileName = '/var/www/batchorders/orders_shipped_push2website/BatchRun_20180213_OrdersShipped.xlsx';
 
 	/**  Identify the type of $inputFileName  **/
 	$inputFileType = \PhpOffice\PhpSpreadsheet\IOFactory::identify($inputFileName);
+
 	/**  Create a new Reader of the type that has been identified  **/
 	$reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+
 	/**  Load $inputFileName to a Spreadsheet Object  **/
 	$spreadsheet = $reader->load($inputFileName);
 	$sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-	echo '<pre>';
-	print_r($sheetData);
+
+	$filehead = array_shift($sheetData);
+
+	$keys = [
+		'id' => array_search('Order ID', $filehead),
+		'sku' => array_search('SKU', $filehead),
+		'qty' => array_search('Quantity Shipped', $filehead),
+		'status' => array_search('Action', $filehead),
+		'tracking' => array_search('Tracking Number', $filehead),
+		'shipping' => array_search('Shipping Service', $filehead)
+	];
+
+	$orders_pool = [];
+	foreach ($sheetData as $line_items)
+	{
+		if( empty($orders_pool[$line_items[$keys['id']]]) && 'Ship' == $line_items[$keys['status']] )
+		{
+			$orders_pool[ $line_items[$keys['id']] ] = [
+				'status' => $line_items[$keys['status']],
+				'tracking' => $line_items[$keys['tracking']]
+			];
+		}else if( !empty($orders_pool[$line_items[$keys['id']]]) && 'Ship' != $line_items[$keys['status']] )
+		{
+			$orders_pool[ $line_items[$keys['id']] ]['status'] = $line_items[$keys['status']];
+		}
+	}
+
+	foreach ($orders_pool as $order_id => $ords)
+	{
+		if('Ship' == $ords['status'] && 0 === strpos($order_id, 'ZH') )
+		{
+			$anc_ord = wc_get_order(str_replace('ZH', '', $order_id) );
+			if ( 'completed' != $order->status ) {
+				$order->update_status('completed', $ords['tracking']);
+			}
+		}
+	}
 }
