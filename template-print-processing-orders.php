@@ -321,9 +321,12 @@ function export(){
 }
 
 function import_update_orders(){
-	$inputFileName = '/var/www/batchorders/orders_shipped_push2website/BatchRun_20180129_OrdersShipped.csv';
-	$inputFileName = '/var/www/batchorders/orders_shipped_push2website/BatchRun_20160714_OrdersShipped.xlsx';
-	$inputFileName = '/var/www/batchorders/orders_shipped_push2website/BatchRun_20180213_OrdersShipped.xlsx';
+	$inputFileName = '/var/www/batchorders/orders_shipped_push2website/BatchRun_'.date('Ymd').'_OrdersShipped.csv';
+	if(!file_exists($inputFileName))
+	{
+		header("HTTP/1.0 404 Not Found");
+		exit();
+	}
 
 	/**  Identify the type of $inputFileName  **/
 	$inputFileType = \PhpOffice\PhpSpreadsheet\IOFactory::identify($inputFileName);
